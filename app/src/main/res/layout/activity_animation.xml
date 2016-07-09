@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <View
+        android:id="@+id/center_line"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp" />
+
+    <Button
+        android:id="@+id/btn_translateAnimation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/center_line"
+        android:text="传统动画Animation\n点击事件还在原来的位置" />
+
+    <Button
+        android:id="@+id/btn_objectAnimator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_translateAnimation"
+        android:layout_marginTop="15dp"
+        android:text="属性动画ObjectAnimator\n点击事件跟着控件移动" />
+
+    <Button
+        android:id="@+id/btn_arcMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_objectAnimator"
+        android:layout_marginTop="15dp"
+        android:text="之前流行的扇形菜单\nArcMenu" />
+
+    <ImageView
+        android:id="@+id/imageview4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/center_line"
+        android:layout_marginLeft="15dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageview3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/center_line"
+        android:layout_marginLeft="15dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/center_line"
+        android:layout_marginLeft="15dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/center_line"
+        android:layout_marginLeft="15dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/imageview0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/center_line"
+        android:layout_marginLeft="15dp"
+        android:src="@mipmap/ic_launcher" />
+
+
+</RelativeLayout>
