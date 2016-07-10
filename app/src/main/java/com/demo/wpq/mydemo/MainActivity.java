@@ -15,6 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.demo.wpq.mydemo.animation.AnimationActivity;
+import com.demo.wpq.mydemo.qrcode.CaptureActivity;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -52,7 +55,7 @@ public class MainActivity extends AppCompatActivity
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                ((TextView)findViewById(R.id.text)).setText("哈哈哈");
+//                ((TextView)findViewById(R.id.text)).setText("哈哈哈");
             }
         }).start();
 
@@ -66,7 +69,13 @@ public class MainActivity extends AppCompatActivity
         startActivity(new Intent(this, AnimationActivity.class));
     }
 
-
+    /**
+     * 扫码
+     * @param view
+     */
+    public void clickQRCode(View view){
+        startActivity(new Intent(this, CaptureActivity.class));
+    }
 
     @Override
     public void onBackPressed() {

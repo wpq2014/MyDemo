@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.demo.wpq.mydemo"
         minSdkVersion 11
-        targetSdkVersion 23
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
@@ -25,4 +25,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.nineoldandroids:library:2.4.0'
 }

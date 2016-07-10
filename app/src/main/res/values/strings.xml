@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">MyDemo</string>
+    <string name="animation">动画</string>
+    <string name="qrcode">扫码</string>
+    <string name="qrcode_result">扫码结果</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="qrcode_create">生成二维码</string>
+    <string name="qrcode_create_hint">输入url或字符串, 生成二维码</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.demo.wpq.mydemo;
+package com.demo.wpq.mydemo.animation;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -17,6 +17,8 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.demo.wpq.mydemo.R;
 
 import java.util.ArrayList;
 import java.util.List;

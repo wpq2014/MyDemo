@@ -24,4 +24,10 @@
         android:layout_height="wrap_content"
         android:onClick="clickAnimation"
         android:text="动画"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickQRCode"
+        android:text="扫码"/>
 </LinearLayout>
