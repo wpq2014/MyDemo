@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.demo.wpq.mydemo.animation.AnimationActivity;
+import com.demo.wpq.mydemo.customview.TopBarActivity;
 import com.demo.wpq.mydemo.qrcode.CaptureActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -75,6 +76,14 @@ public class MainActivity extends AppCompatActivity
      */
     public void clickQRCode(View view){
         startActivity(new Intent(this, CaptureActivity.class));
+    }
+
+    /**
+     * 自定义View
+     * @param view
+     */
+    public void clickCustomView(View view){
+        startActivity(new Intent(this, TopBarActivity.class));
     }
 
     @Override

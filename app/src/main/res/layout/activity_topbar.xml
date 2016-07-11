@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.demo.wpq.mydemo.customview.view.TopBar
+        android:id="@+id/topbar0"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/topbar_height"
+        app:tTitle="@string/title_text"
+        app:tLeftText="@string/left_text"
+        app:tRightText="@string/right_text"
+        app:tLeftBackground="@drawable/topbar_button_bg_selector"
+        app:tRightBackground="@drawable/topbar_button_bg_selector"
+        />
+
+    <com.demo.wpq.mydemo.customview.view.TopBar
+        android:id="@+id/topbar1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/topbar_height"
+        app:tTitle="@string/title_text"
+        app:tLeftText="@string/left_text"
+        app:tRightText="@string/right_text"
+        app:tLeftBackground="@drawable/topbar_button_bg_selector"
+        app:tRightVisible="false"
+        android:layout_marginTop="40dp"
+        />
+</LinearLayout>

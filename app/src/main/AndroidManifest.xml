@@ -53,6 +53,11 @@
             android:label="@string/qrcode_create"
             >
         </activity>
+        <activity
+            android:name=".customview.TopBarActivity"
+            android:label="@string/customview"
+            >
+        </activity>
     </application>
 
 </manifest>
