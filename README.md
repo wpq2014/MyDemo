@@ -12,4 +12,5 @@
 * 简单自定义TopBar，类似ActionBar和Toolbar
 * 自定义ScrollView，解决嵌套ViewPager滚动冲突；触摸时弹回输入法键盘
 * 自定义方向盘DirectionView，划分前后左右四个区域       
+
   ![方向盘](http://oa4p40bdn.bkt.clouddn.com/1.gif "方向盘")
