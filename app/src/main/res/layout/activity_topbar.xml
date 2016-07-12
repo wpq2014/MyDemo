@@ -1,30 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.demo.wpq.mydemo.customview.view.TopBar
         android:id="@+id/topbar0"
         android:layout_width="match_parent"
         android:layout_height="@dimen/topbar_height"
-        app:tTitle="@string/title_text"
-        app:tLeftText="@string/left_text"
-        app:tRightText="@string/right_text"
         app:tLeftBackground="@drawable/topbar_button_bg_selector"
+        app:tLeftText="@string/left_text"
         app:tRightBackground="@drawable/topbar_button_bg_selector"
-        />
+        app:tRightText="@string/right_text"
+        app:tTitle="@string/title_text" />
 
     <com.demo.wpq.mydemo.customview.view.TopBar
         android:id="@+id/topbar1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/topbar_height"
-        app:tTitle="@string/title_text"
+        android:layout_marginTop="40dp"
+        app:tLeftBackground="@drawable/topbar_button_bg_selector"
         app:tLeftText="@string/left_text"
         app:tRightText="@string/right_text"
-        app:tLeftBackground="@drawable/topbar_button_bg_selector"
         app:tRightVisible="false"
-        android:layout_marginTop="40dp"
-        />
+        app:tTitle="@string/title_text" />
+
+    <com.demo.wpq.mydemo.customview.view.MScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="TextView0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="TextView1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="TextView2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="TextView3" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="input..." />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="TextView4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="TextView5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="TextView6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="TextView7" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="input..." />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="TextView4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="TextView5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="TextView6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="TextView7" />
+        </LinearLayout>
+    </com.demo.wpq.mydemo.customview.view.MScrollView>
 </LinearLayout>
