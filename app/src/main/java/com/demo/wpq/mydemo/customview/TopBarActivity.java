@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.demo.wpq.mydemo.R;
+import com.demo.wpq.mydemo.customview.view.DirectionView;
 import com.demo.wpq.mydemo.customview.view.TopBar;
 
 /**
@@ -16,6 +17,7 @@ public class TopBarActivity extends Activity{
 
     private TopBar topBar0 = null;
     private TopBar topBar1 = null;
+    private DirectionView directionView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,5 +49,30 @@ public class TopBarActivity extends Activity{
                 Toast.makeText(TopBarActivity.this, "rightButton1 clicked", Toast.LENGTH_SHORT).show();
             }
         });
+
+        directionView = (DirectionView) findViewById(R.id.directionView);
+        directionView.setOnDirectionChangedListener(new DirectionView.OnDirectionChangedListener() {
+            @Override
+            public void onDirectionChanged(int currentDirection) {
+                switch (currentDirection){
+                    case DirectionView.Direction.LEFT:
+                        showToast("左");
+                        break;
+                    case DirectionView.Direction.RIGHT:
+                        showToast("右");
+                        break;
+                    case DirectionView.Direction.UP:
+                        showToast("前");
+                        break;
+                    case DirectionView.Direction.DOWN:
+                        showToast("后");
+                        break;
+                }
+            }
+        });
+    }
+
+    private void showToast(String content){
+        Toast.makeText(this, content, Toast.LENGTH_SHORT).show();
     }
 }
