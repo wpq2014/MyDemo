@@ -14,6 +14,9 @@
 * 自定义方向盘DirectionView，划分前后左右四个区域       
 
   ![方向盘](http://oa4p40bdn.bkt.clouddn.com/1.gif "方向盘")
-* App基本都会用到的菜单选项卡[DropDownMenu](https://github.com/baiiu/DropDownMenu)
+* App常用的菜单选项卡[DropDownMenu](https://github.com/baiiu/DropDownMenu)
 
   ![DropDownMenu](https://github.com/baiiu/DropDownMenu/blob/master/images/dropDownMenu.gif "DropDownMenu")
+* App必要的Tab切换[FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout)
+ 
+  ![FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_1.gif "FlycoTabLayout") ![FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_2.gif "FlycoTabLayout") ![FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_3.gif "FlycoTabLayout")
