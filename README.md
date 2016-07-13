@@ -15,3 +15,5 @@
 
   ![方向盘](http://oa4p40bdn.bkt.clouddn.com/1.gif "方向盘")
 * App基本都会用到的菜单选项卡[DropDownMenu](https://github.com/baiiu/DropDownMenu)
+
+![DropDownMenu](http://oa4p40bdn.bkt.clouddn.com/DropDownMenu.gif "DropDownMenu")
