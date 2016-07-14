@@ -10,7 +10,7 @@
 #### 3. 自定义View
 * ScrollView嵌套ListView和GridView等
 * 自定义ScrollView，解决嵌套ViewPager滚动冲突；触摸时弹回输入法键盘
-* 自定义简单的TopBar，类似ActionBar和Toolbar；跑马灯MarqueeTextView；自定义方向盘DirectionView     
+* 自定义简单的TopBar，类似Toolbar；跑马灯MarqueeTextView；方向盘DirectionView     
 
   ![自定义View](http://oa4p40bdn.bkt.clouddn.com/sdjl.gif "自定义View")
 * App常用的菜单选项卡[DropDownMenu](https://github.com/baiiu/DropDownMenu)
