@@ -23,7 +23,6 @@
   <img src="https://github.com/H07000223/FlycoTabLayout/blob/master/preview_2.gif" width="280px"/>
   <img src="https://github.com/H07000223/FlycoTabLayout/blob/master/preview_3.gif" width="280px"/>
   <img src="https://github.com/H07000223/FlycoBanner_Master/blob/master/preview_FlycoBanner.gif" width="280px"/>
-  ![FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_1.gif "FlycoTabLayout") ![FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_2.gif "FlycoTabLayout") ![FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout/blob/master/preview_3.gif "FlycoTabLayout") ![Banner](https://github.com/H07000223/FlycoBanner_Master/blob/master/preview_FlycoBanner.gif "Banner")
 * 图文混排和文字环绕[MixtureTextView](https://github.com/hongyangAndroid/MixtureTextView)
  
   <img src="https://github.com/hongyangAndroid/MixtureTextView/blob/master/mixture2.gif" width="280px"/>
