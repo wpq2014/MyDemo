@@ -17,7 +17,7 @@
 * App常用的菜单选项卡[DropDownMenu](https://github.com/baiiu/DropDownMenu)
   
   <img src="https://github.com/baiiu/DropDownMenu/blob/master/images/dropDownMenu.gif" width="280px"/>
-* App必用的Tab切换[FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout) 和[Banner](https://github.com/H07000223/FlycoBanner_Master)
+* App必用的Tab切换[FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout) 和[FlycoBanner](https://github.com/H07000223/FlycoBanner_Master) 以及可能用到的[FlycoLabelView](https://github.com/H07000223/FlycoLabelView)
  
   <img src="https://github.com/H07000223/FlycoTabLayout/blob/master/preview_1.gif" width="280px"/>
   <img src="https://github.com/H07000223/FlycoTabLayout/blob/master/preview_2.gif" width="280px"/>
