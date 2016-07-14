@@ -1,11 +1,13 @@
 package com.demo.wpq.mydemo.customview.view;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -23,7 +25,7 @@ public class DirectionView extends View {
     /**
      * 方向，暂时为前后左右
      */
-    public static final class Direction{
+    public final class Direction{
         public static final int DEFAULT = -1;
         public static final int LEFT = 0;
         public static final int RIGHT = 1;
@@ -76,9 +78,10 @@ public class DirectionView extends View {
 
     }
 
-//    public DirectionView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-//        super(context, attrs, defStyleAttr, defStyleRes);
-//    }
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public DirectionView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
 
 
     @Override

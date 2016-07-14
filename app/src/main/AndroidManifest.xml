@@ -54,10 +54,16 @@
             >
         </activity>
         <activity
-            android:name=".customview.TopBarActivity"
+            android:name=".customview.CustomViewActivity"
             android:label="@string/customview"
             >
         </activity>
+        <activity
+            android:name=".customview.TopBarActivity"
+            android:label="@string/simple"
+            >
+        </activity>
+
     </application>
 
 </manifest>

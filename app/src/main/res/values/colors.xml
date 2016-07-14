@@ -47,4 +47,8 @@
     <color name="alpha_90_black">#E6000000</color>
     <color name="alpha_95_black">#F2000000</color>
     <color name="black">#FF000000</color>
+
+
+    <color name="remind_bgcolor">#feefb6</color>
+    <color name="remind_textcolor">#ff7300</color>
 </resources>

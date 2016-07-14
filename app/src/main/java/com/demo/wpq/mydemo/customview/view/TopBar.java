@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -24,8 +25,6 @@ public class TopBar extends LinearLayout{
 
     private final int topBarBackground = 0xCC000000;
     private final int textColorDefault = 0xFFFFFFFF;
-    private final float titleTextSizeDefault = 18f;
-    private final float leftTextSizeDefault = 15f;
 
     private TextView tvTitile;
     private String titleText;
@@ -69,16 +68,16 @@ public class TopBar extends LinearLayout{
         TypedArray t = context.obtainStyledAttributes(attrs, R.styleable.TopBar);
         titleText = t.getString(R.styleable.TopBar_tTitle);
         titleTextColor = t.getColor(R.styleable.TopBar_tTitleTextColor, textColorDefault);
-        titleTextSize = t.getDimension(R.styleable.TopBar_tTitleTextSize, titleTextSizeDefault);
+        titleTextSize = t.getDimension(R.styleable.TopBar_tTitleTextSize, getResources().getDimension(R.dimen.topbar_title_textsize));
 
         leftText = t.getString(R.styleable.TopBar_tLeftText);
         leftTextColor = t.getColor(R.styleable.TopBar_tLeftTextColor, textColorDefault);
-        leftTextSize = t.getDimension(R.styleable.TopBar_tLeftTextSize, leftTextSizeDefault);
+        leftTextSize = t.getDimension(R.styleable.TopBar_tLeftTextSize, getResources().getDimension(R.dimen.topbar_left_textsize));
         leftBackground = t.getDrawable(R.styleable.TopBar_tLeftBackground);
 
         rightText = t.getString(R.styleable.TopBar_tRightText);
         rightTextColor = t.getColor(R.styleable.TopBar_tRightTextColor, textColorDefault);
-        rightTextSize = t.getDimension(R.styleable.TopBar_tRightTextSize, leftTextSizeDefault);
+        rightTextSize = t.getDimension(R.styleable.TopBar_tRightTextSize, getResources().getDimension(R.dimen.topbar_left_textsize));
         rightBackground = t.getDrawable(R.styleable.TopBar_tRightBackground);
         rightVisible = t.getBoolean(R.styleable.TopBar_tRightVisible, true);
 
@@ -90,7 +89,7 @@ public class TopBar extends LinearLayout{
         tvTitile.setGravity(Gravity.CENTER);
         tvTitile.setText(titleText);
         tvTitile.setTextColor(titleTextColor);
-        tvTitile.setTextSize(titleTextSize);
+        tvTitile.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleTextSize);
 
         LinearLayout.LayoutParams lpLeft = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT, 0f);
         leftButton = new Button(context);
@@ -99,7 +98,7 @@ public class TopBar extends LinearLayout{
         if(!TextUtils.isEmpty(leftText)) {
             leftButton.setText(leftText);
             leftButton.setTextColor(leftTextColor);
-            leftButton.setTextSize(leftTextSize);
+            leftButton.setTextSize(TypedValue.COMPLEX_UNIT_PX, leftTextSize);
             leftButton.setBackground(leftBackground);
         }
 
@@ -109,7 +108,7 @@ public class TopBar extends LinearLayout{
         if(!TextUtils.isEmpty(rightText)) {
             rightButton.setText(rightText);
             rightButton.setTextColor(rightTextColor);
-            rightButton.setTextSize(leftTextSize);
+            rightButton.setTextSize(TypedValue.COMPLEX_UNIT_PX, leftTextSize);
             rightButton.setBackground(rightBackground);
             if(rightVisible){
                 rightButton.setVisibility(View.VISIBLE);
@@ -141,9 +140,10 @@ public class TopBar extends LinearLayout{
         super(context, attrs, defStyleAttr);
     }
 
-//    public TopBar(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-//        super(context, attrs, defStyleAttr, defStyleRes);
-//    }
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public TopBar(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
 
 
 }

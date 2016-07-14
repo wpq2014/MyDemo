@@ -1,6 +1,8 @@
 package com.demo.wpq.mydemo.customview.view;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
@@ -29,9 +31,10 @@ public class MScrollView extends ScrollView {
         super(context, attrs, defStyleAttr);
     }
 
-//    public MScrollView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-//        super(context, attrs, defStyleAttr, defStyleRes);
-//    }
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public MScrollView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
