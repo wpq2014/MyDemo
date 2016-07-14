@@ -13,7 +13,7 @@
 * 自定义ScrollView，解决嵌套ViewPager滚动冲突；触摸时弹回输入法键盘
 * 自定义方向盘DirectionView，划分前后左右四个区域       
 
-  ![方向盘](http://oa4p40bdn.bkt.clouddn.com/1.gif "方向盘")
+  ![自定义View](http://oa4p40bdn.bkt.clouddn.com/sdjl.gif "自定义View")
 * App常用的菜单选项卡[DropDownMenu](https://github.com/baiiu/DropDownMenu)
   
   <img src="https://github.com/baiiu/DropDownMenu/blob/master/images/dropDownMenu.gif" width="280px"/>
