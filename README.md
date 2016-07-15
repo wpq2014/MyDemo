@@ -1,5 +1,5 @@
 ## Android笔记
-#### 1. 传统动画Animation和属性动画ObjectAnimator
+#### 1. 传统动画Animation和属性动画ObjectAnimator；布局动画LayoutAnimation
   <img src="http://oa4p40bdn.bkt.clouddn.com/Animator.gif" width="280px"/>
   <img src="http://oa4p40bdn.bkt.clouddn.com/5555.gif" width="280px"/>
 <br /> 
