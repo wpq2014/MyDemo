@@ -8,6 +8,8 @@
 
     <!-- 动画 -->
     <string name="animation">动画</string>
+    <string name="object_animator">传统动画和属性动画</string>
+    <string name="layout_animation">布局动画</string>
 
     <!-- 扫码 -->
     <string name="qrcode">扫码</string>
@@ -18,6 +20,7 @@
     <!-- 自定义View -->
     <string name="customview">自定义View</string>
     <string name="simple">简单自定义</string>
+    <string name="tree">任意层级树</string>
     <string name="left_text">left</string>
     <string name="right_text">right</string>
     <string name="title_text">title</string>

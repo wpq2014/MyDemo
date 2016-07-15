@@ -38,6 +38,18 @@
         </activity>
 
         <activity
+            android:name=".animation.ObjectAnimatorActivity"
+            android:label="@string/object_animator"
+            >
+        </activity>
+
+        <activity
+            android:name=".animation.LayoutAnimationActivity"
+            android:label="@string/layout_animation"
+            >
+        </activity>
+
+        <activity
             android:name=".qrcode.CaptureActivity"
             android:label="@string/qrcode"
             >

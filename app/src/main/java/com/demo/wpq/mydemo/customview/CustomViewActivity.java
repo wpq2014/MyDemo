@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 
 import com.demo.wpq.mydemo.R;
@@ -19,9 +20,10 @@ import butterknife.OnClick;
  */
 public class CustomViewActivity extends AppCompatActivity {
 
-
     @Bind(R.id.simple)
     Button simple;
+    @Bind(R.id.tree)
+    Button tree;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,8 +34,20 @@ public class CustomViewActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.simple)
-    public void onClick() {
-        startActivity(new Intent(this, TopBarActivity.class));
+    @OnClick({R.id.simple, R.id.tree})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.simple: //简单自定义
+            {
+                startActivity(new Intent(this, TopBarActivity.class));
+                break;
+            }
+            case R.id.tree: //任意层级树
+            {
+
+                break;
+            }
+        }
     }
+
 }
