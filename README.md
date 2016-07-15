@@ -1,5 +1,5 @@
 ## Android笔记
-#### 1. 传统动画TranslateAnimation到属性动画ObjectAnimator
+#### 1. 传统动画TranslateAnimation和属性动画ObjectAnimator
   ![动画](http://oa4p40bdn.bkt.clouddn.com/Animator.gif "动画") 
 <br /> 
 <br /> 
