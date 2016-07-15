@@ -1,6 +1,7 @@
 ## Android笔记
 #### 1. 传统动画Animation和属性动画ObjectAnimator
-  ![动画](http://oa4p40bdn.bkt.clouddn.com/Animator.gif "动画") 
+  <img src="http://oa4p40bdn.bkt.clouddn.com/Animator.gif" width="280px"/>
+  <img src="http://oa4p40bdn.bkt.clouddn.com/5555.gif" width="280px"/>
 <br /> 
 <br /> 
 #### 2. ZXing扫码和生成二维码，ZBar扫描速度快但有时候会扫错，所以没加
