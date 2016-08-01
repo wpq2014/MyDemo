@@ -36,4 +36,10 @@
         android:layout_height="wrap_content"
         android:onClick="clickCustomView"
         android:text="@string/customview" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickRequestPermission"
+        android:text="@string/requestPermission" />
 </LinearLayout>

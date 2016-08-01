@@ -45,8 +45,8 @@ public class MScrollView extends ScrollView {
                 yLast = ev.getY();
                 break;
             case MotionEvent.ACTION_MOVE:
-                float xCurr = ev.getX();
-                float yCurr = ev.getY();
+                final float xCurr = ev.getX();
+                final float yCurr = ev.getY();
 
                 xDistance += Math.abs(xCurr - xLast);
                 yDistance += Math.abs(yCurr - yLast);
@@ -64,3 +64,17 @@ public class MScrollView extends ScrollView {
         return super.onTouchEvent(ev);
     }
 }
+
+      /** ScrollView嵌套ViewPager也可以这样解决冲突 */
+//    private void init(){
+//        mViewPager = (ViewPager) findViewById(R.id.viewPager);
+//        mViewPagerAdapter=new ViewPagerAdapter(this);
+//        mViewPager.setAdapter(mViewPagerAdapter);
+//        mViewPager.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                mViewPager.getParent().requestDisallowInterceptTouchEvent(true);
+//                return false;
+//            }
+//        });
+//    }

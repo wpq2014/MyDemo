@@ -8,7 +8,8 @@
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layoutAnimation="@anim/layout_animation2">
+        >
+        <!--android:layoutAnimation="@anim/layout_animation2"-->
 
     </ListView>
 

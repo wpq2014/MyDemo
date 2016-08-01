@@ -86,6 +86,14 @@ public class MainActivity extends AppCompatActivity
         startActivity(new Intent(this, CustomViewActivity.class));
     }
 
+    /**
+     * 6.0申请权限
+     * @param view
+     */
+    public void clickRequestPermission(View view){
+        startActivity(new Intent(this, RequestPermissionActivity.class));
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

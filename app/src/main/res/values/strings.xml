@@ -19,9 +19,15 @@
 
     <!-- 自定义View -->
     <string name="customview">自定义View</string>
+    <string name="requestPermission">6.0申请权限</string>
     <string name="simple">简单自定义</string>
     <string name="tree">任意层级树</string>
     <string name="left_text">left</string>
     <string name="right_text">right</string>
     <string name="title_text">title</string>
+
+    <!-- 请求权限 -->
+    <string name="requestOnePermission">请求一个权限</string>
+    <string name="requestSeveralPermission">请求多个权限</string>
+
 </resources>
