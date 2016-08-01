@@ -1,7 +1,7 @@
 ## Android笔记
 #### 1. 传统动画Animation和属性动画ObjectAnimator；布局动画LayoutAnimation
-  <img src="http://oa4p40bdn.bkt.clouddn.com/Animator.gif" width="280px"/>
-  <img src="http://oa4p40bdn.bkt.clouddn.com/5555.gif" width="280px"/>
+  <img src="http://oa4p40bdn.bkt.clouddn.com/%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BBObjectAnimator.gif" width="280px"/>
+  <img src="http://oa4p40bdn.bkt.clouddn.com/%E5%B8%83%E5%B1%80%E5%8A%A8%E7%94%BBLayoutAnimation.gif" width="280px"/>
 <br /> 
 <br /> 
 #### 2. ZXing扫码和生成二维码，ZBar扫描速度快但有时候会扫错，所以没加
