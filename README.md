@@ -16,8 +16,4 @@
 * 自定义简单的TopBar，类似Toolbar；跑马灯MarqueeTextView；方向盘DirectionView     
 
   <img src="http://oa4p40bdn.bkt.clouddn.com/sdjl.gif" width="280px"/>
-* 图文混排和文字环绕[MixtureTextView](https://github.com/hongyangAndroid/MixtureTextView)
- 
-  <img src="https://github.com/hongyangAndroid/MixtureTextView/blob/master/mixture2.gif" width="280px"/>
-  <img src="https://github.com/hongyangAndroid/MixtureTextView/blob/master/listview.png" width="280px"/>
 
