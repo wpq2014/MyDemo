@@ -16,16 +16,6 @@
 * 自定义简单的TopBar，类似Toolbar；跑马灯MarqueeTextView；方向盘DirectionView     
 
   <img src="http://oa4p40bdn.bkt.clouddn.com/sdjl.gif" width="280px"/>
-* App常用的菜单选项卡[DropDownMenu](https://github.com/baiiu/DropDownMenu)
-  
-  <img src="https://github.com/baiiu/DropDownMenu/blob/master/images/dropDownMenu.gif" width="280px"/>
-* App必用的Tab切换[FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout) 和 [FlycoBanner](https://github.com/H07000223/FlycoBanner_Master) 以及可能用到的[FlycoLabelView](https://github.com/H07000223/FlycoLabelView)
- 
-  <img src="https://github.com/H07000223/FlycoTabLayout/blob/master/preview_1.gif" width="280px"/>
-  <img src="https://github.com/H07000223/FlycoTabLayout/blob/master/preview_2.gif" width="280px"/>
-  <img src="https://github.com/H07000223/FlycoTabLayout/blob/master/preview_3.gif" width="280px"/>
-  <img src="https://github.com/H07000223/FlycoBanner_Master/blob/master/preview_FlycoBanner.gif" width="280px"/>
-  <img src="https://github.com/H07000223/FlycoLabelView/blob/master/preview.png" width="280px"/>
 * 图文混排和文字环绕[MixtureTextView](https://github.com/hongyangAndroid/MixtureTextView)
  
   <img src="https://github.com/hongyangAndroid/MixtureTextView/blob/master/mixture2.gif" width="280px"/>
