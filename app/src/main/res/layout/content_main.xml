@@ -42,4 +42,10 @@
         android:layout_height="wrap_content"
         android:onClick="clickRequestPermission"
         android:text="@string/requestPermission" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickInterview"
+        android:text="@string/todolist"/>
 </LinearLayout>

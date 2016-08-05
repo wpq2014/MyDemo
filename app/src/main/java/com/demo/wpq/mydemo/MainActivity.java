@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.demo.wpq.mydemo.animation.AnimationActivity;
 import com.demo.wpq.mydemo.customview.CustomViewActivity;
 import com.demo.wpq.mydemo.qrcode.CaptureActivity;
+import com.demo.wpq.mydemo.todolist.TodoActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -92,6 +93,14 @@ public class MainActivity extends AppCompatActivity
      */
     public void clickRequestPermission(View view){
         startActivity(new Intent(this, RequestPermissionActivity.class));
+    }
+
+    /**
+     * interview
+     * @param view
+     */
+    public void clickInterview(View view){
+        startActivity(new Intent(this, TodoActivity.class));
     }
 
     @Override

@@ -83,7 +83,9 @@
             android:name=".RequestPermissionActivity"
             android:label="@string/requestPermission">
         </activity>
-
+        <activity android:name=".todolist.TodoActivity"
+            android:label="@string/todolist_mvc">
+        </activity>
     </application>
 
 </manifest>

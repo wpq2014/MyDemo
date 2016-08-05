@@ -30,4 +30,8 @@
     <string name="requestOnePermission">请求一个权限</string>
     <string name="requestSeveralPermission">请求多个权限</string>
 
+    <!-- interview -->
+    <string name="todolist_mvc">TodoList（MVC）</string>
+    <string name="todolist">TodoList</string>
+
 </resources>
