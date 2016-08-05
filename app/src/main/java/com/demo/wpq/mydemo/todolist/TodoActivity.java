@@ -69,6 +69,8 @@ public class TodoActivity extends AppCompatActivity implements View.OnClickListe
                     return;
                 }
                 todoList.add(title);
+                todoList.setAllFinished(false);
+                cbCheckAll.setChecked(todoList.isAllFinished());
                 break;
             }
             case R.id.cb_checkAll: {
@@ -84,6 +86,7 @@ public class TodoActivity extends AppCompatActivity implements View.OnClickListe
             }
             case R.id.btn_removeFinished: {
                 todoList.removeFinished();
+                cbCheckAll.setChecked(todoList.isAllFinished());
                 break;
             }
         }

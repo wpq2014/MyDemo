@@ -56,6 +56,10 @@ public class TodoList {
      * 如果是则需要更新全选中标记
      */
     private void updateAllFinishedState() {
+        if(list.size() <= 0){
+            setAllFinished(false);
+            return;
+        }
         boolean hasUnFinished = false;
         for (Todo t : list) {
             if (!t.isFinished()) {
@@ -79,6 +83,7 @@ public class TodoList {
             }
         }
         this.list = listUnFinished;
+        updateAllFinishedState();
     }
 
     public boolean isShowFinished() {
