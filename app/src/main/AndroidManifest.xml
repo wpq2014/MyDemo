@@ -86,6 +86,7 @@
         <activity android:name=".todolist.TodoActivity"
             android:label="@string/todolist_mvc">
         </activity>
+        <activity android:name=".customview.LinkedListViewActivity" android:label="@string/linkedListView" />
     </application>
 
 </manifest>

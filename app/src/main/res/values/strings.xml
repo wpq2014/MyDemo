@@ -21,6 +21,7 @@
     <string name="customview">自定义View</string>
     <string name="requestPermission">6.0申请权限</string>
     <string name="simple">简单自定义</string>
+    <string name="linkedListView">外卖菜单列表</string>
     <string name="tree">任意层级树</string>
     <string name="left_text">left</string>
     <string name="right_text">right</string>

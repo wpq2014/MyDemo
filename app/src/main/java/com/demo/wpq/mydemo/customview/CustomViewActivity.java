@@ -15,7 +15,7 @@ import butterknife.OnClick;
 
 /**
  * Desc: 自定义View
- * <p/>
+ * <p>
  * Created by wpq on 16/7/14.
  */
 public class CustomViewActivity extends AppCompatActivity {
@@ -24,6 +24,8 @@ public class CustomViewActivity extends AppCompatActivity {
     Button simple;
     @Bind(R.id.tree)
     Button tree;
+    @Bind(R.id.linked_listView)
+    Button linkedListView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,12 +36,17 @@ public class CustomViewActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.simple, R.id.tree})
+    @OnClick({R.id.simple, R.id.tree, R.id.linked_listView})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.simple: //简单自定义
             {
                 startActivity(new Intent(this, TopBarActivity.class));
+                break;
+            }
+            case R.id.linked_listView: //外卖菜单列表
+            {
+                startActivity(new Intent(this, LinkedListViewActivity.class));
                 break;
             }
             case R.id.tree: //任意层级树
