@@ -99,7 +99,10 @@ public class LinkedListViewActivity extends AppCompatActivity {
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                 if(isScroll){
-                    setLeft(rightAdapter.getSectionForPosition(firstVisibleItem));
+                    int leftSection = rightAdapter.getSectionForPosition(firstVisibleItem);
+                    if(dishModel.getLeftPositionSelected() != leftSection){
+                        setLeft(leftSection);
+                    }
                     isScroll = false;
                 }else{
                     isScroll = true;
