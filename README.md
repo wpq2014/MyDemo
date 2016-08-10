@@ -16,4 +16,7 @@
 * 自定义简单的TopBar，类似Toolbar；跑马灯MarqueeTextView；方向盘DirectionView     
 
   <img src="https://github.com/wpq2014/MyDemo/blob/master/imgs/%E8%B7%91%E9%A9%AC%E7%81%AF%C2%B7%E6%96%B9%E5%90%91%E7%9B%98.gif" width="280px"/>
+* 仿外卖LinkedListView     
+  
+  <img src="https://github.com/wpq2014/MyDemo/blob/master/imgs/linkedListView.gif" width="280px" />
 
