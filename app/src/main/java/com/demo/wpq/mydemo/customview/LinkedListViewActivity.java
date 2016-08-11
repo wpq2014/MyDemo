@@ -116,7 +116,8 @@ public class LinkedListViewActivity extends AppCompatActivity {
         dishModel.setLeftPositionSelected(position);
         leftAdapter.notifyDataSetChanged();
         if(position <= leftListview.getFirstVisiblePosition() || position >= leftListview.getLastVisiblePosition()){
-            leftListview.setSelection(position);
+//            leftListview.setSelection(position);
+            leftListview.smoothScrollToPosition(position);
         }
     }
 
