@@ -9,7 +9,7 @@ public class Todo {
     private String title;
     private boolean finished;
 
-    public Todo(String title){
+    public Todo(String title) {
         this(title, false);
     }
 

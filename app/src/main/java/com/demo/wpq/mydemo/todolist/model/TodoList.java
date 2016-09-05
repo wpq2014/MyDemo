@@ -11,8 +11,8 @@ import java.util.List;
 public class TodoList {
 
     private List<Todo> list = new ArrayList<>();
-    private boolean allFinished = false;
     private boolean showFinished = true;
+    private boolean allFinished = false;
 
     public List<Todo> getDisplayList() {
         if (showFinished) {
@@ -37,37 +37,10 @@ public class TodoList {
         updateAllFinishedState();
     }
 
-    public boolean isAllFinished() {
-        return allFinished;
-    }
-
-    public void setAllFinished(boolean allFinished) {
-        this.allFinished = allFinished;
-    }
-
     public void updateAll(boolean allFinished) {
         for (Todo todo : list) {
             todo.setFinished(allFinished);
         }
-    }
-
-    /**
-     * 每次选中一个或者删除一个都要判断剩下的是不是都处于选中状态，
-     * 如果是则需要更新全选中标记
-     */
-    private void updateAllFinishedState() {
-        if(list.size() <= 0){
-            setAllFinished(false);
-            return;
-        }
-        boolean hasUnFinished = false;
-        for (Todo t : list) {
-            if (!t.isFinished()) {
-                hasUnFinished = true;
-                break;
-            }
-        }
-        setAllFinished(!hasUnFinished);
     }
 
     public void remove(Todo todo) {
@@ -92,6 +65,33 @@ public class TodoList {
 
     public void setShowFinished(boolean showFinished) {
         this.showFinished = showFinished;
+    }
+
+    public boolean isAllFinished() {
+        return allFinished;
+    }
+
+    public void setAllFinished(boolean allFinished) {
+        this.allFinished = allFinished;
+    }
+
+    /**
+     * 每次选中一个或者删除一个都要判断剩下的是不是都处于选中状态，
+     * 如果是则需要更新全选中标记
+     */
+    private void updateAllFinishedState() {
+        if (list.size() <= 0) {
+            setAllFinished(false);
+            return;
+        }
+        boolean hasUnFinished = false;
+        for (Todo t : list) {
+            if (!t.isFinished()) {
+                hasUnFinished = true;
+                break;
+            }
+        }
+        setAllFinished(!hasUnFinished);
     }
 
     @Override
