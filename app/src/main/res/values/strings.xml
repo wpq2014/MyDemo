@@ -35,4 +35,7 @@
     <string name="todolist_mvc">TodoList（MVC）</string>
     <string name="todolist">TodoList</string>
 
+    <!-- retrofit -->
+    <string name="retrofit">Retrofit</string>
+
 </resources>

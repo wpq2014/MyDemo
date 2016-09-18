@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.demo.wpq.mydemo.animation.AnimationActivity;
 import com.demo.wpq.mydemo.customview.CustomViewActivity;
 import com.demo.wpq.mydemo.qrcode.CaptureActivity;
+import com.demo.wpq.mydemo.retrofit.RetrofitActivity;
 import com.demo.wpq.mydemo.todolist.TodoActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -101,6 +102,14 @@ public class MainActivity extends AppCompatActivity
      */
     public void clickInterview(View view){
         startActivity(new Intent(this, TodoActivity.class));
+    }
+
+    /**
+     * Retrofit
+     * @param view
+     */
+    public void clickRetrofit(View view){
+        startActivity(new Intent(this, RetrofitActivity.class));
     }
 
     @Override

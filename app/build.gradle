@@ -34,5 +34,12 @@ dependencies {
     apt 'com.zhy:mpermission-compiler:1.0.0'
     compile 'com.zhy:mpermission-api:1.0.0'
     compile 'com.facebook.fresco:fresco:0.13.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile ('com.squareup.retrofit2:retrofit:2.1.0') {
+        // exclude Retrofit’s OkHttp peer-dependency module and define your own module import
+        exclude module: 'okhttp'
+    }
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 
 }

@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
 
     <application
@@ -88,6 +88,7 @@
             android:label="@string/todolist_mvc">
         </activity>
         <activity android:name=".customview.LinkedListViewActivity" android:label="@string/linkedListView" />
+        <activity android:name=".retrofit.RetrofitActivity" android:label="@string/retrofit" />
     </application>
 
 </manifest>

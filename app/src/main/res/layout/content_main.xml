@@ -48,4 +48,10 @@
         android:layout_height="wrap_content"
         android:onClick="clickInterview"
         android:text="@string/todolist"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickRetrofit"
+        android:text="@string/retrofit"/>
 </LinearLayout>
