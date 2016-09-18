@@ -8,32 +8,35 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.demo.wpq.mydemo.R;
 import com.demo.wpq.mydemo.todolist.model.Todo;
 import com.demo.wpq.mydemo.todolist.model.TodoList;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 /**
  * Desc:
  * Created by wpq on 16/8/5.
  */
-public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
+public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
 
-    public interface OnTodoListener{
+    public interface OnTodoListener {
         void onItemChecked(Todo todo);
+
         void onItemDelete(Todo todo);
     }
 
     private OnTodoListener onTodoListener;
 
-    public void setOnTodoListener(OnTodoListener onTodoListener){
+    public void setOnTodoListener(OnTodoListener onTodoListener) {
         this.onTodoListener = onTodoListener;
     }
 
     private Context context;
     private TodoList todoList;
 
-    public TodoAdapter(Context context, TodoList todoList){
+    public TodoAdapter(Context context, TodoList todoList) {
         this.context = context;
         this.todoList = todoList;
     }
@@ -58,6 +61,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        SimpleDraweeView avatar1;
         CheckBox checkBox;
         TextView tvTitle;
         ImageView ivDelete;
@@ -65,25 +69,30 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
         public ViewHolder(View itemView) {
             super(itemView);
 
+            avatar1 = (SimpleDraweeView) itemView.findViewById(R.id.avatar1);
             checkBox = (CheckBox) itemView.findViewById(R.id.checkbox);
             tvTitle = (TextView) itemView.findViewById(R.id.tv_title);
             ivDelete = (ImageView) itemView.findViewById(R.id.img_delete);
 
+            avatar1.setOnClickListener(this);
             checkBox.setOnClickListener(this);
             ivDelete.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            if(null == onTodoListener){
+            if (null == onTodoListener) {
                 return;
             }
-            switch (v.getId()){
-                case R.id.checkbox:{
+            switch (v.getId()) {
+                case R.id.avatar1:
+                    Toast.makeText(context, "monkey " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.checkbox: {
                     onTodoListener.onItemChecked(todoList.getDisplayList().get(getAdapterPosition()));
                     break;
                 }
-                case R.id.img_delete:{
+                case R.id.img_delete: {
                     onTodoListener.onItemDelete(todoList.getDisplayList().get(getAdapterPosition()));
                     break;
                 }

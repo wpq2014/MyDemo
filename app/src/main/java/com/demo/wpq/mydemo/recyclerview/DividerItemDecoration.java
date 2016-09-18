@@ -19,7 +19,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     private Drawable mDivider;
     private int mOrientation;
-    private int mDividerHeight = 2;
+    private int mDividerHeight;
     private Paint mPaint;
 
     public DividerItemDecoration(Context context, int orientation) {
@@ -65,13 +65,13 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDraw(c, parent, state);
         if (mOrientation == VERTICAL) {
-            drawableVertical(c, parent);
+            drawVertical(c, parent);
         } else {
-            drawableHorizontal(c, parent);
+            drawHorizontal(c, parent);
         }
     }
 
-    private void drawableHorizontal(Canvas c, RecyclerView parent) {
+    private void drawVertical(Canvas c, RecyclerView parent) {
         final int left = parent.getPaddingLeft();
         final int right = parent.getMeasuredWidth() - parent.getPaddingRight();
         final int childCount = parent.getChildCount();
@@ -90,7 +90,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         }
     }
 
-    private void drawableVertical(Canvas c, RecyclerView parent) {
+    private void drawHorizontal(Canvas c, RecyclerView parent) {
         final int top = parent.getPaddingTop();
         final int bottom = parent.getMeasuredHeight() - parent.getPaddingBottom();
         final int childCount = parent.getChildCount();

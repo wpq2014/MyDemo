@@ -1,26 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="13dp"
-    android:paddingBottom="13dp">
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="13dp"
+    android:paddingTop="13dp">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/avatar0"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        fresco:placeholderImage="@drawable/xiaoxin"
+        fresco:roundAsCircle="true"
+        fresco:roundingBorderWidth="2dp"
+        fresco:roundingBorderColor="#ff0000"/>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/avatar1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        fresco:placeholderImage="@drawable/monkey"
+        fresco:roundAsCircle="false"
+        fresco:roundedCornerRadius="5dp"
+        fresco:overlayImage="@android:color/transparent"
+        fresco:pressedStateOverlayImage="@color/alpha_50_black"/>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/avatar2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        fresco:placeholderImage="@drawable/monkey"
+        fresco:roundAsCircle="false"
+        fresco:roundBottomLeft="true"
+        fresco:roundBottomRight="false"
+        fresco:roundTopLeft="false"
+        fresco:roundTopRight="true"
+        fresco:roundedCornerRadius="5dp" />
 
     <CheckBox
         android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0"/>
+        android:layout_weight="0" />
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        />
+        android:layout_weight="1" />
+
     <ImageView
         android:id="@+id/img_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:src="@android:drawable/ic_delete"/>
+        android:src="@android:drawable/ic_delete" />
 </LinearLayout>

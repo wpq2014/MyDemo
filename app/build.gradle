@@ -33,5 +33,6 @@ dependencies {
 
     apt 'com.zhy:mpermission-compiler:1.0.0'
     compile 'com.zhy:mpermission-api:1.0.0'
+    compile 'com.facebook.fresco:fresco:0.13.0'
 
 }

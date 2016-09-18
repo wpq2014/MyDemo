@@ -1,9 +1,10 @@
 package com.demo.wpq.mydemo.todolist;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.demo.wpq.mydemo.R;
+import com.demo.wpq.mydemo.recyclerview.DividerItemDecoration;
 import com.demo.wpq.mydemo.todolist.adapter.TodoAdapter;
 import com.demo.wpq.mydemo.todolist.model.Todo;
 import com.demo.wpq.mydemo.todolist.model.TodoList;
@@ -53,7 +55,8 @@ public class TodoActivity extends AppCompatActivity implements View.OnClickListe
         btnHideFinished.setOnClickListener(this);
         btnRemoveFinished.setOnClickListener(this);
 
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL, Color.GREEN, 5));
         recyclerView.setAdapter(adapter = new TodoAdapter(this, todoList));
         adapter.setOnTodoListener(this);
 
