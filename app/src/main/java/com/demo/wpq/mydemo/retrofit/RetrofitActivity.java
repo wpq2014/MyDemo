@@ -7,7 +7,6 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.demo.wpq.mydemo.R;
-import com.zhy.http.okhttp.OkHttpUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -41,7 +40,7 @@ public class RetrofitActivity extends AppCompatActivity {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.miaoyiapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(OkHttpUtils.getInstance().getOkHttpClient())
+                .client(OkHttpClientManager.getClient())
                 .build();
         RetrofitService service = retrofit.create(RetrofitService.class);
         Call<VersionBean> call = service.getVersionInfo();
