@@ -21,44 +21,49 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-public class OkHttpClientManager {
+public class RetrofitManager {
+
+    private static final String API_HOST = "https://api.miaoyiapp.com/";
+
+    private static Retrofit apiRetrofit = null;
 
     private static OkHttpClient mClient = null;
 
     public static synchronized OkHttpClient init(Context context) {
-        if (mClient != null) {
-            return mClient;
-        }
-        try {
-            mClient = new OkHttpClient.Builder()
-                    .connectTimeout(20, TimeUnit.SECONDS)
-                    .writeTimeout(20, TimeUnit.SECONDS)
-                    .readTimeout(20, TimeUnit.SECONDS)
-                    .hostnameVerifier(new HostnameVerifier() {
-                        @Override
-                        public boolean verify(String hostname, SSLSession session) {
-                            return true;
-                        }
-                    })
+        if (mClient == null) {
+            try {
+                mClient = new OkHttpClient.Builder()
+                        .connectTimeout(20, TimeUnit.SECONDS)
+                        .writeTimeout(20, TimeUnit.SECONDS)
+                        .readTimeout(20, TimeUnit.SECONDS)
+                        .hostnameVerifier(new HostnameVerifier() {
+                            @Override
+                            public boolean verify(String hostname, SSLSession session) {
+                                return true;
+                            }
+                        })
 //                    .socketFactory(javax.net.ssl.SSLSocketFactory.getDefault())
 //                    .socketFactory(getSSLSocketFactory(context.getAssets().open("miaoyiapp.cer")))
-                    .sslSocketFactory(getSSLSocketFactory(context.getAssets().open("miaoyiapp.cer")))
-                    .addInterceptor(new Interceptor() {
-                        @Override
-                        public Response intercept(Chain chain) throws IOException {
-                            Request request = chain.request()
-                                    .newBuilder()
-                                    .addHeader("x-app-platform", "Android")
-                                    .addHeader("x-app-id", "miaoyi")
-                                    .addHeader("Content-Type", "application/json")
-                                    .build();
-                            return chain.proceed(request);
-                        }
-                    })
-                    .build();
-        } catch (IOException e) {
-            e.printStackTrace();
+                        .sslSocketFactory(getSSLSocketFactory(context.getAssets().open("miaoyiapp.cer")))
+                        .addInterceptor(new Interceptor() {
+                            @Override
+                            public Response intercept(Chain chain) throws IOException {
+                                Request request = chain.request()
+                                        .newBuilder()
+                                        .addHeader("x-app-platform", "Android")
+                                        .addHeader("x-app-id", "miaoyi")
+                                        .addHeader("Content-Type", "application/json")
+                                        .build();
+                                return chain.proceed(request);
+                            }
+                        })
+                        .build();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return mClient;
     }
@@ -112,4 +117,20 @@ public class OkHttpClientManager {
         };
         return TRUSTED_VERIFIER;
     }
+
+    public static Retrofit getApiRetrofit() {
+        if (apiRetrofit == null) {
+            try {
+                apiRetrofit = new Retrofit.Builder()
+                        .baseUrl(API_HOST)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .client(getClient())
+                        .build();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return apiRetrofit;
+    }
+
 }

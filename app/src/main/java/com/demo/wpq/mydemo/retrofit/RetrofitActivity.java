@@ -8,11 +8,14 @@ import android.widget.TextView;
 
 import com.demo.wpq.mydemo.R;
 
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -33,16 +36,12 @@ public class RetrofitActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         getVersionInfo();
+        getAllDeptsType2();
 //        gankGirl();
     }
 
     private void getVersionInfo() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.miaoyiapp.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(OkHttpClientManager.getClient())
-                .build();
-        RetrofitService service = retrofit.create(RetrofitService.class);
+        RetrofitService service = RetrofitManager.getApiRetrofit().create(RetrofitService.class);
         Call<VersionBean> call = service.getVersionInfo();
         call.enqueue(new Callback<VersionBean>() {
             @Override
@@ -56,6 +55,25 @@ public class RetrofitActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<VersionBean> call, Throwable t) {
+                Log.e(TAG, t.getMessage());
+            }
+        });
+    }
+
+    private void getAllDeptsType2() {
+        RetrofitService service = RetrofitManager.getApiRetrofit().create(RetrofitService.class);
+        Call<List<SecondDeptEntity>> call = service.getAllDeptsType2();
+        call.enqueue(new Callback<List<SecondDeptEntity>>() {
+            @Override
+            public void onResponse(Call<List<SecondDeptEntity>> call, Response<List<SecondDeptEntity>> response) {
+                Log.e(TAG, response.code() + ", " + response.isSuccessful() + ", " + response.message());
+                if (response.isSuccessful()) {
+                    result.setText(result.getText().toString() +"\n\n" + response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<SecondDeptEntity>> call, Throwable t) {
                 Log.e(TAG, t.getMessage());
             }
         });

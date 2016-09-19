@@ -2,7 +2,7 @@ package com.demo.wpq.mydemo;
 
 import android.app.Application;
 
-import com.demo.wpq.mydemo.retrofit.OkHttpClientManager;
+import com.demo.wpq.mydemo.retrofit.RetrofitManager;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 public class MApplication extends Application{
@@ -15,7 +15,7 @@ public class MApplication extends Application{
         mInstance = this;
 
         Fresco.initialize(this);
-        OkHttpClientManager.init(this);
+        RetrofitManager.init(this);
     }
 
     public static MApplication getInstance(){
