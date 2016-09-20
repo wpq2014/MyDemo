@@ -35,48 +35,11 @@ public class RetrofitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_retrofit);
         ButterKnife.bind(this);
 
+//        gankGirl();
         getVersionInfo();
         getAllDeptsType2();
-//        gankGirl();
-    }
-
-    private void getVersionInfo() {
-        RetrofitService service = RetrofitManager.getApiRetrofit().create(RetrofitService.class);
-        Call<VersionBean> call = service.getVersionInfo();
-        call.enqueue(new Callback<VersionBean>() {
-            @Override
-            public void onResponse(Call<VersionBean> call, retrofit2.Response<VersionBean> response) {
-                Log.e(TAG, response.code() + ", " + response.isSuccessful() + ", " + response.message());
-                if (response.isSuccessful()) {
-                    VersionBean version = response.body();
-                    result.setText(version.toString());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<VersionBean> call, Throwable t) {
-                Log.e(TAG, t.getMessage());
-            }
-        });
-    }
-
-    private void getAllDeptsType2() {
-        RetrofitService service = RetrofitManager.getApiRetrofit().create(RetrofitService.class);
-        Call<List<SecondDeptEntity>> call = service.getAllDeptsType2();
-        call.enqueue(new Callback<List<SecondDeptEntity>>() {
-            @Override
-            public void onResponse(Call<List<SecondDeptEntity>> call, Response<List<SecondDeptEntity>> response) {
-                Log.e(TAG, response.code() + ", " + response.isSuccessful() + ", " + response.message());
-                if (response.isSuccessful()) {
-                    result.setText(result.getText().toString() +"\n\n" + response.body());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<SecondDeptEntity>> call, Throwable t) {
-                Log.e(TAG, t.getMessage());
-            }
-        });
+        login();
+        getUserInfo();
     }
 
     private void gankGirl() {
@@ -99,6 +62,85 @@ public class RetrofitActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<GanHuo> call, Throwable t) {
+                Log.e(TAG, t.getMessage());
+            }
+        });
+    }
+
+    private void getVersionInfo() {
+        RetrofitService service = RetrofitManager.getApiRetrofit().create(RetrofitService.class);
+        Call<VersionBean> call = service.getVersionInfo();
+        call.enqueue(new Callback<VersionBean>() {
+            @Override
+            public void onResponse(Call<VersionBean> call, retrofit2.Response<VersionBean> response) {
+                Log.e(TAG, "version -- " + response.code() + ", " + response.isSuccessful() + ", " + response.message());
+                if (response.isSuccessful()) {
+                    VersionBean version = response.body();
+                    result.setText(result.getText().toString() +"\n\n" + response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<VersionBean> call, Throwable t) {
+                Log.e(TAG, t.getMessage());
+            }
+        });
+    }
+
+    private void getAllDeptsType2() {
+        RetrofitService service = RetrofitManager.getApiRetrofit().create(RetrofitService.class);
+        Call<List<SecondDeptEntity>> call = service.getAllDeptsType2();
+        call.enqueue(new Callback<List<SecondDeptEntity>>() {
+            @Override
+            public void onResponse(Call<List<SecondDeptEntity>> call, Response<List<SecondDeptEntity>> response) {
+                Log.e(TAG, "depts -- " + response.code() + ", " + response.isSuccessful() + ", " + response.message());
+                if (response.isSuccessful()) {
+                    result.setText(result.getText().toString() +"\n\n" + response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<SecondDeptEntity>> call, Throwable t) {
+                Log.e(TAG, t.getMessage());
+            }
+        });
+    }
+
+    private void login() {
+        RetrofitService service = RetrofitManager.getAuthRetrofit().create(RetrofitService.class);
+        Call<TokenEntity> call = service.login("18234096324", "3096");
+        call.enqueue(new Callback<TokenEntity>() {
+            @Override
+            public void onResponse(Call<TokenEntity> call, Response<TokenEntity> response) {
+                Log.e(TAG, "login -- " + response.code() + ", " + response.isSuccessful() + ", " + response.message());
+                if (response.isSuccessful()) {
+                    Log.e(TAG, response.body() + "");
+                    result.setText(result.getText().toString() +"\n\n" + response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TokenEntity> call, Throwable t) {
+                Log.e(TAG, t.getMessage());
+            }
+        });
+    }
+
+    private void getUserInfo(){
+        RetrofitService service = RetrofitManager.getApiRetrofit().create(RetrofitService.class);
+        Call<Object> call = service.getUserInfo(RetrofitService.TOKEN);
+        call.enqueue(new Callback<Object>() {
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+                Log.e(TAG, "userInfo -- " + response.code() + ", " + response.isSuccessful() + ", " + response.message());
+                if (response.isSuccessful()) {
+                    Log.e(TAG, response.body() + "");
+                    result.setText(result.getText().toString() +"\n\n" + response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
                 Log.e(TAG, t.getMessage());
             }
         });

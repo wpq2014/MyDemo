@@ -27,8 +27,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitManager {
 
     private static final String API_HOST = "https://api.miaoyiapp.com/";
+    private static final String AUTH_HOST = "https://auth.miaoyiapp.com/";
 
     private static Retrofit apiRetrofit = null;
+    private static Retrofit authRetrofit = null;
 
     private static OkHttpClient mClient = null;
 
@@ -131,6 +133,21 @@ public class RetrofitManager {
             }
         }
         return apiRetrofit;
+    }
+
+    public static Retrofit getAuthRetrofit() {
+        if (authRetrofit == null) {
+            try {
+                authRetrofit = new Retrofit.Builder()
+                        .baseUrl(AUTH_HOST)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .client(getClient())
+                        .build();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return authRetrofit;
     }
 
 }
