@@ -54,4 +54,10 @@
         android:layout_height="wrap_content"
         android:onClick="clickRetrofit"
         android:text="@string/retrofit"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickAIDL"
+        android:text="@string/aidl"/>
 </LinearLayout>

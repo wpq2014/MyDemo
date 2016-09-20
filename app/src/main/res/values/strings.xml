@@ -38,4 +38,7 @@
     <!-- retrofit -->
     <string name="retrofit">Retrofit</string>
 
+    <!-- AIDL -->
+    <string name="aidl">AIDL</string>
+
 </resources>

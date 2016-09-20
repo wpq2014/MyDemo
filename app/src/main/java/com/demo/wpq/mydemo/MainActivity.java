@@ -112,6 +112,14 @@ public class MainActivity extends AppCompatActivity
         startActivity(new Intent(this, RetrofitActivity.class));
     }
 
+    /**
+     * AIDL
+     * @param view
+     */
+    public void clickAIDL(View view){
+        startActivity(new Intent(this, ClientActivity.class));
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
