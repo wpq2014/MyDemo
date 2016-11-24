@@ -9,11 +9,6 @@ public class GanHuo {
     private boolean error;
     private List<Result> results;
 
-    public GanHuo(boolean error, List<Result> results) {
-        this.error = error;
-        this.results = results;
-    }
-
     public boolean isError() {
         return error;
     }
@@ -30,7 +25,7 @@ public class GanHuo {
         this.results = results;
     }
 
-    public class Result{
+    public static class Result{
         private String _id;
         private String createdAt;
         private String desc;

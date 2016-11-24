@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/qlk_dialog_loading_view"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="vertical">
+
+
+    <com.qlk.sdk.rm.doctor.widget.progressbar.QLKCircleProgressBar
+        android:id="@+id/qlk_loading_circleProgressBar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="15dp"
+        android:visibility="visible"
+        app:mlpb_inner_radius="14dp"
+        app:mlpb_progress_color="@color/colorPrimary"
+        app:mlpb_progress_stoke_width="3dp"/>
+
+    <TextView
+        android:id="@+id/qlk_loading_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:textColor="#444444"
+        android:textSize="14dp"
+        android:visibility="gone"/>
+
+</LinearLayout>

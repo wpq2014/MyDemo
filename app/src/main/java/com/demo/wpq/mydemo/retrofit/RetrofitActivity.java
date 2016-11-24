@@ -35,7 +35,7 @@ public class RetrofitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_retrofit);
         ButterKnife.bind(this);
 
-//        gankGirl();
+        gankGirl();
         getVersionInfo();
         getAllDeptsType2();
         login();
@@ -55,6 +55,7 @@ public class RetrofitActivity extends AppCompatActivity {
             public void onResponse(Call<GanHuo> call, retrofit2.Response<GanHuo> response) {
                 Log.e(TAG, response.code() + ", " + response.isSuccessful() + ", " + response.message());
                 if (response.isSuccessful()) {
+                    Log.e(TAG, response.body()+"");
                     GanHuo ganhuo = response.body();
                     Log.e(TAG, ganhuo.getResults().get(0).getUrl());
                 }
@@ -76,7 +77,7 @@ public class RetrofitActivity extends AppCompatActivity {
                 Log.e(TAG, "version -- " + response.code() + ", " + response.isSuccessful() + ", " + response.message());
                 if (response.isSuccessful()) {
                     VersionBean version = response.body();
-                    result.setText(result.getText().toString() +"\n\n" + response.body());
+                    result.setText(result.getText().toString() + "\n\n" + response.body());
                 }
             }
 
@@ -95,7 +96,7 @@ public class RetrofitActivity extends AppCompatActivity {
             public void onResponse(Call<List<SecondDeptEntity>> call, Response<List<SecondDeptEntity>> response) {
                 Log.e(TAG, "depts -- " + response.code() + ", " + response.isSuccessful() + ", " + response.message());
                 if (response.isSuccessful()) {
-                    result.setText(result.getText().toString() +"\n\n" + response.body());
+                    result.setText(result.getText().toString() + "\n\n" + response.body());
                 }
             }
 
@@ -114,8 +115,8 @@ public class RetrofitActivity extends AppCompatActivity {
             public void onResponse(Call<TokenEntity> call, Response<TokenEntity> response) {
                 Log.e(TAG, "login -- " + response.code() + ", " + response.isSuccessful() + ", " + response.message());
                 if (response.isSuccessful()) {
-                    Log.e(TAG, response.body() + "");
-                    result.setText(result.getText().toString() +"\n\n" + response.body());
+                    Log.e(TAG, "login -- " + response.body() + "");
+                    result.setText(result.getText().toString() + "\n\n" + response.body());
                 }
             }
 
@@ -126,7 +127,7 @@ public class RetrofitActivity extends AppCompatActivity {
         });
     }
 
-    private void getUserInfo(){
+    private void getUserInfo() {
         RetrofitService service = RetrofitManager.getApiRetrofit().create(RetrofitService.class);
         Call<Object> call = service.getUserInfo(RetrofitService.TOKEN);
         call.enqueue(new Callback<Object>() {
@@ -134,8 +135,8 @@ public class RetrofitActivity extends AppCompatActivity {
             public void onResponse(Call<Object> call, Response<Object> response) {
                 Log.e(TAG, "userInfo -- " + response.code() + ", " + response.isSuccessful() + ", " + response.message());
                 if (response.isSuccessful()) {
-                    Log.e(TAG, response.body() + "");
-                    result.setText(result.getText().toString() +"\n\n" + response.body());
+                    Log.e(TAG, "userInfo -- " + response.body() + "");
+                    result.setText(result.getText().toString() + "\n\n" + response.body());
                 }
             }
 

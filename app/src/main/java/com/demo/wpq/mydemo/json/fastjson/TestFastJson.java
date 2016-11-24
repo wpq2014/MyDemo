@@ -2,6 +2,7 @@ package com.demo.wpq.mydemo.json.fastjson;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.demo.wpq.mydemo.bean.HotBean;
 import com.demo.wpq.mydemo.json.Person;
 
 public class TestFastJson {
@@ -26,5 +27,10 @@ public class TestFastJson {
         p3.setAge(30);
         String o3 = JSON.toJSONString(p3);
         System.out.println(o3);
+
+        String hotJson = "{\"msg\":\"获取成功！\",\"code\":1,\"data\":{\"list\":[{\"name\":\"三只松鼠\"}]}}";
+        HotBean hotBean = JSON.parseObject(hotJson, HotBean.class);
+        System.out.println(hotBean.toString());
+
     }
 }

@@ -10,12 +10,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.demo.wpq.mydemo.animation.AnimationActivity;
+import com.demo.wpq.mydemo.bean.HotBean;
 import com.demo.wpq.mydemo.customview.CustomViewActivity;
 import com.demo.wpq.mydemo.qrcode.CaptureActivity;
 import com.demo.wpq.mydemo.retrofit.RetrofitActivity;
@@ -30,6 +33,10 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        String hotJson = "{\"msg\":\"获取成功！\",\"code\":1,\"data\":{\"list\":[{\"name\":\"三只松鼠\"}]}}";
+        HotBean hotBean = JSON.parseObject(hotJson, HotBean.class);
+        Log.e("fastjson解析", hotBean.toString());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
