@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.demo.wpq.mydemo.widget.progressbar;
+package com.demo.wpq.mydemo.customview.progressbar;
 
 import android.content.Context;
 import android.content.res.Resources;
