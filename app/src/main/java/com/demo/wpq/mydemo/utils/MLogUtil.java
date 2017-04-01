@@ -10,7 +10,7 @@ import com.demo.wpq.mydemo.BuildConfig;
  * Author: wpq
  * Date: 2017/4/1 16:05
  */
-public class MLogUtil {
+public final class MLogUtil {
 
     public static final String TAG = "MLogUtil";
 
