@@ -120,6 +120,14 @@ public class MainActivity extends AppCompatActivity
     }
 
     /**
+     * 牙
+     * @param view
+     */
+    public void clickTeeth(View view){
+        startActivity(new Intent(this, TeethActivity.class));
+    }
+
+    /**
      * AIDL
      * @param view
      */

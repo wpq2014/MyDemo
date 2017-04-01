@@ -60,4 +60,10 @@
         android:layout_height="wrap_content"
         android:onClick="clickAIDL"
         android:text="@string/aidl"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickTeeth"
+        android:text="@string/teeth"/>
 </LinearLayout>

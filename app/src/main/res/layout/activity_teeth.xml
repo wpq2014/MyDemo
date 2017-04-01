@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+    >
+
+    <Button
+        android:id="@+id/btn_startAnimation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0"
+        android:background="#f3d23f"
+        android:gravity="center"
+        android:text="开始动画"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/teeth_bk"/>
+
+        <View
+            android:id="@+id/view_centerLine"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            />
+
+        <ImageView
+            android:id="@+id/iv_up09"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/view_centerLine"
+            android:src="@mipmap/up_teeth_17"/>
+
+        <ImageView
+            android:id="@+id/iv_up08"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/view_centerLine"
+            android:src="@mipmap/up_teeth_10"/>
+
+        <ImageView
+            android:id="@+id/iv_up07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/view_centerLine"
+            android:src="@mipmap/up_teeth_13"/>
+
+        <ImageView
+            android:id="@+id/iv_up06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/view_centerLine"
+            android:src="@mipmap/up_teeth_6"/>
+
+        <ImageView
+            android:id="@+id/iv_up05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/view_centerLine"
+            android:src="@mipmap/up_teeth_4"/>
+
+        <ImageView
+            android:id="@+id/iv_up04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/view_centerLine"
+            android:src="@mipmap/up_teeth_3"/>
+
+        <ImageView
+            android:id="@+id/iv_up03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/view_centerLine"
+            android:src="@mipmap/up_teeth_5"/>
+
+        <ImageView
+            android:id="@+id/iv_up02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/view_centerLine"
+            android:src="@mipmap/up_teeth_14"/>
+
+        <ImageView
+            android:id="@+id/iv_up01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/view_centerLine"
+            android:src="@mipmap/up_teeth_9"/>
+
+        <ImageView
+            android:id="@+id/iv_up00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/view_centerLine"
+            android:src="@mipmap/down_teeth_19"/>
+
+        <ImageView
+            android:id="@+id/iv_down09"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/view_centerLine"
+            android:src="@mipmap/down_teeth_12"/>
+
+        <ImageView
+            android:id="@+id/iv_down08"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/view_centerLine"
+            android:src="@mipmap/down_teeth_16"/>
+
+        <ImageView
+            android:id="@+id/iv_down07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/view_centerLine"
+            android:src="@mipmap/down_teeth_7"/>
+
+        <ImageView
+            android:id="@+id/iv_down06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/view_centerLine"
+            android:src="@mipmap/down_teeth_1"/>
+
+        <ImageView
+            android:id="@+id/iv_down05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/view_centerLine"
+            android:src="@mipmap/down_teeth_2"/>
+
+        <ImageView
+            android:id="@+id/iv_down04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/view_centerLine"
+            android:src="@mipmap/down_teeth_8"/>
+
+        <ImageView
+            android:id="@+id/iv_down03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/view_centerLine"
+            android:src="@mipmap/up_teeth_5"/>
+
+        <ImageView
+            android:id="@+id/iv_down02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/view_centerLine"
+            android:src="@mipmap/down_teeth_15"/>
+
+        <ImageView
+            android:id="@+id/iv_down01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/view_centerLine"
+            android:src="@mipmap/down_teeth_11"/>
+
+        <ImageView
+            android:id="@+id/iv_down00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/view_centerLine"
+            android:src="@mipmap/down_teeth_20"/>
+    </RelativeLayout>
+
+</LinearLayout>

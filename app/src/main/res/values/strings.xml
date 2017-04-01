@@ -41,4 +41,7 @@
     <!-- AIDL -->
     <string name="aidl">AIDL</string>
 
+    <!-- 牙 -->
+    <string name="teeth">牙</string>
+
 </resources>
