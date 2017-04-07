@@ -7,22 +7,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <Button
-        android:id="@+id/simple"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/simple"/>
-
-    <Button
-        android:id="@+id/linked_listView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/linkedListView"/>
-
-    <Button
-        android:id="@+id/tree"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tree"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

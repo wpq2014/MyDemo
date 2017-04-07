@@ -10,7 +10,7 @@ import com.demo.wpq.mydemo.R;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -26,7 +26,7 @@ public class RetrofitActivity extends AppCompatActivity {
 
     String[] hostUrls = {"https://dev.healskare.com"};
 
-    @Bind(R.id.result)
+    @BindView(R.id.result)
     TextView result;
 
     @Override

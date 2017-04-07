@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.demo.wpq.mydemo.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -21,9 +21,9 @@ import butterknife.OnClick;
 public class AnimationActivity extends AppCompatActivity {
 
 
-    @Bind(R.id.objectAnimator)
+    @BindView(R.id.objectAnimator)
     Button objectAnimator;
-    @Bind(R.id.layoutAnimator)
+    @BindView(R.id.layoutAnimator)
     Button layoutAnimator;
 
     @Override

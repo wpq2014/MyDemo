@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 23
@@ -38,7 +39,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
-    compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.alibaba:fastjson:1.1.54.android'
@@ -48,7 +48,7 @@ dependencies {
     compile 'com.zhy:mpermission-api:1.0.0'
 	
     compile 'com.facebook.fresco:fresco:0.13.0'
-    compile 'com.jakewharton:butterknife:7.0.1'
+
     compile ('com.squareup.retrofit2:retrofit:2.1.0') {
         // exclude Retrofit’s OkHttp peer-dependency module and define your own module import
         exclude module: 'okhttp'
@@ -56,4 +56,6 @@ dependencies {
 	compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.zhy:okhttputils:2.6.2'
 
+    compile 'com.jakewharton:butterknife:8.5.1'
+    apt 'com.jakewharton:butterknife-compiler:8.5.1'
 }

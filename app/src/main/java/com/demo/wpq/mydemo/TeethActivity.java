@@ -19,7 +19,7 @@ import com.demo.wpq.mydemo.utils.MScreenUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -31,51 +31,51 @@ import butterknife.OnClick;
 
 public class TeethActivity extends AppCompatActivity {
 
-    @Bind(R.id.iv_bg)
+    @BindView(R.id.iv_bg)
     ImageView mIvBg;
-    @Bind(R.id.view_centerLine)
+    @BindView(R.id.view_centerLine)
     View mViewCenterLine;
-    @Bind(R.id.iv_up09)
+    @BindView(R.id.iv_up09)
     ImageView mIvUp09;
-    @Bind(R.id.iv_up08)
+    @BindView(R.id.iv_up08)
     ImageView mIvUp08;
-    @Bind(R.id.iv_up07)
+    @BindView(R.id.iv_up07)
     ImageView mIvUp07;
-    @Bind(R.id.iv_up06)
+    @BindView(R.id.iv_up06)
     ImageView mIvUp06;
-    @Bind(R.id.iv_up05)
+    @BindView(R.id.iv_up05)
     ImageView mIvUp05;
-    @Bind(R.id.iv_up04)
+    @BindView(R.id.iv_up04)
     ImageView mIvUp04;
-    @Bind(R.id.iv_up03)
+    @BindView(R.id.iv_up03)
     ImageView mIvUp03;
-    @Bind(R.id.iv_up02)
+    @BindView(R.id.iv_up02)
     ImageView mIvUp02;
-    @Bind(R.id.iv_up01)
+    @BindView(R.id.iv_up01)
     ImageView mIvUp01;
-    @Bind(R.id.iv_up00)
+    @BindView(R.id.iv_up00)
     ImageView mIvUp00;
-    @Bind(R.id.iv_down09)
+    @BindView(R.id.iv_down09)
     ImageView mIvDown09;
-    @Bind(R.id.iv_down08)
+    @BindView(R.id.iv_down08)
     ImageView mIvDown08;
-    @Bind(R.id.iv_down07)
+    @BindView(R.id.iv_down07)
     ImageView mIvDown07;
-    @Bind(R.id.iv_down06)
+    @BindView(R.id.iv_down06)
     ImageView mIvDown06;
-    @Bind(R.id.iv_down05)
+    @BindView(R.id.iv_down05)
     ImageView mIvDown05;
-    @Bind(R.id.iv_down04)
+    @BindView(R.id.iv_down04)
     ImageView mIvDown04;
-    @Bind(R.id.iv_down03)
+    @BindView(R.id.iv_down03)
     ImageView mIvDown03;
-    @Bind(R.id.iv_down02)
+    @BindView(R.id.iv_down02)
     ImageView mIvDown02;
-    @Bind(R.id.iv_down01)
+    @BindView(R.id.iv_down01)
     ImageView mIvDown01;
-    @Bind(R.id.iv_down00)
+    @BindView(R.id.iv_down00)
     ImageView mIvDown00;
-    @Bind(R.id.btn_startAnimation)
+    @BindView(R.id.btn_startAnimation)
     Button mBtnStartAnimation;
 
     private List<ImageView> teethUpList = new ArrayList<>();

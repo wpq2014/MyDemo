@@ -7,7 +7,7 @@ import android.widget.ListView;
 
 import com.demo.wpq.mydemo.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 public class TreeViewActivity extends AppCompatActivity {
 
 
-    @Bind(R.id.treeView)
+    @BindView(R.id.treeView)
     ListView treeView;
 
     @Override

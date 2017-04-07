@@ -18,7 +18,7 @@ import com.demo.wpq.mydemo.model.DishModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -27,9 +27,9 @@ import butterknife.ButterKnife;
  */
 public class LinkedListViewActivity extends AppCompatActivity {
 
-    @Bind(R.id.left_listview)
+    @BindView(R.id.left_listview)
     ListView leftListview;
-    @Bind(R.id.pinnedheader_listview)
+    @BindView(R.id.pinnedheader_listview)
     PinnedHeaderListView pinnedheaderListview;
 
     private DishModel dishModel = new DishModel();

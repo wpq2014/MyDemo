@@ -88,6 +88,8 @@
             android:label="@string/todolist_mvc">
         </activity>
         <activity android:name=".customview.LinkedListViewActivity" android:label="@string/linkedListView" />
+        <activity android:name=".customview.TreeViewActivity" android:label="@string/tree" />
+        <activity android:name=".customview.SkewActivity" android:label="@string/skew" />
         <activity android:name=".retrofit.RetrofitActivity" android:label="@string/retrofit" />
 
         <activity

@@ -10,7 +10,7 @@ import com.demo.wpq.mydemo.customview.view.DirectionView;
 import com.demo.wpq.mydemo.customview.view.MarqueeTextView;
 import com.demo.wpq.mydemo.customview.view.TopBar;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -20,13 +20,13 @@ import butterknife.ButterKnife;
 public class TopBarActivity extends Activity {
 
 
-    @Bind(R.id.topbar0)
+    @BindView(R.id.topbar0)
     TopBar topbar0;
-    @Bind(R.id.topbar1)
+    @BindView(R.id.topbar1)
     TopBar topbar1;
-    @Bind(R.id.directionView)
+    @BindView(R.id.directionView)
     DirectionView directionView;
-    @Bind(R.id.marquee_textView)
+    @BindView(R.id.marquee_textView)
     MarqueeTextView marqueeTextView;
 
     @Override

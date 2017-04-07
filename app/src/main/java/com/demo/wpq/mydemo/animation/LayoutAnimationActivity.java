@@ -15,7 +15,7 @@ import com.demo.wpq.mydemo.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 public class LayoutAnimationActivity extends AppCompatActivity {
 
 
-    @Bind(R.id.listView)
+    @BindView(R.id.listView)
     ListView listView;
 
     @Override
@@ -38,23 +38,18 @@ public class LayoutAnimationActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        List<String> list = new ArrayList<>();
-                        for(int i=0; i<40; i++){
-                            list.add("LayoutAnimationController "+i);
-                        }
-                        ArrayAdapter<String> adapter = new ArrayAdapter<>(LayoutAnimationActivity.this, android.R.layout.simple_list_item_1, list);
-                        listView.setAdapter(adapter);
+                List<String> list = new ArrayList<>();
+                for (int i = 0; i < 40; i++) {
+                    list.add("LayoutAnimationController " + i);
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(LayoutAnimationActivity.this, android.R.layout.simple_list_item_1, list);
+                listView.setAdapter(adapter);
 
-                        //两种方式：布局文件设置或代码控制
-                        LayoutAnimationController lac = new LayoutAnimationController(AnimationUtils.loadAnimation(LayoutAnimationActivity.this, R.anim.layout_animation1));
-                        lac.setInterpolator(new AccelerateDecelerateInterpolator());
-                        lac.setOrder(LayoutAnimationController.ORDER_NORMAL);
-                        listView.setLayoutAnimation(lac);
-                    }
-                });
+                //两种方式：布局文件设置或代码控制
+                LayoutAnimationController lac = new LayoutAnimationController(AnimationUtils.loadAnimation(LayoutAnimationActivity.this, R.anim.layout_animation1));
+                lac.setInterpolator(new AccelerateDecelerateInterpolator());
+                lac.setOrder(LayoutAnimationController.ORDER_NORMAL);
+                listView.setLayoutAnimation(lac);
             }
         }, 1000);
 

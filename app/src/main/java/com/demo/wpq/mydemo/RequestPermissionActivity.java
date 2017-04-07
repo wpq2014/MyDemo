@@ -13,7 +13,7 @@ import com.zhy.m.permission.MPermissions;
 import com.zhy.m.permission.PermissionDenied;
 import com.zhy.m.permission.PermissionGrant;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -23,9 +23,9 @@ import butterknife.OnClick;
  */
 public class RequestPermissionActivity extends AppCompatActivity {
 
-    @Bind(R.id.btn_one_permission)
+    @BindView(R.id.btn_one_permission)
     Button btnOnePermission;
-    @Bind(R.id.btn_several_permission)
+    @BindView(R.id.btn_several_permission)
     Button btnSeveralPermission;
 
     private static final int REQUEST_CODE_ONE = 23;

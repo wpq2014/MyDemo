@@ -13,7 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -21,11 +21,11 @@ import butterknife.ButterKnife;
  */
 public class ClientActivity extends AppCompatActivity {
 
-    @Bind(R.id.tv_pid)
+    @BindView(R.id.tv_pid)
     TextView tvPid;
-    @Bind(R.id.tv_service_pid)
+    @BindView(R.id.tv_service_pid)
     TextView tvServicePid;
-    @Bind(R.id.tv_say_hello)
+    @BindView(R.id.tv_say_hello)
     TextView tvSayHello;
 
     private IRemoteService remoteService = null;

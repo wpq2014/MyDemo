@@ -23,7 +23,7 @@ import com.demo.wpq.mydemo.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -33,21 +33,21 @@ import butterknife.OnClick;
  */
 public class ObjectAnimatorActivity extends AppCompatActivity {
 
-    @Bind(R.id.btn_translateAnimation)
+    @BindView(R.id.btn_translateAnimation)
     Button btnTranslateAnimation;
-    @Bind(R.id.btn_objectAnimator)
+    @BindView(R.id.btn_objectAnimator)
     Button btnObjectAnimator;
-    @Bind(R.id.imageview0)
+    @BindView(R.id.imageview0)
     ImageView imageview0;
-    @Bind(R.id.imageview1)
+    @BindView(R.id.imageview1)
     ImageView imageview1;
-    @Bind(R.id.imageview2)
+    @BindView(R.id.imageview2)
     ImageView imageview2;
-    @Bind(R.id.imageview3)
+    @BindView(R.id.imageview3)
     ImageView imageview3;
-    @Bind(R.id.imageview4)
+    @BindView(R.id.imageview4)
     ImageView imageview4;
-    @Bind(R.id.btn_arcMenu)
+    @BindView(R.id.btn_arcMenu)
     Button btnArcMenu;
 
 

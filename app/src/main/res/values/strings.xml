@@ -23,9 +23,16 @@
     <string name="simple">简单自定义</string>
     <string name="linkedListView">外卖菜单列表</string>
     <string name="tree">任意层级树</string>
+    <string name="skew">skew斜切</string>
     <string name="left_text">left</string>
     <string name="right_text">right</string>
     <string name="title_text">title</string>
+    <string-array name="customView_array">
+        <item>简单自定义</item>
+        <item>外卖菜单列表</item>
+        <item>任意层级树</item>
+        <item>skew斜切</item>
+    </string-array>
 
     <!-- 请求权限 -->
     <string name="requestOnePermission">请求一个权限</string>

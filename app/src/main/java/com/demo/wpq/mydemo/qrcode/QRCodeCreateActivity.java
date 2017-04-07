@@ -13,7 +13,7 @@ import com.demo.wpq.mydemo.R;
 import com.demo.wpq.mydemo.qrcode.utils.ZXUtil;
 import com.google.zxing.WriterException;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -22,9 +22,9 @@ import butterknife.ButterKnife;
  */
 public class QRCodeCreateActivity extends AppCompatActivity {
 
-    @Bind(R.id.iv_qrcode)
+    @BindView(R.id.iv_qrcode)
     ImageView ivQrcode;
-    @Bind(R.id.et_source)
+    @BindView(R.id.et_source)
     EditText etSource;
 
     @Override
