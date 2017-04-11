@@ -1,11 +1,12 @@
 package com.demo.wpq.mydemo.retrofit;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by gaohailong on 2016/5/17.
  */
-public class GanHuo {
+public class GanHuo implements Serializable{
     private boolean error;
     private List<Result> results;
 
@@ -25,7 +26,7 @@ public class GanHuo {
         this.results = results;
     }
 
-    public static class Result{
+    public static class Result implements Serializable{
         private String _id;
         private String createdAt;
         private String desc;
