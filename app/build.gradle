@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.demo.wpq.mydemo"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -19,6 +19,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
         }
     }
 
@@ -61,4 +67,7 @@ dependencies {
 
     compile 'com.jakewharton:butterknife:8.5.1'
     apt 'com.jakewharton:butterknife-compiler:8.5.1'
+
+    /*蓝牙模块*/
+    compile(name: 'bluetoothlibrary-1.0.1', ext: 'aar')
 }

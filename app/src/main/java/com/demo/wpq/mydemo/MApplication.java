@@ -16,11 +16,15 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
 
+import cn.cwkj.bluetooth.connect.BluetoothReceiver;
+
 public class MApplication extends Application {
 
     public static final String TAG = MApplication.class.getSimpleName();
 
     private static MApplication mInstance;
+
+    private BluetoothReceiver bluetoothReceiver;
 
     @Override
     protected void attachBaseContext(Context base) {
