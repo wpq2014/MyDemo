@@ -18,24 +18,24 @@ public final class MToastUtil {
 
     private MToastUtil() { /* cannot be instantiated */ }
 
-    public static void showToast(@NonNull Context context, @StringRes int resId) {
-        showToast(context, resId, Gravity.BOTTOM);
+    public static void show(@NonNull Context context, @StringRes int resId) {
+        show(context, resId, Gravity.BOTTOM);
     }
 
-    public static void showToast(@NonNull Context context, @StringRes int resId, int gravity) {
-        showToast(context, resId, Toast.LENGTH_SHORT, gravity);
+    public static void show(@NonNull Context context, @StringRes int resId, int gravity) {
+        show(context, resId, Toast.LENGTH_SHORT, gravity);
     }
 
-    public static void showToast(@NonNull Context context, @StringRes int resId, int duration, int gravity) {
-        showToast(context, context.getApplicationContext().getResources().getString(resId), duration, gravity);
+    public static void show(@NonNull Context context, @StringRes int resId, int duration, int gravity) {
+        show(context, context.getApplicationContext().getResources().getString(resId), duration, gravity);
     }
 
-    public static void showToast(@NonNull Context context, @NonNull String text) {
-        showToast(context, text, Gravity.BOTTOM);
+    public static void show(@NonNull Context context, @NonNull String text) {
+        show(context, text, Gravity.BOTTOM);
     }
 
-    public static void showToast(@NonNull Context context, @NonNull String text, int gravity) {
-        showToast(context, text, Toast.LENGTH_SHORT, gravity);
+    public static void show(@NonNull Context context, @NonNull String text, int gravity) {
+        show(context, text, Toast.LENGTH_SHORT, gravity);
     }
 
     /**
@@ -44,17 +44,38 @@ public final class MToastUtil {
      * @param context
      * @param text
      * @param duration
-     * @param gravity  {@link android.view.Gravity}
+     * @param gravity {@link android.view.Gravity}
      */
-    public static void showToast(@NonNull Context context, @NonNull String text, int duration, int gravity) {
+    public static void show(@NonNull Context context, @NonNull String text, int duration, int gravity) {
+        if (null == context) return;
+
         if (null == sToast) {
-            sToast = Toast.makeText(context.getApplicationContext(), text, duration);
+            sToast = Toast.makeText(context, text, duration);
         } else {
             sToast.setText(text);
             sToast.setDuration(duration);
         }
-        sToast.setGravity(gravity, 0, 0);
+        // Default Gravity: Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM
+        // Default yOffset = 64dip
+        int yOffset = 0;
+        switch (gravity) {
+            case Gravity.BOTTOM:
+                yOffset = dp2px(context, 64);
+                break;
+            case Gravity.CENTER:
+                yOffset = 0;
+                break;
+            case Gravity.TOP:
+                yOffset = dp2px(context, 64);
+                break;
+        }
+        sToast.setGravity(gravity, 0, yOffset);
         sToast.show();
+    }
+
+    private static int dp2px(Context context, float dipValue) {
+        float scale = context.getApplicationContext().getResources().getDisplayMetrics().density;
+        return (int) (scale * dipValue + 0.5f);
     }
 
 }

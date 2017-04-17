@@ -23,9 +23,13 @@ import com.demo.wpq.mydemo.customview.CustomViewActivity;
 import com.demo.wpq.mydemo.qrcode.CaptureActivity;
 import com.demo.wpq.mydemo.retrofit.RetrofitActivity;
 import com.demo.wpq.mydemo.todolist.TodoActivity;
+import com.demo.wpq.mydemo.utils.MToastUtil;
+import com.demo.wpq.mydemo.view.MaxLengthEditText;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private MaxLengthEditText mEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,13 @@ public class MainActivity extends AppCompatActivity
             }
         }).start();
 
+        mEditText = (MaxLengthEditText) findViewById(R.id.et_maxLength);
+        mEditText.addOnTextLengthWatcher(new MaxLengthEditText.OnTextLengthWatcher() {
+            @Override
+            public void onOverMaxLength() {
+                MToastUtil.show(MainActivity.this, "字数不能超过" + 20);
+            }
+        });
     }
 
     /**

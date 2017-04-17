@@ -23,7 +23,11 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private Paint mPaint;
 
     public DividerItemDecoration(Context context, int orientation) {
-        setOrientation(orientation);
+        if (orientation != HORIZONTAL && orientation != VERTICAL) {
+            throw new IllegalArgumentException("invalid orientation");
+        }
+        mOrientation = orientation;
+
         final TypedArray a = context.obtainStyledAttributes(ATTRS);
         mDivider = a.getDrawable(0);
         mDividerHeight = mDivider.getIntrinsicHeight();
@@ -31,24 +35,17 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     public DividerItemDecoration(Context context, int orientation, int drawableId) {
-        setOrientation(orientation);
+        this(context, orientation);
         mDivider = ContextCompat.getDrawable(context, drawableId);
         mDividerHeight = mDivider.getIntrinsicHeight();
     }
 
     public DividerItemDecoration(Context context, int orientation, int dividerColor, int dividerHeight) {
-        setOrientation(orientation);
+        this(context, orientation);
         mDividerHeight = dividerHeight;
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(dividerColor);
         mPaint.setStyle(Paint.Style.FILL);
-    }
-
-    public void setOrientation(int orientation) {
-        if (orientation != HORIZONTAL && orientation != VERTICAL) {
-            throw new IllegalArgumentException("invalid orientation");
-        }
-        mOrientation = orientation;
     }
 
     @Override

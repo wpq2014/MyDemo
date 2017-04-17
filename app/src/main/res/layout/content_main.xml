@@ -19,6 +19,13 @@
         android:layout_height="wrap_content"
         android:text="Hello World!" />
 
+    <com.demo.wpq.mydemo.view.MaxLengthEditText
+        android:id="@+id/et_maxLength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="20"
+        />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
