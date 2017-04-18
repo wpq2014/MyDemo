@@ -90,13 +90,11 @@
         <activity android:name=".customview.LinkedListViewActivity" android:label="@string/linkedListView" />
         <activity android:name=".customview.TreeViewActivity" android:label="@string/tree" />
         <activity android:name=".customview.SkewActivity" android:label="@string/skew" />
+        <activity android:name=".customview.KeepProportionImageViewActivity" android:label="@string/KeepProportionImageViewActivity"></activity>
         <activity android:name=".retrofit.RetrofitActivity" android:label="@string/retrofit" />
 
-        <activity
-            android:name=".TeethActivity"
-            android:label="@string/teeth"
-            >
-        </activity>
+        <activity android:name=".TeethActivity" android:label="@string/teeth"></activity>
+
 
         <service android:name=".RemoteService" android:process=":remote" />
         <activity android:name=".ClientActivity" android:label="@string/aidl" />

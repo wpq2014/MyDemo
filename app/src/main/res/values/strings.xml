@@ -24,6 +24,7 @@
     <string name="linkedListView">外卖菜单列表</string>
     <string name="tree">任意层级树</string>
     <string name="skew">skew斜切</string>
+    <string name="KeepProportionImageViewActivity">保持原图比例</string>
     <string name="left_text">left</string>
     <string name="right_text">right</string>
     <string name="title_text">title</string>
@@ -32,6 +33,7 @@
         <item>外卖菜单列表</item>
         <item>任意层级树</item>
         <item>skew斜切</item>
+        <item>保持原图比例</item>
     </string-array>
 
     <!-- 请求权限 -->

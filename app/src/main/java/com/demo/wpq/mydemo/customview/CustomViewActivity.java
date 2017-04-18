@@ -34,7 +34,7 @@ public class CustomViewActivity extends AppCompatActivity implements CustomAdapt
     @BindArray(R.array.customView_array)
     String[] array;
 
-    private Class<?>[] mClasses = {TopBarActivity.class, LinkedListViewActivity.class, TreeViewActivity.class, SkewActivity.class};
+    private Class<?>[] mClasses = {TopBarActivity.class, LinkedListViewActivity.class, TreeViewActivity.class, SkewActivity.class, KeepProportionImageViewActivity.class};
 
     private List<CustomBean> mList = new ArrayList<>();
     private CustomAdapter mCustomAdapter;

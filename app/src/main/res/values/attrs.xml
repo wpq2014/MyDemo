@@ -48,5 +48,9 @@
         <attr name="pzv_isParallax" format="boolean" />
         <attr name="pzv_zoomTime" format="integer" />
     </declare-styleable>
-    
+
+    <!-- ImageView按原图宽高比适配 -->
+    <declare-styleable name="KeepProportionImageView">
+        <attr name="width_to_height_radio" format="float|reference" />
+    </declare-styleable>
 </resources>
