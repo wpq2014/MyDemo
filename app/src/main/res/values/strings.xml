@@ -25,9 +25,9 @@
     <string name="tree">任意层级树</string>
     <string name="skew">skew斜切</string>
     <string name="KeepProportionImageViewActivity">保持原图比例</string>
-    <string name="left_text">left</string>
-    <string name="right_text">right</string>
-    <string name="title_text">title</string>
+    <string name="left_text">左边</string>
+    <string name="right_text">右边</string>
+    <string name="title_text">中间</string>
     <string-array name="customView_array">
         <item>简单自定义</item>
         <item>外卖菜单列表</item>

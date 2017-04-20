@@ -68,6 +68,15 @@ public class MApplication extends Application {
         // String
         ResponseBean<String> stringBean = gson.fromJson(jsonString, new TypeToken<ResponseBean<String>>() {}.getType());
         Log.e(TAG, stringBean.code + ", " + stringBean.msg + ", " + stringBean.data);
+
+        // 解析特殊key
+        String unnormalKey = "{\"_code\":0, \"消息\":\"请求失败\", \"0\":\"干货福利\", \"users\":{\"user107\":\"小明\", \"user834\":\"小亮\", \"user2384\":\"小红\"}}";
+        UnNormalJsonBean unNormalJsonBean = gson.fromJson(unnormalKey, UnNormalJsonBean.class);
+        Log.e(TAG, unNormalJsonBean.toString());
+        for (String key : unNormalJsonBean.users.keySet()) {
+            Log.e(TAG, key + unNormalJsonBean.users.get(key));
+        }
+
     }
 
 

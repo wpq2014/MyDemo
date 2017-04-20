@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- 自定义标题栏 -->
     <declare-styleable name="TopBar">
-        <attr name="tTitle" format="string"/>
-        <attr name="tTitleTextSize" format="dimension"/>
-        <attr name="tTitleTextColor" format="color"/>
-        <attr name="tLeftText" format="string"/>
-        <attr name="tLeftTextSize" format="dimension"/>
-        <attr name="tLeftTextColor" format="color"/>
-        <attr name="tLeftBackground" format="reference|color"/>
-        <attr name="tRightText" format="string"/>
-        <attr name="tRightTextSize" format="dimension"/>
-        <attr name="tRightTextColor" format="color"/>
-        <attr name="tRightBackground" format="reference|color"/>
-        <attr name="tRightVisible" format="boolean"/>
-
+        <!-- 中间标题 -->
+        <attr name="top_title" format="string"/>
+        <attr name="top_titleTextColor" format="color"/>
+        <attr name="top_titleTextSize" format="dimension"/>
+        <!-- 左边 -->
+        <attr name="top_leftPadding" format="dimension"/>
+        <attr name="top_leftImageSrc" format="reference" />
+        <attr name="top_leftText" format="string"/>
+        <attr name="top_leftTextSize" format="dimension"/>
+        <attr name="top_leftTextColor" format="color"/>
+        <attr name="top_leftBackground" format="reference|color"/>
+        <!-- 右边 -->
+        <attr name="top_rightPadding" format="dimension"/>
+        <attr name="top_rightImageSrc" format="reference" />
+        <attr name="top_rightText" format="string"/>
+        <attr name="top_rightTextSize" format="dimension"/>
+        <attr name="top_rightTextColor" format="color"/>
+        <attr name="top_rightBackground" format="reference|color"/>
+        <!-- 底部分割线 -->
+        <attr name="top_bottomLineDrawable" format="reference|color" />
+        <attr name="top_bottomLineHeight" format="dimension" />
     </declare-styleable>
 
     <!-- 有百分比的圆圈progressdialog -->
@@ -51,6 +60,6 @@
 
     <!-- ImageView按原图宽高比适配 -->
     <declare-styleable name="KeepProportionImageView">
-        <attr name="width_to_height_radio" format="float|reference" />
+        <attr name="width_to_height_radio" format="reference|float" />
     </declare-styleable>
 </resources>

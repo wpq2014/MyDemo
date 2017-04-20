@@ -1,6 +1,8 @@
 package com.demo.wpq.mydemo.customview;
 
 import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -19,11 +21,8 @@ import butterknife.ButterKnife;
  */
 public class TopBarActivity extends Activity {
 
-
     @BindView(R.id.topbar0)
     TopBar topbar0;
-    @BindView(R.id.topbar1)
-    TopBar topbar1;
     @BindView(R.id.directionView)
     DirectionView directionView;
     @BindView(R.id.marquee_textView)
@@ -37,29 +36,32 @@ public class TopBarActivity extends Activity {
 
         topbar0.setOnTopBarClickListener(new TopBar.OnTopBarClickListener() {
             @Override
-            public void onTopBarLeftButtonClick(View v) {
+            public void onTopBarLeftClicked(View v) {
                 Toast.makeText(TopBarActivity.this, "leftButton0 clicked", Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onTopBarRightButtonClick(View v) {
+            public void onTopBarRightClicked(View v) {
                 Toast.makeText(TopBarActivity.this, "rightButton0 clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
-
-
-        topbar1.setOnTopBarClickListener(new TopBar.OnTopBarClickListener() {
+        topbar0.postDelayed(new Runnable() {
             @Override
-            public void onTopBarLeftButtonClick(View v) {
-                Toast.makeText(TopBarActivity.this, "leftButton1 clicked", Toast.LENGTH_SHORT).show();
+            public void run() {
+                // 3s后改变topbar0
+                topbar0.setLeftImageViewResource(R.mipmap.ic_back);
+                topbar0.setLeftImageViewDrawable(getResources().getDrawable(R.mipmap.ic_share));
+                topbar0.setLeftBackground(new ColorDrawable(Color.GREEN));
+                topbar0.getLeftTextView().setVisibility(View.GONE);
+                topbar0.setLeftPadding(15);
+                topbar0.setTitle("我是标题");
+                topbar0.setTitleTextColor(Color.RED);
+                topbar0.getRightImageView().setVisibility(View.GONE);
+                topbar0.setRightText("呵呵哒");
+                topbar0.setRightTextColor(getResources().getColor(R.color.remind_bgcolor));
             }
-
-            @Override
-            public void onTopBarRightButtonClick(View v) {
-                Toast.makeText(TopBarActivity.this, "rightButton1 clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
+        }, 3000);
 
         directionView.setOnDirectionChangedListener(new DirectionView.OnDirectionChangedListener() {
             @Override

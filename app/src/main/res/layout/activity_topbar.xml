@@ -1,26 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/alpha_30_black"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
+              xmlns:top="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/alpha_30_black"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
 
     <com.demo.wpq.mydemo.customview.view.TopBar
         android:id="@+id/topbar0"
         android:layout_width="match_parent"
         android:layout_height="@dimen/topbar_height"
-        app:tLeftBackground="@drawable/topbar_button_bg_selector"
-        app:tLeftText="@string/left_text"
-        app:tRightBackground="@drawable/topbar_button_bg_selector"
-        app:tRightText="@string/right_text"
-        app:tTitle="@string/title_text" />
+        android:background="@android:color/black"
+        top:top_bottomLineDrawable="@android:color/holo_blue_light"
+        top:top_bottomLineHeight="3dp"
+        top:top_leftBackground="@android:color/holo_red_dark"
+        top:top_leftImageSrc="@mipmap/ic_back"
+        top:top_leftPadding="10dp"
+        top:top_leftText="返回"
+        top:top_rightBackground="@android:color/holo_red_dark"
+        top:top_rightImageSrc="@mipmap/ic_back"
+        top:top_rightText="分享"
+        top:top_title="标题0"
+        />
+
+    <com.demo.wpq.mydemo.customview.view.TopBar
+        android:id="@+id/topbar1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/topbar_height"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/holo_blue_dark"
+        top:top_bottomLineDrawable="@mipmap/banner_demo_img"
+        top:top_bottomLineHeight="5dp"
+        top:top_leftBackground="@android:color/holo_orange_dark"
+        top:top_leftImageSrc="@mipmap/ic_back"
+        top:top_rightBackground="@android:color/holo_orange_light"
+        top:top_rightText="分享"
+        top:top_rightTextColor="@android:color/holo_red_dark"
+        top:top_rightTextSize="16sp"
+        top:top_title="@string/customview"
+        top:top_titleTextColor="#00FF00"
+        top:top_titleTextSize="20sp"
+        />
+
+    <com.demo.wpq.mydemo.customview.view.TopBar
+        android:id="@+id/topbar2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/topbar_height"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/black"
+        top:top_leftBackground="@android:color/holo_red_dark"
+        top:top_leftPadding="10dp"
+        top:top_leftText="@string/left_text"
+        top:top_rightBackground="@android:color/holo_red_dark"
+        top:top_rightImageSrc="@mipmap/ic_share"
+        top:top_title="@string/title_text"
+        top:top_titleTextColor="@android:color/holo_red_light"
+        />
+
+    <com.demo.wpq.mydemo.customview.view.TopBar
+        android:id="@+id/topbar3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/topbar_height"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/holo_blue_dark"
+        top:top_leftBackground="@android:color/holo_orange_dark"
+        top:top_leftImageSrc="@mipmap/ic_back"
+        top:top_title="@string/customview"
+        top:top_titleTextColor="#00FF00"
+        top:top_titleTextSize="20sp"
+        />
 
     <com.demo.wpq.mydemo.customview.view.MarqueeTextView
         android:id="@+id/marquee_textView"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginTop="5dp"
         android:background="@color/remind_bgcolor"
         android:ellipsize="marquee"
         android:focusable="true"
@@ -32,23 +87,13 @@
         android:singleLine="true"
         android:text="滚滚长江东逝水，浪花淘尽英雄，是非成败转头空，青山依旧在，几度夕阳红；白发渔樵江渚上，惯看秋月春风，一壶浊酒喜相逢，古今多少事，都付笑谈中.."
         android:textColor="@color/remind_textcolor"
-        android:textSize="14sp" />
-
-    <com.demo.wpq.mydemo.customview.view.TopBar
-        android:id="@+id/topbar1"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/topbar_height"
-        app:tLeftBackground="@drawable/topbar_button_bg_selector"
-        app:tLeftText="@string/left_text"
-        app:tRightText="@string/right_text"
-        app:tRightVisible="false"
-        app:tTitle="@string/title_text" />
+        android:textSize="14sp"/>
 
     <com.demo.wpq.mydemo.customview.view.DirectionView
         android:id="@+id/directionView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:clickable="true" />
+        android:clickable="true"/>
 
 </LinearLayout>
