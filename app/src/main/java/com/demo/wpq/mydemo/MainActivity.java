@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity
                 MToastUtil.show(MainActivity.this, "字数不能超过" + 20);
             }
         });
+
     }
 
     /**
@@ -144,6 +145,10 @@ public class MainActivity extends AppCompatActivity
      */
     public void clickAIDL(View view){
         startActivity(new Intent(this, ClientActivity.class));
+    }
+
+    public void clickWebView(View view) {
+        startActivity(new Intent(this, WebActivity.class));
     }
 
     @Override

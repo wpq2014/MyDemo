@@ -47,8 +47,6 @@ public final class MToastUtil {
      * @param gravity {@link android.view.Gravity}
      */
     public static void show(@NonNull Context context, @NonNull String text, int duration, int gravity) {
-        if (null == context) return;
-
         if (null == sToast) {
             sToast = Toast.makeText(context, text, duration);
         } else {

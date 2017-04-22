@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- 自定义标题栏 -->
+    <!-- 自定义标题栏，标题在中间，代码中创建布局 -->
     <declare-styleable name="TopBar">
         <!-- 中间标题 -->
         <attr name="top_title" format="string"/>
@@ -9,21 +9,30 @@
         <attr name="top_titleTextSize" format="dimension"/>
         <!-- 左边 -->
         <attr name="top_leftPadding" format="dimension"/>
-        <attr name="top_leftImageSrc" format="reference" />
+        <attr name="top_leftImageSrc" format="reference"/>
         <attr name="top_leftText" format="string"/>
         <attr name="top_leftTextSize" format="dimension"/>
         <attr name="top_leftTextColor" format="color"/>
         <attr name="top_leftBackground" format="reference|color"/>
         <!-- 右边 -->
         <attr name="top_rightPadding" format="dimension"/>
-        <attr name="top_rightImageSrc" format="reference" />
+        <attr name="top_rightImageSrc" format="reference"/>
         <attr name="top_rightText" format="string"/>
         <attr name="top_rightTextSize" format="dimension"/>
         <attr name="top_rightTextColor" format="color"/>
         <attr name="top_rightBackground" format="reference|color"/>
         <!-- 底部分割线 -->
-        <attr name="top_bottomLineDrawable" format="reference|color" />
-        <attr name="top_bottomLineHeight" format="dimension" />
+        <attr name="top_bottomLineDrawable" format="reference|color"/>
+        <attr name="top_bottomLineHeight" format="dimension"/>
+    </declare-styleable>
+
+    <!-- 自定义标题栏，标题在中间，引用xml布局 -->
+    <declare-styleable name="CommonTitleBar">
+        <!-- 中间标题 -->
+        <attr name="tb_title" format="string"/>
+        <!-- 右边 -->
+        <attr name="tb_rightImageSrc" format="reference"/>
+        <attr name="tb_rightText" format="string"/>
     </declare-styleable>
 
     <!-- 有百分比的圆圈progressdialog -->
@@ -52,14 +61,14 @@
     </declare-styleable>
 
     <declare-styleable name="PullZoomView">
-        <attr name="pzv_sensitive" format="float" />
-        <attr name="pzv_isZoomEnable" format="boolean" />
-        <attr name="pzv_isParallax" format="boolean" />
-        <attr name="pzv_zoomTime" format="integer" />
+        <attr name="pzv_sensitive" format="float"/>
+        <attr name="pzv_isZoomEnable" format="boolean"/>
+        <attr name="pzv_isParallax" format="boolean"/>
+        <attr name="pzv_zoomTime" format="integer"/>
     </declare-styleable>
 
     <!-- ImageView按原图宽高比适配 -->
     <declare-styleable name="KeepProportionImageView">
-        <attr name="width_to_height_radio" format="reference|float" />
+        <attr name="width_to_height_radio" format="reference|float"/>
     </declare-styleable>
 </resources>

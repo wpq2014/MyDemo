@@ -53,4 +53,7 @@
     <!-- 牙 -->
     <string name="teeth">牙</string>
 
+    <!-- WebView -->
+    <string name="webView">WebView</string>
+
 </resources>

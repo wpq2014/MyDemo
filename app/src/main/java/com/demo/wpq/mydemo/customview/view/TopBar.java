@@ -15,8 +15,8 @@ import android.widget.TextView;
 import com.demo.wpq.mydemo.R;
 
 /**
- * Desc: 自定义标题栏（标题在中间）
- * <p>
+ * Desc: 自定义标题栏，标题在中间，代码中创建布局
+ *
  * Created by wpq on 16/7/11.
  */
 public class TopBar extends FrameLayout {

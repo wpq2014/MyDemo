@@ -51,4 +51,9 @@
 
     <color name="remind_bgcolor">#feefb6</color>
     <color name="remind_textcolor">#ff7300</color>
+
+    <!-- 标题栏 -->
+    <color name="back_bg_normal">#3596dd</color>
+    <color name="back_bg_pressed">#1b75b7</color>
+
 </resources>

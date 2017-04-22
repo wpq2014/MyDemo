@@ -94,6 +94,8 @@
         <activity android:name=".retrofit.RetrofitActivity" android:label="@string/retrofit" />
 
         <activity android:name=".TeethActivity" android:label="@string/teeth"></activity>
+        <activity android:name=".WebActivity" android:label="@string/webView"></activity>
+
 
 
         <service android:name=".RemoteService" android:process=":remote" />

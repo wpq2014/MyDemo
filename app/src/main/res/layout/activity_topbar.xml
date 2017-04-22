@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:top="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/alpha_30_black"
-              android:gravity="center_horizontal"
-              android:orientation="vertical">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:top="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/alpha_30_black"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <com.demo.wpq.mydemo.customview.view.TopBar
         android:id="@+id/topbar0"
@@ -71,6 +72,30 @@
         top:top_titleTextSize="20sp"
         />
 
+    <com.demo.wpq.mydemo.customview.view.CommonTitleBar
+        android:id="@+id/commonTitleBar0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        top:tb_rightImageSrc="@mipmap/ic_share"
+        top:tb_title="呵呵哒"/>
+
+    <com.demo.wpq.mydemo.customview.view.CommonTitleBar
+        android:id="@+id/commonTitleBar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        top:tb_rightText="历史记录"
+        top:tb_title="呵呵哒"/>
+
+    <com.demo.wpq.mydemo.customview.view.CommonTitleBar
+        android:id="@+id/commonTitleBar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        top:tb_rightText="保存"
+        top:tb_title="呵呵哒"/>
+
     <com.demo.wpq.mydemo.customview.view.MarqueeTextView
         android:id="@+id/marquee_textView"
         android:layout_width="match_parent"
@@ -93,7 +118,7 @@
         android:id="@+id/directionView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="30dp"
         android:clickable="true"/>
 
 </LinearLayout>

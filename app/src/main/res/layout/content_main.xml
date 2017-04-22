@@ -73,4 +73,10 @@
         android:layout_height="wrap_content"
         android:onClick="clickTeeth"
         android:text="@string/teeth"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickWebView"
+        android:text="@string/webView"/>
 </LinearLayout>

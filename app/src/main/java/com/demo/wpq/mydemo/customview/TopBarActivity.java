@@ -5,12 +5,15 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.demo.wpq.mydemo.R;
+import com.demo.wpq.mydemo.customview.view.CommonTitleBar;
 import com.demo.wpq.mydemo.customview.view.DirectionView;
 import com.demo.wpq.mydemo.customview.view.MarqueeTextView;
 import com.demo.wpq.mydemo.customview.view.TopBar;
+import com.demo.wpq.mydemo.utils.MToastUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +26,8 @@ public class TopBarActivity extends Activity {
 
     @BindView(R.id.topbar0)
     TopBar topbar0;
+    @BindView(R.id.commonTitleBar1)
+    CommonTitleBar commonTitleBar1;
     @BindView(R.id.directionView)
     DirectionView directionView;
     @BindView(R.id.marquee_textView)
@@ -62,6 +67,21 @@ public class TopBarActivity extends Activity {
                 topbar0.setRightTextColor(getResources().getColor(R.color.remind_bgcolor));
             }
         }, 3000);
+
+        commonTitleBar1.setSplitLineBackground(new ColorDrawable(Color.RED))
+                .setSplitLineHeight(5)
+                .setOnTitleBarLeftClickListener(new CommonTitleBar.OnTitleBarClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MToastUtil.show(TopBarActivity.this, "返回");
+                    }
+                })
+                .setOnTitleBarRightTextClickListener(new CommonTitleBar.OnTitleBarClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        MToastUtil.show(TopBarActivity.this, ((TextView) view).getText().toString());
+                    }
+                });
 
         directionView.setOnDirectionChangedListener(new DirectionView.OnDirectionChangedListener() {
             @Override
