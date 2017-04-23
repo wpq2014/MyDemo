@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         top:tb_rightImageSrc="@mipmap/ic_share"
-        top:tb_title="呵呵哒"/>
+        top:tb_centerText="呵呵哒"/>
 
     <com.demo.wpq.mydemo.customview.view.CommonTitleBar
         android:id="@+id/commonTitleBar1"
@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         top:tb_rightText="历史记录"
-        top:tb_title="呵呵哒"/>
+        top:tb_centerText="呵呵哒"/>
 
     <com.demo.wpq.mydemo.customview.view.CommonTitleBar
         android:id="@+id/commonTitleBar2"
@@ -94,7 +94,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         top:tb_rightText="保存"
-        top:tb_title="呵呵哒"/>
+        top:tb_centerText="呵呵哒"
+        top:tb_centerImageSrc="@drawable/ic_arrow_down_white"/>
 
     <com.demo.wpq.mydemo.customview.view.MarqueeTextView
         android:id="@+id/marquee_textView"

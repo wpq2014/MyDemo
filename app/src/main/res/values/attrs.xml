@@ -28,8 +28,9 @@
 
     <!-- 自定义标题栏，标题在中间，引用xml布局 -->
     <declare-styleable name="CommonTitleBar">
-        <!-- 中间标题 -->
-        <attr name="tb_title" format="string"/>
+        <!-- 中间 -->
+        <attr name="tb_centerText" format="string"/>
+        <attr name="tb_centerImageSrc" format="reference"/>
         <!-- 右边 -->
         <attr name="tb_rightImageSrc" format="reference"/>
         <attr name="tb_rightText" format="string"/>

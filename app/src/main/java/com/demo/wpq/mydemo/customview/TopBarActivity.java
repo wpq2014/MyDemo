@@ -26,8 +26,12 @@ public class TopBarActivity extends Activity {
 
     @BindView(R.id.topbar0)
     TopBar topbar0;
+    @BindView(R.id.commonTitleBar0)
+    CommonTitleBar commonTitleBar0;
     @BindView(R.id.commonTitleBar1)
     CommonTitleBar commonTitleBar1;
+    @BindView(R.id.commonTitleBar2)
+    CommonTitleBar commonTitleBar2;
     @BindView(R.id.directionView)
     DirectionView directionView;
     @BindView(R.id.marquee_textView)
@@ -68,20 +72,26 @@ public class TopBarActivity extends Activity {
             }
         }, 3000);
 
-        commonTitleBar1.setSplitLineBackground(new ColorDrawable(Color.RED))
+        commonTitleBar0.setCenterTextColor(Color.RED)
+                .setCenterTextSize(20)
+                .setLeftImageLayoutVisibility(View.GONE);
+        commonTitleBar1.setCenterText("搜索")
+                .setSplitLineBackground(new ColorDrawable(Color.RED))
                 .setSplitLineHeight(5)
-                .setOnTitleBarLeftClickListener(new CommonTitleBar.OnTitleBarClickListener() {
+                .setRightTextEnabled(true)
+                .setOnLeftImageClickListener(new CommonTitleBar.OnTitleBarClickListener() {
                     @Override
                     public void onClick(View view) {
                         MToastUtil.show(TopBarActivity.this, "返回");
                     }
                 })
-                .setOnTitleBarRightTextClickListener(new CommonTitleBar.OnTitleBarClickListener() {
+                .setOnRightTextClickListener(new CommonTitleBar.OnTitleBarClickListener() {
                     @Override
                     public void onClick(View view) {
                         MToastUtil.show(TopBarActivity.this, ((TextView) view).getText().toString());
                     }
                 });
+        commonTitleBar2.setRightTextVisibility(View.GONE);
 
         directionView.setOnDirectionChangedListener(new DirectionView.OnDirectionChangedListener() {
             @Override

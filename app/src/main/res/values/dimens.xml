@@ -12,4 +12,6 @@
     <dimen name="topbar_title_textsize">18dp</dimen>
     <dimen name="topbar_left_textsize">15dp</dimen>
 
+    <!-- CommonTitleBar height -->
+    <dimen name="common_title_bar_height">50dp</dimen>
 </resources>
