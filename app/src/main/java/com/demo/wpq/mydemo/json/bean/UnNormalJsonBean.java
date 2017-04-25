@@ -1,4 +1,4 @@
-package com.demo.wpq.mydemo;
+package com.demo.wpq.mydemo.json.bean;
 
 import com.google.gson.annotations.SerializedName;
 

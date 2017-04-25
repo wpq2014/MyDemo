@@ -95,7 +95,6 @@ public final class MLogUtil {
                 case Log.ERROR:
                     Log.e(TAG, msg, t);
                     break;
-
                 default:
                     Log.v(TAG, msg, t);
                     break;

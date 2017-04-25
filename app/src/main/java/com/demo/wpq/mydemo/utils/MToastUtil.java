@@ -71,9 +71,9 @@ public final class MToastUtil {
         sToast.show();
     }
 
-    private static int dp2px(Context context, float dipValue) {
+    private static int dp2px(Context context, float dpValue) {
         float scale = context.getApplicationContext().getResources().getDisplayMetrics().density;
-        return (int) (scale * dipValue + 0.5f);
+        return (int) (scale * dpValue + 0.5f);
     }
 
 }

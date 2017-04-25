@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.demo.wpq.mydemo.json.bean.ResponseBean;
 import com.demo.wpq.mydemo.json.bean.ResultBean;
+import com.demo.wpq.mydemo.json.bean.UnNormalJsonBean;
 import com.demo.wpq.mydemo.retrofit.RetrofitManager;
 import com.demo.wpq.mydemo.utils.CrashUtils;
 import com.demo.wpq.mydemo.utils.Utils;

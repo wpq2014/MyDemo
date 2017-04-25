@@ -2,6 +2,8 @@ package com.demo.wpq.mydemo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -26,8 +28,12 @@ import com.demo.wpq.mydemo.todolist.TodoActivity;
 import com.demo.wpq.mydemo.utils.MToastUtil;
 import com.demo.wpq.mydemo.view.MaxLengthEditText;
 
+import java.lang.ref.WeakReference;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public static final String TAG = MainActivity.class.getSimpleName();
 
     private MaxLengthEditText mEditText;
 
@@ -81,7 +87,50 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        final Handler mHandler = new Handler();
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e(TAG, "呵呵哒");
+                    }
+                }, 80);
+            }
+        }, 70);
+
+        MHandler mHandler2 = new MHandler(this);
+        mHandler2.sendMessage(mHandler2.obtainMessage(0));
+
+        mHandler3.sendMessage(mHandler3.obtainMessage(0));
     }
+
+    private static class MHandler extends Handler{
+        WeakReference<MainActivity> mWeakReference;
+
+        public MHandler(MainActivity mainActivity) {
+            mWeakReference = new WeakReference<>(mainActivity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (null != mWeakReference) {
+                Log.e(TAG, "hello");
+                sendMessageDelayed(obtainMessage(0), 1000);
+            }
+        }
+    }
+
+    private Handler mHandler3 = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            Log.e(TAG, "mHandler3");
+            sendMessageDelayed(obtainMessage(0), 1000);
+        }
+    };
 
     /**
      * 动画
