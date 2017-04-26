@@ -11,13 +11,13 @@ import java.util.regex.Pattern;
  * @author wpq
  * @version 1.0
  */
-public class TestJsonTool {
+public class TestJSONTool {
 
     static String json1 = "{\"users\":{\"user107\":\"小明\", \"user834\":\"小亮\", \"user2384\":\"小红\"}, \"ids\":[1, 2, 3, 4, 5], \"objectBean\":{\"msg\":\"hello\", \"objectChild\":{\"name\":\"雷布斯\"}, \"list\":[{\"name\":\"雷布斯\"}, {\"name\":\"马斯克\"}]}, \"error\": false, \"results\":[{\"listChild\":[{\"age\":666}, {\"age\":999}], \"type\":\"福利\", \"who\":\"代码家\", \"resultChild\":{\"child\":\"呵呵哒\"}}]}";
     static String json2 = "{error: false, results:[{type:福利, who:武普泉}]}";
 
     public static void main(String[] args) {
-        Bean1 bean1 = JsonUtil.parseObject(json1, Bean1.class);
+        Bean1 bean1 = JSONUtil.parseObject(json1, Bean1.class);
 
         // 动态key
         JSONObject userObj = bean1.users;
@@ -45,6 +45,9 @@ public class TestJsonTool {
             }
             System.out.println(result.type + ", " + result.who + "，" + result.resultChild.child);
         }
+
+        // json2bean
+        System.out.println(JSONUtil.objectToJson(bean1));
 
         // 正则 打印所有key
         final String regex = "\"([^\\\" ]+?)\":";

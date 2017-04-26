@@ -23,7 +23,7 @@ public class Test {
         GanHuo ganHuo = JSON.parseObject(json, GanHuo.class);
         System.err.println(ganHuo.getResults().get(0).getType());
 
-//        GanHuo ganHuo2 = JsonUtil.toBean(json, GanHuo.class);
+//        GanHuo ganHuo2 = JSONUtil.toBean(json, GanHuo.class);
 //        System.err.println(ganHuo.getResults().get(0).getWho());
 
         GanHuo ganHuo3 = new GanHuo();
@@ -36,7 +36,7 @@ public class Test {
         ganHuo3.setResults(list);
         String json3 = JSON.toJSONString(ganHuo3);
         System.err.println(json3);
-//        GanHuo ganHuo4 = JsonUtil.toBean(json3, GanHuo.class);
+//        GanHuo ganHuo4 = JSONUtil.toBean(json3, GanHuo.class);
 //        System.err.println(ganHuo4.getResults().get(0).getWho());
 
         try {
