@@ -1,4 +1,4 @@
-package com.demo.wpq.mydemo.json.custom;
+package com.demo.wpq.mydemo.json.util;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -266,7 +266,7 @@ public final class JsonUtil {
                 default: {
                     try {
                         sb.append("\"").append(name).append("\":");
-                        sb.append("{");
+//                        sb.append("{");
                         sb.append(objectToJson(field.get(t)));
                         sb.setCharAt(sb.length() - 1, '}');
                         sb.append(",");
