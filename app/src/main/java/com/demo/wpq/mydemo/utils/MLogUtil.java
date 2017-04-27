@@ -101,4 +101,13 @@ public final class MLogUtil {
             }
         }
     }
+
+    /**
+     * log的详细信息：当前类名__方法名__行数
+     * @return
+     */
+    private static String getLogCurrentMsg() {
+        StackTraceElement[] elements = new Throwable().getStackTrace();
+        return elements[3].getClassName() + " > " + elements[3].getMethodName() + " > " + elements[3].getLineNumber();
+    }
 }

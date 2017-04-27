@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (null != mWeakReference) {
-                Log.e(TAG, "hello");
+//                Log.e(TAG, "hello");
                 sendMessageDelayed(obtainMessage(0), 1000);
             }
         }
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            Log.e(TAG, "mHandler3");
+//            Log.e(TAG, "mHandler3");
             sendMessageDelayed(obtainMessage(0), 1000);
         }
     };
