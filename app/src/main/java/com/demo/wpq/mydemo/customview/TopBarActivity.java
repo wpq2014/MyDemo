@@ -46,12 +46,12 @@ public class TopBarActivity extends Activity {
         topbar0.setOnTopBarClickListener(new TopBar.OnTopBarClickListener() {
             @Override
             public void onTopBarLeftClicked(View v) {
-                Toast.makeText(TopBarActivity.this, "leftButton0 clicked", Toast.LENGTH_SHORT).show();
+                MToastUtil.show("leftButton0 clicked");
             }
 
             @Override
             public void onTopBarRightClicked(View v) {
-                Toast.makeText(TopBarActivity.this, "rightButton0 clicked", Toast.LENGTH_SHORT).show();
+                MToastUtil.show("rightButton0 clicked");
             }
         });
 
@@ -82,13 +82,13 @@ public class TopBarActivity extends Activity {
                 .setOnLeftImageClickListener(new CommonTitleBar.OnTitleBarClickListener() {
                     @Override
                     public void onClick(View view) {
-                        MToastUtil.show(TopBarActivity.this, "返回");
+                        MToastUtil.show("返回");
                     }
                 })
                 .setOnRightTextClickListener(new CommonTitleBar.OnTitleBarClickListener() {
                     @Override
                     public void onClick(View view) {
-                        MToastUtil.show(TopBarActivity.this, ((TextView) view).getText().toString());
+                        MToastUtil.show(((TextView) view).getText().toString());
                     }
                 });
         commonTitleBar2.setRightTextVisibility(View.GONE);

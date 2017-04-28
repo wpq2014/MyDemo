@@ -10,6 +10,7 @@ import com.demo.wpq.mydemo.json.bean.ResultBean;
 import com.demo.wpq.mydemo.json.bean.UnNormalJsonBean;
 import com.demo.wpq.mydemo.retrofit.RetrofitManager;
 import com.demo.wpq.mydemo.utils.CrashUtils;
+import com.demo.wpq.mydemo.utils.MToastUtil;
 import com.demo.wpq.mydemo.utils.Utils;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.gson.Gson;
@@ -37,6 +38,9 @@ public class MApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+
+        // init MToastUtil
+        MToastUtil.init(this);
 
         Fresco.initialize(this);
         RetrofitManager.init(this);
