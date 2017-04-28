@@ -91,7 +91,7 @@ public final class MToastUtil {
 
     private static void checkArgument() {
         if (sApplicationContext == null) {
-            throw new IllegalArgumentException("sApplicationContext can not be null");
+            throw new IllegalArgumentException("sApplicationContext can not be null, please call MToastUtil.init() in Application#onCreate()");
         }
     }
 
