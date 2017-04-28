@@ -28,7 +28,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -96,7 +97,9 @@
         <activity android:name=".TeethActivity" android:label="@string/teeth"></activity>
         <activity android:name=".WebActivity" android:label="@string/webView"></activity>
 
-
+        <!-- eventbus -->
+        <activity android:name=".eventbus.FirstActivity" android:label="@string/eventbus_first"/>
+        <activity android:name=".eventbus.SecondActivity" android:label="@string/eventbus_second"/>
 
         <service android:name=".RemoteService" android:process=":remote" />
         <activity android:name=".ClientActivity" android:label="@string/aidl" />

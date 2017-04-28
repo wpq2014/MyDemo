@@ -22,6 +22,7 @@ import com.alibaba.fastjson.JSON;
 import com.demo.wpq.mydemo.animation.AnimationActivity;
 import com.demo.wpq.mydemo.bean.HotBean;
 import com.demo.wpq.mydemo.customview.CustomViewActivity;
+import com.demo.wpq.mydemo.eventbus.FirstActivity;
 import com.demo.wpq.mydemo.qrcode.CaptureActivity;
 import com.demo.wpq.mydemo.retrofit.RetrofitActivity;
 import com.demo.wpq.mydemo.todolist.TodoActivity;
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity
         mHandler2.sendMessage(mHandler2.obtainMessage(0));
 
         mHandler3.sendMessage(mHandler3.obtainMessage(0));
+
     }
 
     private static class MHandler extends Handler{
@@ -198,6 +200,14 @@ public class MainActivity extends AppCompatActivity
 
     public void clickWebView(View view) {
         startActivity(new Intent(this, WebActivity.class));
+    }
+
+    /**
+     * EventBus
+     * @param view
+     */
+    public void clickEventBus(View view) {
+        startActivity(new Intent(this, FirstActivity.class));
     }
 
     @Override

@@ -25,7 +25,7 @@ public class SkewActivity extends BaseAppCompatActivity {
     }
 
     @Override
-    public void initViewsAndEvents(Bundle savedInstanceState) {
+    public void init(Bundle savedInstanceState) {
 
     }
 

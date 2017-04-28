@@ -56,4 +56,9 @@
     <!-- WebView -->
     <string name="webView">WebView</string>
 
+    <!-- eventbus -->
+    <string name="eventbus">EventBus</string>
+    <string name="eventbus_first">订阅者Subscriber</string>
+    <string name="eventbus_second">发布者Publisher</string>
+
 </resources>
