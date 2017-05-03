@@ -24,6 +24,7 @@ import com.demo.wpq.mydemo.bean.HotBean;
 import com.demo.wpq.mydemo.customview.CustomViewActivity;
 import com.demo.wpq.mydemo.eventbus.FirstActivity;
 import com.demo.wpq.mydemo.qrcode.CaptureActivity;
+import com.demo.wpq.mydemo.recyclerview.ComplexRecyclerViewActivity;
 import com.demo.wpq.mydemo.retrofit.RetrofitActivity;
 import com.demo.wpq.mydemo.todolist.TodoActivity;
 import com.demo.wpq.mydemo.utils.MToastUtil;
@@ -208,6 +209,14 @@ public class MainActivity extends AppCompatActivity
      */
     public void clickEventBus(View view) {
         startActivity(new Intent(this, FirstActivity.class));
+    }
+
+    /**
+     * RecyclerView
+     * @param view
+     */
+    public void clickRecyclerView(View view) {
+        startActivity(new Intent(this, ComplexRecyclerViewActivity.class));
     }
 
     @Override

@@ -101,6 +101,9 @@
         <activity android:name=".eventbus.FirstActivity" android:label="@string/eventbus_first"/>
         <activity android:name=".eventbus.SecondActivity" android:label="@string/eventbus_second"/>
 
+        <!-- 复杂的RecyclerView -->
+        <activity android:name=".recyclerview.ComplexRecyclerViewActivity" android:label="@string/recyclerView" />
+
         <service android:name=".RemoteService" android:process=":remote" />
         <activity android:name=".ClientActivity" android:label="@string/aidl" />
     </application>

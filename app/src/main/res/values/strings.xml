@@ -61,4 +61,6 @@
     <string name="eventbus_first">订阅者Subscriber</string>
     <string name="eventbus_second">发布者Publisher</string>
 
+    <!-- RecyclerView -->
+    <string name="recyclerView">RecyclerView</string>
 </resources>

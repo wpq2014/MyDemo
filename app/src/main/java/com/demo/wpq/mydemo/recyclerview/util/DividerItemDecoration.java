@@ -1,4 +1,4 @@
-package com.demo.wpq.mydemo.recyclerview;
+package com.demo.wpq.mydemo.recyclerview.util;
 
 import android.content.Context;
 import android.content.res.TypedArray;

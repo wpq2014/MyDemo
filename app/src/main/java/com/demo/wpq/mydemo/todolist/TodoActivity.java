@@ -13,7 +13,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.demo.wpq.mydemo.R;
-import com.demo.wpq.mydemo.recyclerview.DividerItemDecoration;
+import com.demo.wpq.mydemo.recyclerview.util.DividerItemDecoration;
 import com.demo.wpq.mydemo.todolist.adapter.TodoAdapter;
 import com.demo.wpq.mydemo.todolist.model.Todo;
 import com.demo.wpq.mydemo.todolist.model.TodoList;
