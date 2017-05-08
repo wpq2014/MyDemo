@@ -21,45 +21,21 @@ import com.facebook.drawee.view.SimpleDraweeView;
  */
 public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
 
+    private Context context;
+    private TodoList todoList;
+    private OnTodoListener onTodoListener;
+
     public interface OnTodoListener {
         void onItemChecked(Todo todo);
 
         void onItemDelete(Todo todo);
     }
 
-    private OnTodoListener onTodoListener;
-
     public void setOnTodoListener(OnTodoListener onTodoListener) {
         this.onTodoListener = onTodoListener;
     }
 
-    private Context context;
-    private TodoList todoList;
-
-    public TodoAdapter(Context context, TodoList todoList) {
-        this.context = context;
-        this.todoList = todoList;
-    }
-
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.todo_item, null);
-        return new ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Todo todo = todoList.getDisplayList().get(position);
-        holder.tvTitle.setText(todo.getTitle());
-        holder.checkBox.setChecked(todo.isFinished());
-    }
-
-    @Override
-    public int getItemCount() {
-        return todoList.getDisplayList().size();
-    }
-
-    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    static class ViewHolder extends RecyclerView.ViewHolder {
 
         SimpleDraweeView avatar1;
         CheckBox checkBox;
@@ -73,30 +49,50 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder> {
             checkBox = (CheckBox) itemView.findViewById(R.id.checkbox);
             tvTitle = (TextView) itemView.findViewById(R.id.tv_title);
             ivDelete = (ImageView) itemView.findViewById(R.id.img_delete);
-
-            avatar1.setOnClickListener(this);
-            checkBox.setOnClickListener(this);
-            ivDelete.setOnClickListener(this);
         }
 
-        @Override
-        public void onClick(View v) {
-            if (null == onTodoListener) {
-                return;
-            }
-            switch (v.getId()) {
-                case R.id.avatar1:
-                    Toast.makeText(context, "monkey " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.checkbox: {
-                    onTodoListener.onItemChecked(todoList.getDisplayList().get(getAdapterPosition()));
-                    break;
-                }
-                case R.id.img_delete: {
-                    onTodoListener.onItemDelete(todoList.getDisplayList().get(getAdapterPosition()));
-                    break;
-                }
-            }
-        }
     }
+
+    public TodoAdapter(Context context, TodoList todoList) {
+        this.context = context;
+        this.todoList = todoList;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.todo_item, null);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        holder.avatar1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "monkey " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onTodoListener.onItemChecked(todoList.getDisplayList().get(position));
+            }
+        });
+        holder.ivDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onTodoListener.onItemDelete(todoList.getDisplayList().get(position));
+            }
+        });
+
+        Todo todo = todoList.getDisplayList().get(position);
+        holder.tvTitle.setText(todo.getTitle());
+        holder.checkBox.setChecked(todo.isFinished());
+    }
+
+    @Override
+    public int getItemCount() {
+        return todoList.getDisplayList().size();
+    }
+
 }

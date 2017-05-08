@@ -6,12 +6,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
 
 /**
  * @author wpq
  * @version 1.0
  */
-public class HorizontalRecyclerView extends RecyclerView {
+public class HorizontalRecyclerView extends RecyclerView implements View.OnTouchListener{
 
     private float xDistance;
     private float yDistance;
@@ -39,37 +40,51 @@ public class HorizontalRecyclerView extends RecyclerView {
         setLayoutManager(linearLayoutManager);
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        return super.dispatchTouchEvent(ev);
-    }
-
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent e) {
-
-        return super.onInterceptTouchEvent(e);
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent e) {
-//        switch (e.getAction()) {
-//            case MotionEvent.ACTION_DOWN:
-//                xDistance = yDistance = 0f;
-//                xLast = e.getX();
-//                yLast = e.getY();
-//                break;
-//            case MotionEvent.ACTION_MOVE:
-//                final float xCurr = e.getX();
-//                final float yCurr = e.getY();
+//    @Override
+//    public boolean dispatchTouchEvent(MotionEvent ev) {
+//        return super.dispatchTouchEvent(ev);
+//    }
 //
-//                xDistance += Math.abs(xCurr - xLast);
-//                yDistance += Math.abs(yCurr - yLast);
+//    @Override
+//    public boolean onInterceptTouchEvent(MotionEvent e) {
 //
-//                if (xDistance > yDistance) {
-//                    return true;
-//                }
-//                break;
-//        }
-        return super.onTouchEvent(e);
+//        return super.onInterceptTouchEvent(e);
+//    }
+//
+//    @Override
+//    public boolean onTouchEvent(MotionEvent e) {
+////        switch (e.getAction()) {
+////            case MotionEvent.ACTION_DOWN:
+////                xDistance = yDistance = 0f;
+////                xLast = e.getX();
+////                yLast = e.getY();
+////                break;
+////            case MotionEvent.ACTION_MOVE:
+////                final float xCurr = e.getX();
+////                final float yCurr = e.getY();
+////
+////                xDistance += Math.abs(xCurr - xLast);
+////                yDistance += Math.abs(yCurr - yLast);
+////
+////                if (xDistance > yDistance) {
+////                    return true;
+////                }
+////                break;
+////        }
+//        return super.onTouchEvent(e);
+//    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                getParent().requestDisallowInterceptTouchEvent(true);
+                break;
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+                getParent().requestDisallowInterceptTouchEvent(false);
+                break;
+        }
+        return true;
     }
 }
