@@ -25,6 +25,11 @@ public class SkewActivity extends BaseAppCompatActivity {
     }
 
     @Override
+    public String getToolBarTitle() {
+        return getString(R.string.skew);
+    }
+
+    @Override
     public void init(Bundle savedInstanceState) {
 
     }

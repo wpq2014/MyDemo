@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/left_listview"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="9"
-        android:background="#eeeeee"
-        android:scrollbars="none"></ListView>
+    <include layout="@layout/view_toolbar"/>
 
-    <com.demo.wpq.mydemo.customview.view.PinnedHeaderListView
-        android:id="@+id/pinnedheader_listview"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="20"
-        android:background="#ffffff"></com.demo.wpq.mydemo.customview.view.PinnedHeaderListView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/left_listview"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:background="#eeeeee"
+            android:scrollbars="none" />
+
+        <com.demo.wpq.mydemo.customview.view.PinnedHeaderListView
+            android:id="@+id/pinnedheader_listview"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:background="#ffffff" />
+    </LinearLayout>
 
 </LinearLayout>

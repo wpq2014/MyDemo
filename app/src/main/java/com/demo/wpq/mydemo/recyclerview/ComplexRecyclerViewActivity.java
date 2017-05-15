@@ -39,6 +39,11 @@ public class ComplexRecyclerViewActivity extends BaseAppCompatActivity {
     }
 
     @Override
+    public String getToolBarTitle() {
+        return getString(R.string.recyclerView);
+    }
+
+    @Override
     public void init(@Nullable Bundle savedInstanceState) {
         for (int i = 0; i < 3; i++) {
             mFragments.add(new ComplexRecyclerViewFragment());

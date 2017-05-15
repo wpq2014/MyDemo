@@ -4,11 +4,16 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.TextView;
 
+import com.demo.wpq.mydemo.R;
 import com.demo.wpq.mydemo.eventbus.BindEventBus;
 
 import org.greenrobot.eventbus.EventBus;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -16,6 +21,11 @@ import butterknife.ButterKnife;
  */
 
 public abstract class BaseAppCompatActivity extends AppCompatActivity implements IBaseActivity{
+
+    @BindView(R.id.toolbar)
+    protected Toolbar mToolbar;
+    @BindView(R.id.tv_title)
+    protected TextView mTvTitle; // 中间的标题
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,17 +37,17 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
             getBundleExtras(bundle);
         }
 
+        // init EventBus
+        if (this.getClass().isAnnotationPresent(BindEventBus.class)) {
+            EventBus.getDefault().register(this);
+        }
+
         // init contentView
         int contentViewLayoutId = getContentViewLayoutID();
         if (0 != contentViewLayoutId) {
             setContentView(contentViewLayoutId);
         } else {
             throw new IllegalArgumentException("You must return a right contentView layout Id.");
-        }
-
-        // init EventBus
-        if (this.getClass().isAnnotationPresent(BindEventBus.class)) {
-            EventBus.getDefault().register(this);
         }
 
         // init views and listeners etc.
@@ -48,6 +58,28 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
         ButterKnife.bind(this);
+        initToolBar();
+    }
+
+    private void initToolBar() {
+        if (mToolbar != null) {
+            mToolbar.setTitle(""); // 去掉默认title
+            setSupportActionBar(mToolbar);
+            // 显示默认返回箭头
+            //noinspection ConstantConditions
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+        }
+
+        if (mTvTitle != null) {
+            mTvTitle.setText(getToolBarTitle()); // 中间的标题
+        }
     }
 
     @Override

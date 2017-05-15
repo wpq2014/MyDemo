@@ -37,6 +37,11 @@ public class FirstActivity extends BaseAppCompatActivity {
     }
 
     @Override
+    public String getToolBarTitle() {
+        return getString(R.string.eventbus_first);
+    }
+
+    @Override
     public void init(Bundle savedInstanceState) {
 
     }

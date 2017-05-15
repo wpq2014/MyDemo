@@ -24,6 +24,12 @@ public interface IBaseActivity {
     int getContentViewLayoutID();
 
     /**
+     * ToolBar自定义居中的Title
+     * @return 当前Activity标题栏标题
+     */
+    String getToolBarTitle();
+
+    /**
      * init views and listeners etc.
      *
      * @param savedInstanceState bundle for savedInstanceState

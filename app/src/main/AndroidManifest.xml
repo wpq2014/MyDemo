@@ -73,12 +73,10 @@
         </activity>
         <activity
             android:name=".customview.CustomViewActivity"
-            android:label="@string/customview"
             >
         </activity>
         <activity
             android:name=".customview.TopBarActivity"
-            android:label="@string/simple"
             >
         </activity>
         <activity
@@ -88,10 +86,10 @@
         <activity android:name=".todolist.TodoActivity"
             android:label="@string/todolist_mvc">
         </activity>
-        <activity android:name=".customview.LinkedListViewActivity" android:label="@string/linkedListView" />
+        <activity android:name=".customview.LinkedListViewActivity"/>
         <activity android:name=".customview.TreeViewActivity" android:label="@string/tree" />
-        <activity android:name=".customview.SkewActivity" android:label="@string/skew" />
-        <activity android:name=".customview.KeepProportionImageViewActivity" android:label="@string/KeepProportionImageViewActivity"></activity>
+        <activity android:name=".customview.SkewActivity"/>
+        <activity android:name=".customview.KeepProportionImageViewActivity"></activity>
         <activity android:name=".retrofit.RetrofitActivity" android:label="@string/retrofit" />
 
         <activity android:name=".TeethActivity" android:label="@string/teeth"></activity>
@@ -102,7 +100,7 @@
         <activity android:name=".eventbus.SecondActivity" android:label="@string/eventbus_second"/>
 
         <!-- 复杂的RecyclerView -->
-        <activity android:name=".recyclerview.ComplexRecyclerViewActivity" android:label="@string/recyclerView" />
+        <activity android:name=".recyclerview.ComplexRecyclerViewActivity"/>
 
         <service android:name=".ipc.RemoteService" android:process=":remote" />
         <activity android:name=".ipc.ClientActivity" android:label="@string/aidl" />

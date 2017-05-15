@@ -31,6 +31,11 @@ public class SecondActivity extends BaseAppCompatActivity {
     }
 
     @Override
+    public String getToolBarTitle() {
+        return getString(R.string.eventbus_second);
+    }
+
+    @Override
     public void init(Bundle savedInstanceState) {
 
     }

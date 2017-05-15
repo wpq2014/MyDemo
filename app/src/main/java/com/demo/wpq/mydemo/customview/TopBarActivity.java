@@ -1,15 +1,14 @@
 package com.demo.wpq.mydemo.customview;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.demo.wpq.mydemo.R;
+import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
 import com.demo.wpq.mydemo.customview.view.CommonTitleBar;
 import com.demo.wpq.mydemo.customview.view.DirectionView;
 import com.demo.wpq.mydemo.customview.view.MarqueeTextView;
@@ -17,16 +16,13 @@ import com.demo.wpq.mydemo.customview.view.TopBar;
 import com.demo.wpq.mydemo.utils.MToastUtil;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Desc:
  * Created by wpq on 16/7/11.
  */
-public class TopBarActivity extends Activity {
+public class TopBarActivity extends BaseAppCompatActivity {
 
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
     @BindView(R.id.topbar0)
     TopBar topbar0;
     @BindView(R.id.commonTitleBar0)
@@ -41,18 +37,34 @@ public class TopBarActivity extends Activity {
     MarqueeTextView marqueeTextView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_topbar);
-        ButterKnife.bind(this);
+    public void getBundleExtras(Bundle bundle) {
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mToolbar.setTitle("默认标题");
+    }
+
+    @Override
+    public int getContentViewLayoutID() {
+        return R.layout.activity_topbar;
+    }
+
+    @Override
+    public String getToolBarTitle() {
+        return getString(R.string.simple);
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    @Override
+    public void init(@Nullable Bundle savedInstanceState) {
+        mToolbar.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mToolbar.setNavigationIcon(R.drawable.ic_share);
+            }
+        }, 2000);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MToastUtil.show("ToolBar back clicked~");
-                finish();
+//                finish();
             }
         });
 
@@ -111,23 +123,20 @@ public class TopBarActivity extends Activity {
             public void onDirectionChanged(int currentDirection) {
                 switch (currentDirection) {
                     case DirectionView.Direction.LEFT:
-                        showToast("左");
+                        MToastUtil.show("左");
                         break;
                     case DirectionView.Direction.RIGHT:
-                        showToast("右");
+                        MToastUtil.show("右");
                         break;
                     case DirectionView.Direction.UP:
-                        showToast("前");
+                        MToastUtil.show("前");
                         break;
                     case DirectionView.Direction.DOWN:
-                        showToast("后");
+                        MToastUtil.show("后");
                         break;
                 }
             }
         });
     }
 
-    private void showToast(String content) {
-        Toast.makeText(this, content, Toast.LENGTH_SHORT).show();
-    }
 }

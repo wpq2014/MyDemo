@@ -2,7 +2,6 @@ package com.demo.wpq.mydemo.customview;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -11,6 +10,7 @@ import android.widget.ListView;
 import com.demo.wpq.mydemo.R;
 import com.demo.wpq.mydemo.adapter.DishLeftAdapter;
 import com.demo.wpq.mydemo.adapter.DishRightAdapter;
+import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
 import com.demo.wpq.mydemo.bean.DishItem;
 import com.demo.wpq.mydemo.customview.view.PinnedHeaderListView;
 import com.demo.wpq.mydemo.model.DishModel;
@@ -19,13 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Desc:
  * Created by wpq on 16/8/9.
  */
-public class LinkedListViewActivity extends AppCompatActivity {
+public class LinkedListViewActivity extends BaseAppCompatActivity {
 
     @BindView(R.id.left_listview)
     ListView leftListview;
@@ -39,11 +38,22 @@ public class LinkedListViewActivity extends AppCompatActivity {
     private boolean isScroll = false;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_linked_listview);
-        ButterKnife.bind(this);
+    public void getBundleExtras(Bundle bundle) {
 
+    }
+
+    @Override
+    public int getContentViewLayoutID() {
+        return R.layout.activity_linked_listview;
+    }
+
+    @Override
+    public String getToolBarTitle() {
+        return getString(R.string.linkedListView);
+    }
+
+    @Override
+    public void init(@Nullable Bundle savedInstanceState) {
         initData();
     }
 
