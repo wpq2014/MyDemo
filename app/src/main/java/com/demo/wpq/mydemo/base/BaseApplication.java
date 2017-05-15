@@ -15,12 +15,20 @@ import java.util.List;
  */
 public abstract class BaseApplication extends Application {
 
+    private static BaseApplication mInstance;
+
     private static final List<Activity> mActivities = Collections.synchronizedList(new LinkedList<Activity>());
 
     @Override
     public void onCreate() {
         super.onCreate();
+        mInstance = this;
+
         registerActivityListener();
+    }
+
+    public static BaseApplication getInstance() {
+        return mInstance;
     }
 
     private boolean pushActivity(Activity activity) {

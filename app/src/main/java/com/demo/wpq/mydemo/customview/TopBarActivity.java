@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,8 @@ import butterknife.ButterKnife;
  */
 public class TopBarActivity extends Activity {
 
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
     @BindView(R.id.topbar0)
     TopBar topbar0;
     @BindView(R.id.commonTitleBar0)
@@ -43,6 +46,16 @@ public class TopBarActivity extends Activity {
         setContentView(R.layout.activity_topbar);
         ButterKnife.bind(this);
 
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar.setTitle("默认标题");
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MToastUtil.show("ToolBar back clicked~");
+                finish();
+            }
+        });
+
         topbar0.setOnTopBarClickListener(new TopBar.OnTopBarClickListener() {
             @Override
             public void onTopBarLeftClicked(View v) {
@@ -59,8 +72,8 @@ public class TopBarActivity extends Activity {
             @Override
             public void run() {
                 // 3s后改变topbar0
-                topbar0.setLeftImageViewResource(R.mipmap.ic_back);
-                topbar0.setLeftImageViewDrawable(getResources().getDrawable(R.mipmap.ic_share));
+                topbar0.setLeftImageViewResource(R.drawable.ic_back);
+                topbar0.setLeftImageViewDrawable(getResources().getDrawable(R.drawable.ic_share));
                 topbar0.setLeftBackground(new ColorDrawable(Color.GREEN));
                 topbar0.getLeftTextView().setVisibility(View.GONE);
                 topbar0.setLeftPadding(15);

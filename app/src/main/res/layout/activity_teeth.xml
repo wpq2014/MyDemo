@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@mipmap/teeth_bk"/>
+            android:src="@drawable/teeth_bk"/>
 
         <View
             android:id="@+id/view_centerLine"
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/view_centerLine"
-            android:src="@mipmap/up_teeth_17"/>
+            android:src="@drawable/up_teeth_17"/>
 
         <ImageView
             android:id="@+id/iv_up08"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/view_centerLine"
-            android:src="@mipmap/up_teeth_10"/>
+            android:src="@drawable/up_teeth_10"/>
 
         <ImageView
             android:id="@+id/iv_up07"
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/view_centerLine"
-            android:src="@mipmap/up_teeth_13"/>
+            android:src="@drawable/up_teeth_13"/>
 
         <ImageView
             android:id="@+id/iv_up06"
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/view_centerLine"
-            android:src="@mipmap/up_teeth_6"/>
+            android:src="@drawable/up_teeth_6"/>
 
         <ImageView
             android:id="@+id/iv_up05"
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/view_centerLine"
-            android:src="@mipmap/up_teeth_4"/>
+            android:src="@drawable/up_teeth_4"/>
 
         <ImageView
             android:id="@+id/iv_up04"
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/view_centerLine"
-            android:src="@mipmap/up_teeth_3"/>
+            android:src="@drawable/up_teeth_3"/>
 
         <ImageView
             android:id="@+id/iv_up03"
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/view_centerLine"
-            android:src="@mipmap/up_teeth_5"/>
+            android:src="@drawable/up_teeth_5"/>
 
         <ImageView
             android:id="@+id/iv_up02"
@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/view_centerLine"
-            android:src="@mipmap/up_teeth_14"/>
+            android:src="@drawable/up_teeth_14"/>
 
         <ImageView
             android:id="@+id/iv_up01"
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/view_centerLine"
-            android:src="@mipmap/up_teeth_9"/>
+            android:src="@drawable/up_teeth_9"/>
 
         <ImageView
             android:id="@+id/iv_up00"
@@ -113,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/view_centerLine"
-            android:src="@mipmap/down_teeth_19"/>
+            android:src="@drawable/down_teeth_19"/>
 
         <ImageView
             android:id="@+id/iv_down09"
@@ -121,7 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/view_centerLine"
-            android:src="@mipmap/down_teeth_12"/>
+            android:src="@drawable/down_teeth_12"/>
 
         <ImageView
             android:id="@+id/iv_down08"
@@ -129,7 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/view_centerLine"
-            android:src="@mipmap/down_teeth_16"/>
+            android:src="@drawable/down_teeth_16"/>
 
         <ImageView
             android:id="@+id/iv_down07"
@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/view_centerLine"
-            android:src="@mipmap/down_teeth_7"/>
+            android:src="@drawable/down_teeth_7"/>
 
         <ImageView
             android:id="@+id/iv_down06"
@@ -145,7 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/view_centerLine"
-            android:src="@mipmap/down_teeth_1"/>
+            android:src="@drawable/down_teeth_1"/>
 
         <ImageView
             android:id="@+id/iv_down05"
@@ -153,7 +153,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/view_centerLine"
-            android:src="@mipmap/down_teeth_2"/>
+            android:src="@drawable/down_teeth_2"/>
 
         <ImageView
             android:id="@+id/iv_down04"
@@ -161,7 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/view_centerLine"
-            android:src="@mipmap/down_teeth_8"/>
+            android:src="@drawable/down_teeth_8"/>
 
         <ImageView
             android:id="@+id/iv_down03"
@@ -169,7 +169,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/view_centerLine"
-            android:src="@mipmap/up_teeth_5"/>
+            android:src="@drawable/up_teeth_5"/>
 
         <ImageView
             android:id="@+id/iv_down02"
@@ -177,7 +177,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/view_centerLine"
-            android:src="@mipmap/down_teeth_15"/>
+            android:src="@drawable/down_teeth_15"/>
 
         <ImageView
             android:id="@+id/iv_down01"
@@ -185,7 +185,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/view_centerLine"
-            android:src="@mipmap/down_teeth_11"/>
+            android:src="@drawable/down_teeth_11"/>
 
         <ImageView
             android:id="@+id/iv_down00"
@@ -193,7 +193,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/view_centerLine"
-            android:src="@mipmap/down_teeth_20"/>
+            android:src="@drawable/down_teeth_20"/>
     </RelativeLayout>
 
 </LinearLayout>

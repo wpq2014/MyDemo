@@ -27,7 +27,7 @@
                 android:id="@+id/iv_left"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_back"/>
+                android:src="@drawable/ic_back"/>
         </LinearLayout>
 
         <!-- 中间标题 -->
@@ -82,7 +82,7 @@
                     android:id="@+id/iv_right"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    tools:src="@mipmap/ic_share"/>
+                    tools:src="@drawable/ic_share"/>
             </LinearLayout>
             <!-- 文字 -->
             <TextView

@@ -1,4 +1,4 @@
-package com.demo.wpq.mydemo;
+package com.demo.wpq.mydemo.ipc;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -12,6 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import com.demo.wpq.mydemo.IRemoteService;
+import com.demo.wpq.mydemo.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

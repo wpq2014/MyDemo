@@ -1,5 +1,6 @@
 package com.demo.wpq.mydemo;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -20,12 +22,20 @@ public class WebActivity extends AppCompatActivity {
 
     private WebView mWebView;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
 
         mWebView = (WebView) findViewById(R.id.webView);
+        WebSettings settings = mWebView.getSettings();
+        //自适应屏幕
+        settings.setUseWideViewPort(true);
+        settings.setLoadWithOverviewMode(true);
+        settings.setJavaScriptEnabled(true);
+        settings.setBuiltInZoomControls(true);
+        settings.setDisplayZoomControls(false);
         mWebView.setWebViewClient(new MWebViewClient());
         mWebView.setWebChromeClient(new MWebChromeClient());
         mWebView.loadUrl("file:///android_asset/test.html");
@@ -61,12 +71,13 @@ public class WebActivity extends AppCompatActivity {
             // 退出时调用此方法，移除绑定的服务，否则某些特定系统会报错
             mWebView.getSettings().setJavaScriptEnabled(false);
             mWebView.clearHistory();
-//            mWebView.clearView();
-            mWebView.loadUrl("about:blank");
+            mWebView.clearView();
+//            mWebView.loadUrl("about:blank");
             mWebView.removeAllViews();
 
             try {
                 mWebView.destroy();
+                mWebView = null;
             } catch (Throwable e) {
                 e.printStackTrace();
             }

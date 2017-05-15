@@ -1,11 +1,11 @@
 package com.demo.wpq.mydemo.utils;
 
-import android.app.Application;
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.view.Gravity;
 import android.widget.Toast;
+
+import com.demo.wpq.mydemo.base.BaseApplication;
 
 /**
  * Desc:
@@ -15,25 +15,9 @@ import android.widget.Toast;
 
 public final class MToastUtil {
 
-    private static Context sApplicationContext;
     private static Toast sToast;
 
     private MToastUtil() { /* cannot be instantiated */ }
-
-    /**
-     * 在Application onCreate中初始化
-     *
-     * @param applicationContext {@link android.app.Application}
-     */
-    public static void init(@NonNull Context applicationContext) {
-        if (!(applicationContext instanceof Application)) {
-            throw new RuntimeException("applicationContext must be an Application Context");
-        }
-
-        if (sApplicationContext == null) {
-            sApplicationContext = applicationContext;
-        }
-    }
 
     public static void show(@StringRes int resId) {
         show(resId, Gravity.BOTTOM);
@@ -44,8 +28,7 @@ public final class MToastUtil {
     }
 
     public static void show(@StringRes int resId, int gravity, int duration) {
-        checkArgument();
-        show(sApplicationContext.getResources().getString(resId), duration, gravity);
+        show(BaseApplication.getInstance().getResources().getString(resId), duration, gravity);
     }
 
     public static void show(@NonNull String text) {
@@ -64,9 +47,8 @@ public final class MToastUtil {
      * @param duration Toast.LENGTH_SHORT or Toast.LENGTH_LONG
      */
     public static void show(@NonNull String text, int gravity, int duration) {
-        checkArgument();
         if (null == sToast) {
-            sToast = Toast.makeText(sApplicationContext, text, duration);
+            sToast = Toast.makeText(BaseApplication.getInstance(), text, duration);
         } else {
             sToast.setText(text);
             sToast.setDuration(duration);
@@ -89,14 +71,8 @@ public final class MToastUtil {
         sToast.show();
     }
 
-    private static void checkArgument() {
-        if (sApplicationContext == null) {
-            throw new IllegalArgumentException("sApplicationContext can not be null, please call MToastUtil.init() in Application#onCreate()");
-        }
-    }
-
     private static int dp2px(float dpValue) {
-        float scale = sApplicationContext.getResources().getDisplayMetrics().density;
+        float scale = BaseApplication.getInstance().getResources().getDisplayMetrics().density;
         return (int) (scale * dpValue + 0.5f);
     }
 

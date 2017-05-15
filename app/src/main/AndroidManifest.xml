@@ -104,8 +104,8 @@
         <!-- 复杂的RecyclerView -->
         <activity android:name=".recyclerview.ComplexRecyclerViewActivity" android:label="@string/recyclerView" />
 
-        <service android:name=".RemoteService" android:process=":remote" />
-        <activity android:name=".ClientActivity" android:label="@string/aidl" />
+        <service android:name=".ipc.RemoteService" android:process=":remote" />
+        <activity android:name=".ipc.ClientActivity" android:label="@string/aidl" />
     </application>
 
 </manifest>

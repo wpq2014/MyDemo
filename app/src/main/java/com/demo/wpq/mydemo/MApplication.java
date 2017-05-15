@@ -1,16 +1,15 @@
 package com.demo.wpq.mydemo;
 
-import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
+import com.demo.wpq.mydemo.base.BaseApplication;
 import com.demo.wpq.mydemo.json.bean.ResponseBean;
 import com.demo.wpq.mydemo.json.bean.ResultBean;
 import com.demo.wpq.mydemo.json.bean.UnNormalJsonBean;
 import com.demo.wpq.mydemo.retrofit.RetrofitManager;
 import com.demo.wpq.mydemo.utils.CrashUtils;
-import com.demo.wpq.mydemo.utils.MToastUtil;
 import com.demo.wpq.mydemo.utils.Utils;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.gson.Gson;
@@ -20,11 +19,9 @@ import java.util.List;
 
 import cn.cwkj.bluetooth.connect.BluetoothReceiver;
 
-public class MApplication extends Application {
+public class MApplication extends BaseApplication {
 
     public static final String TAG = MApplication.class.getSimpleName();
-
-    private static MApplication mInstance;
 
     private BluetoothReceiver bluetoothReceiver;
 
@@ -37,10 +34,6 @@ public class MApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        mInstance = this;
-
-        // init MToastUtil
-        MToastUtil.init(this);
 
         Fresco.initialize(this);
         RetrofitManager.init(this);
@@ -50,10 +43,6 @@ public class MApplication extends Application {
 
         testGson();
 
-    }
-
-    public static MApplication getInstance() {
-        return mInstance;
     }
 
     private void testGson() {

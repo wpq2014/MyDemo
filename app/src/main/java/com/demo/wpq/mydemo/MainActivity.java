@@ -23,6 +23,7 @@ import com.demo.wpq.mydemo.animation.AnimationActivity;
 import com.demo.wpq.mydemo.bean.HotBean;
 import com.demo.wpq.mydemo.customview.CustomViewActivity;
 import com.demo.wpq.mydemo.eventbus.FirstActivity;
+import com.demo.wpq.mydemo.ipc.ClientActivity;
 import com.demo.wpq.mydemo.qrcode.CaptureActivity;
 import com.demo.wpq.mydemo.recyclerview.ComplexRecyclerViewActivity;
 import com.demo.wpq.mydemo.retrofit.RetrofitActivity;

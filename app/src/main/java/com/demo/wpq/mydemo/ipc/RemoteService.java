@@ -1,4 +1,4 @@
-package com.demo.wpq.mydemo;
+package com.demo.wpq.mydemo.ipc;
 
 import android.app.Service;
 import android.content.Intent;
@@ -6,6 +6,9 @@ import android.os.IBinder;
 import android.os.Process;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
+
+import com.demo.wpq.mydemo.HelloMsg;
+import com.demo.wpq.mydemo.IRemoteService;
 
 public class RemoteService extends Service {
 

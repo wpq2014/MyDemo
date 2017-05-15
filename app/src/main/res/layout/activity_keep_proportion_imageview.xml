@@ -19,7 +19,7 @@
                 android:id="@+id/imageview0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/banner_demo_img"
+                android:src="@drawable/banner_demo_img"
                 android:scaleType="fitXY"
                 />
 
@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:src="@mipmap/banner_demo_img"
+                android:src="@drawable/banner_demo_img"
                 android:scaleType="fitXY"
                 kpiv:width_to_height_radio="1.9"
                 />
