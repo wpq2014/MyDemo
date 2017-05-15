@@ -3,7 +3,6 @@ package com.demo.wpq.mydemo;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -12,33 +11,49 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
+
 /**
  * @author wpq
  * @version 1.0
  */
-public class WebActivity extends AppCompatActivity {
+public class WebActivity extends BaseAppCompatActivity {
 
     public static final String TAG = WebActivity.class.getSimpleName();
 
     private WebView mWebView;
 
+    @Override
+    public void getBundleExtras(Bundle bundle) {
+
+    }
+
+    @Override
+    public int getContentViewLayoutID() {
+        return R.layout.activity_webview;
+    }
+
+    @Override
+    public String getToolBarTitle() {
+        return getString(R.string.webView);
+    }
+
     @SuppressLint("SetJavaScriptEnabled")
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_webview);
-
+    public void init(@Nullable Bundle savedInstanceState) {
         mWebView = (WebView) findViewById(R.id.webView);
-        WebSettings settings = mWebView.getSettings();
-        //自适应屏幕
-        settings.setUseWideViewPort(true);
-        settings.setLoadWithOverviewMode(true);
-        settings.setJavaScriptEnabled(true);
-        settings.setBuiltInZoomControls(true);
-        settings.setDisplayZoomControls(false);
-        mWebView.setWebViewClient(new MWebViewClient());
-        mWebView.setWebChromeClient(new MWebChromeClient());
-        mWebView.loadUrl("file:///android_asset/test.html");
+        if (mWebView != null) {
+            WebSettings settings = mWebView.getSettings();
+            //自适应屏幕
+            settings.setUseWideViewPort(true);
+            settings.setLoadWithOverviewMode(true);
+            settings.setJavaScriptEnabled(true);
+            settings.setBuiltInZoomControls(true);
+            settings.setDisplayZoomControls(false);
+            mWebView.setWebViewClient(new MWebViewClient());
+            mWebView.setWebChromeClient(new MWebChromeClient());
+            mWebView.loadUrl("file:///android_asset/test.html");
+        }
     }
 
     private class MWebViewClient extends WebViewClient{

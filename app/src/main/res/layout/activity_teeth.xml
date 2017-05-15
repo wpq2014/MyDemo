@@ -5,6 +5,8 @@
               android:orientation="vertical"
     >
 
+    <include layout="@layout/view_toolbar" />
+
     <Button
         android:id="@+id/btn_startAnimation"
         android:layout_width="match_parent"

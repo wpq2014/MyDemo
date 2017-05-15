@@ -59,7 +59,7 @@ public class TopBarActivity extends BaseAppCompatActivity {
             public void run() {
                 mToolbar.setNavigationIcon(R.drawable.ic_share);
             }
-        }, 2000);
+        }, 1500);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +95,7 @@ public class TopBarActivity extends BaseAppCompatActivity {
                 topbar0.setRightText("呵呵哒");
                 topbar0.setRightTextColor(getResources().getColor(R.color.remind_bgcolor));
             }
-        }, 3000);
+        }, 2000);
 
         commonTitleBar0.setCenterTextColor(Color.RED)
                 .setCenterTextSize(20)

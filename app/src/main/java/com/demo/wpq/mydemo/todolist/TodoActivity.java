@@ -3,7 +3,6 @@ package com.demo.wpq.mydemo.todolist;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -13,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.demo.wpq.mydemo.R;
+import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
 import com.demo.wpq.mydemo.recyclerview.util.DividerItemDecoration;
 import com.demo.wpq.mydemo.todolist.adapter.TodoAdapter;
 import com.demo.wpq.mydemo.todolist.model.Todo;
@@ -22,7 +22,7 @@ import com.demo.wpq.mydemo.todolist.model.TodoList;
  * Desc:
  * Created by wpq on 16/8/5.
  */
-public class TodoActivity extends AppCompatActivity implements View.OnClickListener, TodoAdapter.OnTodoListener {
+public class TodoActivity extends BaseAppCompatActivity implements View.OnClickListener, TodoAdapter.OnTodoListener {
 
     private EditText editText;
     private Button btnAdd;
@@ -35,14 +35,22 @@ public class TodoActivity extends AppCompatActivity implements View.OnClickListe
     private TodoList todoList = new TodoList();
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_todolist);
+    public void getBundleExtras(Bundle bundle) {
 
-        init();
     }
 
-    private void init() {
+    @Override
+    public int getContentViewLayoutID() {
+        return R.layout.activity_todolist;
+    }
+
+    @Override
+    public String getToolBarTitle() {
+        return getString(R.string.todolist_mvc);
+    }
+
+    @Override
+    public void init(@Nullable Bundle savedInstanceState) {
         editText = (EditText) findViewById(R.id.edittext);
         btnAdd = (Button) findViewById(R.id.btn_add);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
@@ -59,7 +67,6 @@ public class TodoActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL, Color.GREEN, 5));
         recyclerView.setAdapter(adapter = new TodoAdapter(this, todoList));
         adapter.setOnTodoListener(this);
-
     }
 
     @Override
@@ -109,4 +116,5 @@ public class TodoActivity extends AppCompatActivity implements View.OnClickListe
         adapter.notifyDataSetChanged();
         cbCheckAll.setChecked(todoList.isAllFinished());
     }
+
 }

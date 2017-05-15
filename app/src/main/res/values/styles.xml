@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowNoTitle">true</item>
         <!-- 溢出菜单图标颜色-->
-        <item name="colorControlNormal">@android:color/white</item>
+        <!--<item name="colorControlNormal">@android:color/white</item>-->
     </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
