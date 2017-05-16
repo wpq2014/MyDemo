@@ -6,9 +6,9 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.BounceInterpolator;
@@ -19,19 +19,20 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.demo.wpq.mydemo.R;
+import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
+import com.demo.wpq.mydemo.constant.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Desc: 动画 慕课网视频学习http://www.imooc.com/learn/263
  * Created by wpq on 16/6/28.
  */
-public class ObjectAnimatorActivity extends AppCompatActivity {
+public class ObjectAnimatorActivity extends BaseAppCompatActivity {
 
     @BindView(R.id.btn_translateAnimation)
     Button btnTranslateAnimation;
@@ -50,26 +51,44 @@ public class ObjectAnimatorActivity extends AppCompatActivity {
     @BindView(R.id.btn_arcMenu)
     Button btnArcMenu;
 
+    // intent data
+    private String title;
 
-    private Context context;
     private boolean flagTranslationAnimation = false;
     private boolean flagObjectAnimator = false;
     private boolean flagArcMenu = false;
 
     private List<View> listViews = new ArrayList<>();
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_object_animator);
-        ButterKnife.bind(this);
-        context = this;
+    public static Intent newIntent(Context context, String title) {
+        Intent intent = new Intent(context, ObjectAnimatorActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.TITLE, title);
+        intent.putExtras(bundle);
+        return intent;
+    }
 
+    @Override
+    public void getBundleExtras(Bundle bundle) {
+        title = bundle.getString(Constants.TITLE);
+    }
+
+    @Override
+    public int getContentViewLayoutID() {
+        return R.layout.activity_object_animator;
+    }
+
+    @Override
+    public String getToolBarTitle() {
+        return title;
+    }
+
+    @Override
+    public void init(@Nullable Bundle savedInstanceState) {
         listViews.add(imageview1);
         listViews.add(imageview2);
         listViews.add(imageview3);
         listViews.add(imageview4);
-
     }
 
     @OnClick({R.id.btn_translateAnimation, R.id.btn_objectAnimator, R.id.btn_arcMenu, R.id.imageview0, R.id.imageview1, R.id.imageview2, R.id.imageview3, R.id.imageview4})
@@ -207,7 +226,7 @@ public class ObjectAnimatorActivity extends AppCompatActivity {
     }
 
     private void showToastOnTop(String text) {
-        Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this.getApplicationContext(), text, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.TOP, 0, 200);
         toast.show();
     }

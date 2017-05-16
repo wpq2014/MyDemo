@@ -1,5 +1,7 @@
 package com.demo.wpq.mydemo.customview;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -9,10 +11,11 @@ import android.widget.TextView;
 
 import com.demo.wpq.mydemo.R;
 import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
-import com.demo.wpq.mydemo.customview.view.CommonTitleBar;
-import com.demo.wpq.mydemo.customview.view.DirectionView;
-import com.demo.wpq.mydemo.customview.view.MarqueeTextView;
-import com.demo.wpq.mydemo.customview.view.TopBar;
+import com.demo.wpq.mydemo.constant.Constants;
+import com.demo.wpq.mydemo.customview.widget.CommonTitleBar;
+import com.demo.wpq.mydemo.customview.widget.DirectionView;
+import com.demo.wpq.mydemo.customview.widget.MarqueeTextView;
+import com.demo.wpq.mydemo.customview.widget.TopBar;
 import com.demo.wpq.mydemo.utils.MToastUtil;
 
 import butterknife.BindView;
@@ -36,9 +39,20 @@ public class TopBarActivity extends BaseAppCompatActivity {
     @BindView(R.id.marquee_textView)
     MarqueeTextView marqueeTextView;
 
+    // intent data
+    private String title;
+
+    public static Intent newIntent(Context context, String title) {
+        Intent intent = new Intent(context, TopBarActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.TITLE, title);
+        intent.putExtras(bundle);
+        return intent;
+    }
+
     @Override
     public void getBundleExtras(Bundle bundle) {
-
+        title = bundle.getString(Constants.TITLE);
     }
 
     @Override
@@ -48,7 +62,7 @@ public class TopBarActivity extends BaseAppCompatActivity {
 
     @Override
     public String getToolBarTitle() {
-        return getString(R.string.simple);
+        return title;
     }
 
     @SuppressWarnings("ConstantConditions")

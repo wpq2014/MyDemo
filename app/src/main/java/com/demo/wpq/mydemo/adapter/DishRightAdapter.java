@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.demo.wpq.mydemo.R;
 import com.demo.wpq.mydemo.bean.Dish;
 import com.demo.wpq.mydemo.bean.DishItem;
-import com.demo.wpq.mydemo.customview.view.SectionedBaseAdapter;
+import com.demo.wpq.mydemo.customview.widget.SectionedBaseAdapter;
 import com.demo.wpq.mydemo.model.DishModel;
 
 /**

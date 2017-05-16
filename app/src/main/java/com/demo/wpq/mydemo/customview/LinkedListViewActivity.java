@@ -1,5 +1,7 @@
 package com.demo.wpq.mydemo.customview;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -12,7 +14,8 @@ import com.demo.wpq.mydemo.adapter.DishLeftAdapter;
 import com.demo.wpq.mydemo.adapter.DishRightAdapter;
 import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
 import com.demo.wpq.mydemo.bean.DishItem;
-import com.demo.wpq.mydemo.customview.view.PinnedHeaderListView;
+import com.demo.wpq.mydemo.constant.Constants;
+import com.demo.wpq.mydemo.customview.widget.PinnedHeaderListView;
 import com.demo.wpq.mydemo.model.DishModel;
 
 import java.util.ArrayList;
@@ -31,15 +34,26 @@ public class LinkedListViewActivity extends BaseAppCompatActivity {
     @BindView(R.id.pinnedheader_listview)
     PinnedHeaderListView pinnedheaderListview;
 
+    // intent data
+    private String title;
+
     private DishModel dishModel = new DishModel();
     private DishLeftAdapter leftAdapter;
     private DishRightAdapter rightAdapter;
 
     private boolean isScroll = false;
 
+    public static Intent newIntent(Context context, String title) {
+        Intent intent = new Intent(context, LinkedListViewActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.TITLE, title);
+        intent.putExtras(bundle);
+        return intent;
+    }
+
     @Override
     public void getBundleExtras(Bundle bundle) {
-
+        title = bundle.getString(Constants.TITLE);
     }
 
     @Override
@@ -49,7 +63,7 @@ public class LinkedListViewActivity extends BaseAppCompatActivity {
 
     @Override
     public String getToolBarTitle() {
-        return getString(R.string.linkedListView);
+        return title;
     }
 
     @Override

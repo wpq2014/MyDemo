@@ -22,7 +22,7 @@
             android:paddingTop="5dp"
             android:clipToPadding="false">
 
-            <com.demo.wpq.mydemo.customview.view.TopBar
+            <com.demo.wpq.mydemo.customview.widget.TopBar
                 android:id="@+id/topbar0"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/topbar_height"
@@ -39,7 +39,7 @@
                 top:top_title="标题0"
                 />
 
-            <com.demo.wpq.mydemo.customview.view.TopBar
+            <com.demo.wpq.mydemo.customview.widget.TopBar
                 android:id="@+id/topbar1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/topbar_height"
@@ -53,12 +53,11 @@
                 top:top_rightText="分享"
                 top:top_rightTextColor="@android:color/holo_red_dark"
                 top:top_rightTextSize="16sp"
-                top:top_title="@string/customview"
                 top:top_titleTextColor="#00FF00"
                 top:top_titleTextSize="20sp"
                 />
 
-            <com.demo.wpq.mydemo.customview.view.TopBar
+            <com.demo.wpq.mydemo.customview.widget.TopBar
                 android:id="@+id/topbar2"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/topbar_height"
@@ -73,7 +72,7 @@
                 top:top_titleTextColor="@android:color/holo_red_light"
                 />
 
-            <com.demo.wpq.mydemo.customview.view.TopBar
+            <com.demo.wpq.mydemo.customview.widget.TopBar
                 android:id="@+id/topbar3"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/topbar_height"
@@ -81,12 +80,11 @@
                 android:background="@android:color/holo_blue_dark"
                 top:top_leftBackground="@android:color/holo_orange_dark"
                 top:top_leftImageSrc="@drawable/ic_back"
-                top:top_title="@string/customview"
                 top:top_titleTextColor="#00FF00"
                 top:top_titleTextSize="20sp"
                 />
 
-            <com.demo.wpq.mydemo.customview.view.CommonTitleBar
+            <com.demo.wpq.mydemo.customview.widget.CommonTitleBar
                 android:id="@+id/commonTitleBar0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,7 +92,7 @@
                 top:tb_centerText="呵呵哒"
                 top:tb_rightImageSrc="@drawable/ic_share"/>
 
-            <com.demo.wpq.mydemo.customview.view.CommonTitleBar
+            <com.demo.wpq.mydemo.customview.widget.CommonTitleBar
                 android:id="@+id/commonTitleBar1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,7 +100,7 @@
                 top:tb_centerText="呵呵哒"
                 top:tb_rightText="历史记录"/>
 
-            <com.demo.wpq.mydemo.customview.view.CommonTitleBar
+            <com.demo.wpq.mydemo.customview.widget.CommonTitleBar
                 android:id="@+id/commonTitleBar2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -111,7 +109,7 @@
                 top:tb_centerText="呵呵哒"
                 top:tb_rightText="保存"/>
 
-            <com.demo.wpq.mydemo.customview.view.MarqueeTextView
+            <com.demo.wpq.mydemo.customview.widget.MarqueeTextView
                 android:id="@+id/marquee_textView"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -129,7 +127,7 @@
                 android:textColor="@color/remind_textcolor"
                 android:textSize="14sp"/>
 
-            <com.demo.wpq.mydemo.customview.view.DirectionView
+            <com.demo.wpq.mydemo.customview.widget.DirectionView
                 android:id="@+id/directionView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

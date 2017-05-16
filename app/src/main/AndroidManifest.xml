@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.demo.wpq.mydemo"
-    android:versionCode="1"
-    android:versionName="1.0">
+          package="com.demo.wpq.mydemo">
 
     <!-- 扫码 -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.FLASHLIGHT" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
 
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".MApplication"
@@ -24,86 +23,47 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".animation.AnimationActivity"
-            android:label="@string/animation"
-            >
-        </activity>
-
-        <activity
-            android:name=".animation.ObjectAnimatorActivity"
-            android:label="@string/object_animator"
-            >
-        </activity>
-
-        <activity
-            android:name=".animation.LayoutAnimationActivity"
-            android:label="@string/layout_animation"
-            >
-        </activity>
-
-        <activity
-            android:name=".qrcode.CaptureActivity"
-            android:label="@string/qrcode"
-            >
-        </activity>
-
-        <activity
-            android:name=".qrcode.ResultActivity"
-            android:label="@string/qrcode_result"
-            >
-        </activity>
-        <activity
-            android:name=".qrcode.QRCodeCreateActivity"
-            android:label="@string/qrcode_create"
-            >
-        </activity>
-        <activity
-            android:name=".customview.CustomViewActivity"
-            >
-        </activity>
-        <activity
-            android:name=".customview.TopBarActivity"
-            >
-        </activity>
-        <activity
-            android:name=".RequestPermissionActivity"
-            android:label="@string/requestPermission">
-        </activity>
-        <activity android:name=".todolist.TodoActivity"
-            android:label="@string/todolist_mvc">
-        </activity>
+        <activity android:name=".animation.AnimationActivity"/>
+        <activity android:name=".animation.ObjectAnimatorActivity"/>
+        <activity android:name=".animation.LayoutAnimationActivity"/>
+        <activity android:name=".qrcode.CaptureActivity"/>
+        <activity android:name=".qrcode.ResultActivity"/>
+        <activity android:name=".qrcode.QRCodeCreateActivity"/>
+        <activity android:name=".customview.CustomViewActivity"/>
+        <activity android:name=".listview_and_recyclerview.ListViewAndRecyclerViewActivity"/>
+        <activity android:name=".listview_and_recyclerview.listview_header.ListViewHeaderActivity"/>
+        <activity android:name=".customview.TopBarActivity"/>
+        <activity android:name=".RequestPermissionActivity"/>
+        <activity android:name=".listview_and_recyclerview.todolist.TodoActivity"/>
+        <activity android:name=".listview_and_recyclerview.recyclerview_wrap_recyclerview.ComplexRecyclerViewActivity"/>
         <activity android:name=".customview.LinkedListViewActivity"/>
-        <activity android:name=".customview.TreeViewActivity" android:label="@string/tree" />
+        <activity android:name=".customview.TreeViewActivity"/>
         <activity android:name=".customview.SkewActivity"/>
-        <activity android:name=".customview.KeepProportionImageViewActivity"></activity>
-        <activity android:name=".retrofit.RetrofitActivity" android:label="@string/retrofit" />
-
-        <activity android:name=".TeethActivity" android:label="@string/teeth"></activity>
-        <activity android:name=".WebActivity" android:label="@string/webView"></activity>
-
+        <activity android:name=".customview.KeepProportionImageViewActivity"/>
+        <activity android:name=".retrofit.RetrofitActivity"/>
+        <activity android:name=".animation.TeethActivity"/>
+        <activity android:name=".WebActivity"/>
         <!-- eventbus -->
-        <activity android:name=".eventbus.FirstActivity" android:label="@string/eventbus_first"/>
-        <activity android:name=".eventbus.SecondActivity" android:label="@string/eventbus_second"/>
+        <activity android:name=".eventbus.EventBusFirstActivity"/>
+        <activity android:name=".eventbus.EventBusSecondActivity"/>
 
-        <!-- 复杂的RecyclerView -->
-        <activity android:name=".recyclerview.ComplexRecyclerViewActivity"/>
-
-        <service android:name=".ipc.RemoteService" android:process=":remote" />
-        <activity android:name=".ipc.ClientActivity" android:label="@string/aidl" />
+        <service
+            android:name=".ipc.RemoteService"
+            android:process=":remote"/>
+        <activity android:name=".ipc.ClientActivity"/>
     </application>
 
 </manifest>

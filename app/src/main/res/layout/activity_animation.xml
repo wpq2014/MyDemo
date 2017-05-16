@@ -7,16 +7,9 @@
 
     <include layout="@layout/view_toolbar" />
 
-    <Button
-        android:id="@+id/objectAnimator"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/object_animator"/>
-
-    <Button
-        android:id="@+id/layoutAnimator"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/layout_animation"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

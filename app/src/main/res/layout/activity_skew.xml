@@ -6,7 +6,7 @@
 
     <include layout="@layout/view_toolbar" />
 
-    <com.demo.wpq.mydemo.customview.view.SkewView
+    <com.demo.wpq.mydemo.customview.widget.SkewView
         android:id="@+id/skewView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

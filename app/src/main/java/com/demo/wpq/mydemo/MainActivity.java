@@ -11,6 +11,9 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -18,38 +21,50 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.demo.wpq.mydemo.animation.AnimationActivity;
-import com.demo.wpq.mydemo.bean.HotBean;
+import com.demo.wpq.mydemo.constant.Constants;
 import com.demo.wpq.mydemo.customview.CustomViewActivity;
-import com.demo.wpq.mydemo.eventbus.FirstActivity;
+import com.demo.wpq.mydemo.customview.adapter.CustomAdapter;
+import com.demo.wpq.mydemo.customview.bean.CustomBean;
+import com.demo.wpq.mydemo.eventbus.EventBusFirstActivity;
 import com.demo.wpq.mydemo.ipc.ClientActivity;
+import com.demo.wpq.mydemo.listview_and_recyclerview.ListViewAndRecyclerViewActivity;
 import com.demo.wpq.mydemo.qrcode.CaptureActivity;
-import com.demo.wpq.mydemo.recyclerview.ComplexRecyclerViewActivity;
 import com.demo.wpq.mydemo.retrofit.RetrofitActivity;
-import com.demo.wpq.mydemo.todolist.TodoActivity;
 import com.demo.wpq.mydemo.utils.MToastUtil;
-import com.demo.wpq.mydemo.view.MaxLengthEditText;
+import com.demo.wpq.mydemo.widget.MaxLengthEditText;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindArray;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, CustomAdapter.OnRecyclerListener {
 
     public static final String TAG = MainActivity.class.getSimpleName();
 
     private MaxLengthEditText mEditText;
+    private RecyclerView mRecyclerView;
+
+    @BindArray(R.array.mainArray)
+    String[] array;
+
+    private Class<?>[] mClasses = {AnimationActivity.class, CaptureActivity.class, CustomViewActivity.class, ListViewAndRecyclerViewActivity.class,
+                                   RequestPermissionActivity.class, RetrofitActivity.class, ClientActivity.class, WebActivity.class, EventBusFirstActivity.class};
+    private List<CustomBean> mList = new ArrayList<>();
+    private CustomAdapter mCustomAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        String hotJson = "{\"msg\":\"获取成功！\",\"code\":1,\"data\":{\"list\":[{\"name\":\"三只松鼠\"}]}}";
-        HotBean hotBean = JSON.parseObject(hotJson, HotBean.class);
-        Log.e("fastjson解析", hotBean.toString());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +104,15 @@ public class MainActivity extends AppCompatActivity
                 MToastUtil.show("字数不能超过" + 20);
             }
         });
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, OrientationHelper.VERTICAL));
+        for (int i = 0; i < array.length; i++) {
+            mList.add(new CustomBean(array[i], mClasses[i]));
+        }
+        mCustomAdapter = new CustomAdapter(this, mList);
+        mCustomAdapter.setOnRecyclerListener(this);
+        mRecyclerView.setAdapter(mCustomAdapter);
 
         final Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable() {
@@ -136,88 +160,13 @@ public class MainActivity extends AppCompatActivity
         }
     };
 
-    /**
-     * 动画
-     * @param view
-     */
-    public void clickAnimation(View view){
-        startActivity(new Intent(this, AnimationActivity.class));
-    }
-
-    /**
-     * 扫码
-     * @param view
-     */
-    public void clickQRCode(View view){
-        startActivity(new Intent(this, CaptureActivity.class));
-    }
-
-    /**
-     * 自定义View
-     * @param view
-     */
-    public void clickCustomView(View view){
-        startActivity(new Intent(this, CustomViewActivity.class));
-    }
-
-    /**
-     * 6.0申请权限
-     * @param view
-     */
-    public void clickRequestPermission(View view){
-        startActivity(new Intent(this, RequestPermissionActivity.class));
-    }
-
-    /**
-     * interview
-     * @param view
-     */
-    public void clickInterview(View view){
-        startActivity(new Intent(this, TodoActivity.class));
-    }
-
-    /**
-     * Retrofit
-     * @param view
-     */
-    public void clickRetrofit(View view){
-        startActivity(new Intent(this, RetrofitActivity.class));
-    }
-
-    /**
-     * 牙
-     * @param view
-     */
-    public void clickTeeth(View view){
-        startActivity(new Intent(this, TeethActivity.class));
-    }
-
-    /**
-     * AIDL
-     * @param view
-     */
-    public void clickAIDL(View view){
-        startActivity(new Intent(this, ClientActivity.class));
-    }
-
-    public void clickWebView(View view) {
-        startActivity(new Intent(this, WebActivity.class));
-    }
-
-    /**
-     * EventBus
-     * @param view
-     */
-    public void clickEventBus(View view) {
-        startActivity(new Intent(this, FirstActivity.class));
-    }
-
-    /**
-     * RecyclerView
-     * @param view
-     */
-    public void clickRecyclerView(View view) {
-        startActivity(new Intent(this, ComplexRecyclerViewActivity.class));
+    @Override
+    public void onItemClicked(CustomBean customBean) {
+        Intent intent = new Intent(this, customBean.intentClass);
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.TITLE, customBean.itemName);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     @Override

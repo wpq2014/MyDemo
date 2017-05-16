@@ -19,7 +19,7 @@
             android:background="#eeeeee"
             android:scrollbars="none" />
 
-        <com.demo.wpq.mydemo.customview.view.PinnedHeaderListView
+        <com.demo.wpq.mydemo.customview.widget.PinnedHeaderListView
             android:id="@+id/pinnedheader_listview"
             android:layout_width="0dp"
             android:layout_height="match_parent"

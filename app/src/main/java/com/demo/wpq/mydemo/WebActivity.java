@@ -1,6 +1,8 @@
 package com.demo.wpq.mydemo;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
+import com.demo.wpq.mydemo.constant.Constants;
 
 /**
  * @author wpq
@@ -23,9 +26,20 @@ public class WebActivity extends BaseAppCompatActivity {
 
     private WebView mWebView;
 
+    // intent data
+    private String title;
+
+    public static Intent newIntent(Context context, String title) {
+        Intent intent = new Intent(context, WebActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.TITLE, title);
+        intent.putExtras(bundle);
+        return intent;
+    }
+
     @Override
     public void getBundleExtras(Bundle bundle) {
-
+        title = bundle.getString(Constants.TITLE);
     }
 
     @Override
@@ -35,7 +49,7 @@ public class WebActivity extends BaseAppCompatActivity {
 
     @Override
     public String getToolBarTitle() {
-        return getString(R.string.webView);
+        return title;
     }
 
     @SuppressLint("SetJavaScriptEnabled")

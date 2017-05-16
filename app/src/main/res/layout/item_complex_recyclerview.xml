@@ -4,7 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
-    <com.demo.wpq.mydemo.recyclerview.HorizontalRecyclerView
+    <com.demo.wpq.mydemo.listview_and_recyclerview.util.HorizontalRecyclerView
         android:id="@+id/horizontalRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

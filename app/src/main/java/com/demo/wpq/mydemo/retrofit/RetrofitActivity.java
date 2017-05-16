@@ -1,17 +1,20 @@
 package com.demo.wpq.mydemo.retrofit;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.demo.wpq.mydemo.R;
+import com.demo.wpq.mydemo.RequestPermissionActivity;
+import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
+import com.demo.wpq.mydemo.constant.Constants;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,22 +22,43 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitActivity extends AppCompatActivity {
+public class RetrofitActivity extends BaseAppCompatActivity {
 
     public static final String TAG = "RetrofitActivity";
-
 
     String[] hostUrls = {"https://dev.healskare.com"};
 
     @BindView(R.id.result)
     TextView result;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_retrofit);
-        ButterKnife.bind(this);
+    // intent data
+    private String title;
 
+    public static Intent newIntent(Context context, String title) {
+        Intent intent = new Intent(context, RetrofitActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.TITLE, title);
+        intent.putExtras(bundle);
+        return intent;
+    }
+
+    @Override
+    public void getBundleExtras(Bundle bundle) {
+        title = bundle.getString(Constants.TITLE);
+    }
+
+    @Override
+    public int getContentViewLayoutID() {
+        return R.layout.activity_retrofit;
+    }
+
+    @Override
+    public String getToolBarTitle() {
+        return title;
+    }
+
+    @Override
+    public void init(@Nullable Bundle savedInstanceState) {
         gankGirl();
         getVersionInfo();
         getAllDeptsType2();
@@ -146,6 +170,5 @@ public class RetrofitActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }

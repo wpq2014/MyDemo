@@ -8,25 +8,32 @@
     <string name="action_about">关于</string>
     <string name="action_share">分享</string>
 
+    <!-- Main -->
+    <string-array name="mainArray">
+        <item>动画</item>
+        <item>扫码</item>
+        <item>自定义View</item>
+        <item>ListView &amp; RecyclerView</item>
+        <item>requestPermission</item>
+        <item>Retrofit</item>
+        <item>AIDL</item>
+        <item>WebView</item>
+        <item>EventBus</item>
+    </string-array>
+
     <!-- 动画 -->
-    <string name="animation">动画</string>
-    <string name="object_animator">传统动画和属性动画</string>
-    <string name="layout_animation">布局动画</string>
+    <string-array name="animation_array">
+        <item>传统动画和属性动画</item>
+        <item>布局动画</item>
+        <item>牙</item>
+    </string-array>
 
     <!-- 扫码 -->
-    <string name="qrcode">扫码</string>
     <string name="qrcode_result">扫码结果</string>
     <string name="qrcode_create">生成二维码</string>
     <string name="qrcode_create_hint">输入url或字符串, 生成二维码</string>
 
     <!-- 自定义View -->
-    <string name="customview">自定义View</string>
-    <string name="requestPermission">6.0申请权限</string>
-    <string name="simple">简单自定义</string>
-    <string name="linkedListView">外卖菜单列表</string>
-    <string name="tree">任意层级树</string>
-    <string name="skew">skew斜切</string>
-    <string name="KeepProportionImageViewActivity">保持原图比例</string>
     <string name="left_text">左边</string>
     <string name="right_text">右边</string>
     <string name="title_text">中间</string>
@@ -38,31 +45,19 @@
         <item>保持原图比例</item>
     </string-array>
 
+    <!-- ListView & RecyclerView -->
+    <string-array name="listViewAndRecyclerView_array">
+        <item>ListView &amp; header</item>
+        <item>TodoList（MVC）</item>
+        <item>RecyclerView wrap RecyclerView</item>
+    </string-array>
+
     <!-- 请求权限 -->
     <string name="requestOnePermission">请求一个权限</string>
     <string name="requestSeveralPermission">请求多个权限</string>
 
-    <!-- interview -->
-    <string name="todolist_mvc">TodoList（MVC）</string>
-    <string name="todolist">TodoList</string>
-
-    <!-- retrofit -->
-    <string name="retrofit">Retrofit</string>
-
-    <!-- AIDL -->
-    <string name="aidl">AIDL</string>
-
-    <!-- 牙 -->
-    <string name="teeth">牙</string>
-
-    <!-- WebView -->
-    <string name="webView">WebView</string>
-
     <!-- eventbus -->
-    <string name="eventbus">EventBus</string>
     <string name="eventbus_first">订阅者Subscriber</string>
     <string name="eventbus_second">发布者Publisher</string>
 
-    <!-- RecyclerView -->
-    <string name="recyclerView">RecyclerView</string>
 </resources>
