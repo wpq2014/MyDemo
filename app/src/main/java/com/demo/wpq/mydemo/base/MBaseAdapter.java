@@ -1,6 +1,5 @@
 package com.demo.wpq.mydemo.base;
 
-import android.content.Context;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +13,9 @@ import java.util.List;
  */
 public abstract class MBaseAdapter<T> extends BaseAdapter {
 
-    protected Context mContext;
     private List<T> mDatas;
 
-    public MBaseAdapter(Context context, List<T> datas) {
-        mContext = context;
+    public MBaseAdapter(List<T> datas) {
         mDatas = datas;
     }
 
@@ -49,18 +46,18 @@ public abstract class MBaseAdapter<T> extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        QLKViewHolder viewHolder;
+        ViewHolder viewHolder;
         if (convertView == null) {
             if (0 == getLayoutId()) {
                 throw new IllegalArgumentException("You must return a right contentView layout resource Id");
             }
-            convertView = LayoutInflater.from(mContext).inflate(getLayoutId(), parent, false);
+            convertView = LayoutInflater.from(parent.getContext()).inflate(getLayoutId(), parent, false);
             init(convertView);
 //            QLKLog.e(this.getClass().getSimpleName() + " init()：" + position);
-            viewHolder = new QLKViewHolder(convertView);
+            viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {
-            viewHolder = (QLKViewHolder) convertView.getTag();
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
         try {
@@ -90,18 +87,18 @@ public abstract class MBaseAdapter<T> extends BaseAdapter {
     /**
      * 设置事件监听和数据
      *
-     * @param viewHolder
-     * @param position
-     * @param itemData   每项数据源
+     * @param viewHolder A ViewHolder describes an item view and metadata about its place within the ListView|GridView
+     * @param position Position of the item whose data we want within the adapter's data set.
+     * @param itemData 数据源
      */
-    protected abstract void convert(QLKViewHolder viewHolder, int position, T itemData);
+    protected abstract void convert(ViewHolder viewHolder, int position, T itemData);
 
-    public static class QLKViewHolder {
+    protected static class ViewHolder {
 
         private final View mConvertView;
         private SparseArray<View> mViews;
 
-        QLKViewHolder(View convertView) {
+        ViewHolder(View convertView) {
             mConvertView = convertView;
             mViews = new SparseArray<>();
         }

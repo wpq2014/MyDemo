@@ -1,6 +1,5 @@
 package com.demo.wpq.mydemo.listview_and_recyclerview.listview_header;
 
-import android.content.Context;
 import android.view.View;
 
 import com.demo.wpq.mydemo.R;
@@ -14,8 +13,8 @@ import java.util.List;
  */
 public class ListViewHeaderAdapter extends MBaseAdapter<String> {
 
-    public ListViewHeaderAdapter(Context context, List<String> datas) {
-        super(context, datas);
+    public ListViewHeaderAdapter(List<String> datas) {
+        super(datas);
     }
 
     @Override
@@ -29,7 +28,7 @@ public class ListViewHeaderAdapter extends MBaseAdapter<String> {
     }
 
     @Override
-    protected void convert(QLKViewHolder viewHolder, int position, String itemData) {
+    protected void convert(ViewHolder viewHolder, int position, String itemData) {
 
     }
 }
