@@ -49,6 +49,7 @@
         <activity android:name=".RequestPermissionActivity"/>
         <activity android:name=".listview_and_recyclerview.todolist.TodoActivity"/>
         <activity android:name=".listview_and_recyclerview.recyclerview_wrap_recyclerview.ComplexRecyclerViewActivity"/>
+        <activity android:name=".listview_and_recyclerview.test_base_recycler_adapter.TestBaseRecyclerAdapterActivity"/>
         <activity android:name=".customview.LinkedListViewActivity"/>
         <activity android:name=".customview.TreeViewActivity"/>
         <activity android:name=".customview.SkewActivity"/>

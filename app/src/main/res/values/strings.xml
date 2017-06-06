@@ -50,6 +50,7 @@
         <item>ListView &amp; header</item>
         <item>TodoList（MVC）</item>
         <item>RecyclerView wrap RecyclerView</item>
+        <item>测试BaseRecyclerAdapter</item>
     </string-array>
 
     <!-- 请求权限 -->

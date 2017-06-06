@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.demo.wpq.mydemo.R;
@@ -57,8 +59,14 @@ public class ListViewHeaderActivity extends BaseAppCompatActivity {
     @Override
     public void init(@Nullable Bundle savedInstanceState) {
         mListView.addHeaderView(LayoutInflater.from(this).inflate(R.layout.nav_header_main, null));
-        mAdapter = new ListViewHeaderAdapter(this, mList);
+        mAdapter = new ListViewHeaderAdapter(mList);
         mListView.setAdapter(mAdapter);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
     }
 
 }

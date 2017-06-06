@@ -11,32 +11,32 @@ import java.util.List;
 /**
  * 简单的ListView适配器（不含ItemViewType）
  */
-public abstract class MBaseAdapter<T> extends BaseAdapter {
+public abstract class BaseListAdapter<T> extends BaseAdapter {
 
-    private List<T> mDatas;
+    private List<T> mList;
 
-    public MBaseAdapter(List<T> datas) {
-        mDatas = datas;
+    public BaseListAdapter(List<T> list) {
+        mList = list;
     }
 
     /**
      * 刷新
-     * @param datas
+     * @param list
      */
-    public void update(List<T> datas) {
-        if (datas == null) return;
-        mDatas = datas;
+    public void update(List<T> list) {
+        if (list == null) return;
+        mList = list;
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return mDatas.size();
+        return mList == null? 0 : mList.size();
     }
 
     @Override
     public T getItem(int position) {
-        return mDatas.get(position);
+        return mList.get(position);
     }
 
     @Override
@@ -46,7 +46,7 @@ public abstract class MBaseAdapter<T> extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder;
+        ListViewHolder viewHolder;
         if (convertView == null) {
             if (0 == getLayoutId()) {
                 throw new IllegalArgumentException("You must return a right contentView layout resource Id");
@@ -54,10 +54,10 @@ public abstract class MBaseAdapter<T> extends BaseAdapter {
             convertView = LayoutInflater.from(parent.getContext()).inflate(getLayoutId(), parent, false);
             init(convertView);
 //            QLKLog.e(this.getClass().getSimpleName() + " init()：" + position);
-            viewHolder = new ViewHolder(convertView);
+            viewHolder = new ListViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {
-            viewHolder = (ViewHolder) convertView.getTag();
+            viewHolder = (ListViewHolder) convertView.getTag();
         }
 
         try {
@@ -87,18 +87,18 @@ public abstract class MBaseAdapter<T> extends BaseAdapter {
     /**
      * 设置事件监听和数据
      *
-     * @param viewHolder A ViewHolder describes an item view and metadata about its place within the ListView|GridView
+     * @param viewHolder A ListViewHolder describes an item view and metadata about its place within the ListView|GridView
      * @param position Position of the item whose data we want within the adapter's data set.
      * @param itemData 数据源
      */
-    protected abstract void convert(ViewHolder viewHolder, int position, T itemData);
+    protected abstract void convert(ListViewHolder viewHolder, int position, T itemData);
 
-    protected static class ViewHolder {
+    protected static class ListViewHolder {
 
         private final View mConvertView;
         private SparseArray<View> mViews;
 
-        ViewHolder(View convertView) {
+        ListViewHolder(View convertView) {
             mConvertView = convertView;
             mViews = new SparseArray<>();
         }

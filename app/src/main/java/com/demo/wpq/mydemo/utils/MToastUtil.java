@@ -28,7 +28,7 @@ public final class MToastUtil {
     }
 
     public static void show(@StringRes int resId, int gravity, int duration) {
-        show(BaseApplication.getInstance().getResources().getString(resId), duration, gravity);
+        show(BaseApplication.getInstance().getResources().getString(resId), gravity, duration);
     }
 
     public static void show(@NonNull String text) {
@@ -36,7 +36,7 @@ public final class MToastUtil {
     }
 
     public static void show(@NonNull String text, int gravity) {
-        show(text, Toast.LENGTH_SHORT, gravity);
+        show(text, gravity, Toast.LENGTH_SHORT);
     }
 
     /**

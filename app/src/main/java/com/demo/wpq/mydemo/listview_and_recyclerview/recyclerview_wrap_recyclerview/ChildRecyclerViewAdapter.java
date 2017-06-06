@@ -55,4 +55,5 @@ public class ChildRecyclerViewAdapter extends RecyclerView.Adapter<ChildRecycler
             mButton = (Button) itemView.findViewById(R.id.btn_item);
         }
     }
+
 }
