@@ -29,6 +29,10 @@ public class MScreenUtil {
 
     private static final float DOT_FIVE = 0.5f;
 
+    private MScreenUtil() {
+        throw new AssertionError("cannot be instantiated");
+    }
+
     /**
      * init display metrics
      *

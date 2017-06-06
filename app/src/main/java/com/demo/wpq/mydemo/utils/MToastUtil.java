@@ -17,7 +17,7 @@ public final class MToastUtil {
 
     private static Toast sToast;
 
-    private MToastUtil() { /* cannot be instantiated */ }
+    private MToastUtil() { throw new AssertionError("cannot be instantiated"); }
 
     public static void show(@StringRes int resId) {
         show(resId, Gravity.BOTTOM);

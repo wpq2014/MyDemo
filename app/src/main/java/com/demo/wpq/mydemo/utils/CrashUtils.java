@@ -38,6 +38,7 @@ public final class CrashUtils
     private int     versionCode;
 
     private CrashUtils() {
+        throw new AssertionError("cannot be instantiated");
     }
 
     /**

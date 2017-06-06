@@ -14,7 +14,7 @@ public final class MLogUtil {
 
     public static final String TAG = "MLogUtil";
 
-    private MLogUtil() { /* cannot be instantiated */ }
+    private MLogUtil() { throw new AssertionError("cannot be instantiated");}
 
     public static void v(String msg) {
         v(null, msg, null);

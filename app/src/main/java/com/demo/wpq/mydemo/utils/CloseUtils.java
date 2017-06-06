@@ -14,7 +14,7 @@ import java.io.IOException;
 public final class CloseUtils {
 
     private CloseUtils() {
-        throw new UnsupportedOperationException("u can't instantiate me...");
+        throw new AssertionError("cannot be instantiated");
     }
 
     /**

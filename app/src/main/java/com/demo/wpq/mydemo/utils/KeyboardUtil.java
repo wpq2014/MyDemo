@@ -10,6 +10,10 @@ import java.util.TimerTask;
 
 public class KeyboardUtil {
 
+	private KeyboardUtil() {
+		throw new AssertionError("cannot be instantiated");
+	}
+
 	// 隐藏虚拟键盘
 	public static void hideKeyboard(View v) {
 		InputMethodManager imm = (InputMethodManager) v.getContext()
