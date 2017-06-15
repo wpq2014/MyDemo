@@ -91,14 +91,14 @@ public class TestBaseRecyclerAdapterActivity extends BaseAppCompatActivity {
         mAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ViewGroup parent, View view, int position) {
-                MToastUtil.show("您点击了：第" + (position - 2) + "项");
+                MToastUtil.show(TestBaseRecyclerAdapterActivity.this, "您点击了：第" + (position - 2) + "项");
             }
         });
 
         mAdapter.setOnItemLongClickListener(new BaseRecyclerAdapter.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(ViewGroup parent, View view, int position) {
-                MToastUtil.show("您长按删除了：第" + (position - 2) + "项");
+                MToastUtil.show(TestBaseRecyclerAdapterActivity.this, "您长按删除了：第" + (position - 2) + "项");
                 mList.remove(position - 2);
 //                mAdapter.notifyItemRemoved(position);
                 headerAndFooterWrapper.notifyItemRemoved(position);

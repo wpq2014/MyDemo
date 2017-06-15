@@ -77,7 +77,7 @@ public class TopBarActivity extends BaseAppCompatActivity {
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MToastUtil.show("ToolBar back clicked~");
+                MToastUtil.show(TopBarActivity.this, "ToolBar back clicked~");
 //                finish();
             }
         });
@@ -85,12 +85,12 @@ public class TopBarActivity extends BaseAppCompatActivity {
         topbar0.setOnTopBarClickListener(new TopBar.OnTopBarClickListener() {
             @Override
             public void onTopBarLeftClicked(View v) {
-                MToastUtil.show("leftButton0 clicked");
+                MToastUtil.show(TopBarActivity.this, "leftButton0 clicked");
             }
 
             @Override
             public void onTopBarRightClicked(View v) {
-                MToastUtil.show("rightButton0 clicked");
+                MToastUtil.show(TopBarActivity.this, "rightButton0 clicked");
             }
         });
 
@@ -121,13 +121,13 @@ public class TopBarActivity extends BaseAppCompatActivity {
                 .setOnLeftImageClickListener(new CommonTitleBar.OnTitleBarClickListener() {
                     @Override
                     public void onClick(View view) {
-                        MToastUtil.show("返回");
+                        MToastUtil.show(TopBarActivity.this, "返回");
                     }
                 })
                 .setOnRightTextClickListener(new CommonTitleBar.OnTitleBarClickListener() {
                     @Override
                     public void onClick(View view) {
-                        MToastUtil.show(((TextView) view).getText().toString());
+                        MToastUtil.show(TopBarActivity.this, ((TextView) view).getText().toString());
                     }
                 });
         commonTitleBar2.setRightTextVisibility(View.GONE);
@@ -137,16 +137,16 @@ public class TopBarActivity extends BaseAppCompatActivity {
             public void onDirectionChanged(int currentDirection) {
                 switch (currentDirection) {
                     case DirectionView.Direction.LEFT:
-                        MToastUtil.show("左");
+                        MToastUtil.show(TopBarActivity.this, "左");
                         break;
                     case DirectionView.Direction.RIGHT:
-                        MToastUtil.show("右");
+                        MToastUtil.show(TopBarActivity.this, "右");
                         break;
                     case DirectionView.Direction.UP:
-                        MToastUtil.show("前");
+                        MToastUtil.show(TopBarActivity.this, "前");
                         break;
                     case DirectionView.Direction.DOWN:
-                        MToastUtil.show("后");
+                        MToastUtil.show(TopBarActivity.this, "后");
                         break;
                 }
             }

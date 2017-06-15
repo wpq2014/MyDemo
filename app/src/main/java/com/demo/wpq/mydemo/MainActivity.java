@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity
         mEditText.addOnTextLengthWatcher(new MaxLengthEditText.OnTextLengthWatcher() {
             @Override
             public void onOverMaxLength() {
-                MToastUtil.show("字数不能超过" + 20);
+                MToastUtil.show(MainActivity.this, "字数不能超过" + 20);
             }
         });
 

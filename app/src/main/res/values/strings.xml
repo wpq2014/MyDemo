@@ -4,6 +4,9 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!-- common -->
+    <string name="networkErrorToast">请求失败，请检查网络连接</string>
+
     <string name="action_settings">设置</string>
     <string name="action_about">关于</string>
     <string name="action_share">分享</string>

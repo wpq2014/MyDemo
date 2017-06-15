@@ -37,10 +37,6 @@ public final class CrashUtils
     private String  versionName;
     private int     versionCode;
 
-    private CrashUtils() {
-        throw new AssertionError("cannot be instantiated");
-    }
-
     /**
      * 获取单例
      * <p>在Application中初始化{@code CrashUtils.getInstance().init(this);}</p>
