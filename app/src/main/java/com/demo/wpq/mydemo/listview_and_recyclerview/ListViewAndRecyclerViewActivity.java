@@ -11,12 +11,13 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import com.demo.wpq.mydemo.R;
 import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
 import com.demo.wpq.mydemo.constant.Constants;
-import com.demo.wpq.mydemo.customview.KeepProportionImageViewActivity;
+import com.demo.wpq.mydemo.customview.ScaledImageViewActivity;
 import com.demo.wpq.mydemo.customview.adapter.CustomAdapter;
 import com.demo.wpq.mydemo.customview.bean.CustomBean;
 import com.demo.wpq.mydemo.listview_and_recyclerview.listview_header.ListViewHeaderActivity;
 import com.demo.wpq.mydemo.listview_and_recyclerview.recyclerview_wrap_recyclerview.ComplexRecyclerViewActivity;
 import com.demo.wpq.mydemo.listview_and_recyclerview.test_base_recycler_adapter.TestBaseRecyclerAdapterActivity;
+import com.demo.wpq.mydemo.listview_and_recyclerview.test_base_recycler_adapter.TestMyRecyclerViewActivity;
 import com.demo.wpq.mydemo.listview_and_recyclerview.todolist.TodoActivity;
 
 import java.util.ArrayList;
@@ -40,13 +41,13 @@ public class ListViewAndRecyclerViewActivity extends BaseAppCompatActivity imple
     // intent data
     private String title;
 
-    private Class<?>[] mClasses = {ListViewHeaderActivity.class, TodoActivity.class, ComplexRecyclerViewActivity.class, TestBaseRecyclerAdapterActivity.class};
+    private Class<?>[] mClasses = {ListViewHeaderActivity.class, TodoActivity.class, ComplexRecyclerViewActivity.class, TestBaseRecyclerAdapterActivity.class, TestMyRecyclerViewActivity.class};
 
     private List<CustomBean> mList = new ArrayList<>();
     private CustomAdapter mCustomAdapter;
 
     public static Intent newIntent(Context context, String title) {
-        Intent intent = new Intent(context, KeepProportionImageViewActivity.class);
+        Intent intent = new Intent(context, ScaledImageViewActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString(Constants.TITLE, title);
         intent.putExtras(bundle);
@@ -54,7 +55,7 @@ public class ListViewAndRecyclerViewActivity extends BaseAppCompatActivity imple
     }
 
     @Override
-    public void getBundleExtras(Bundle bundle) {
+    public void getIntentExtras(Bundle bundle) {
         title = bundle.getString(Constants.TITLE);
     }
 

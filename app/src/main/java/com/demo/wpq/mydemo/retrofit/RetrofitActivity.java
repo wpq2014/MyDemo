@@ -8,7 +8,6 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.demo.wpq.mydemo.R;
-import com.demo.wpq.mydemo.RequestPermissionActivity;
 import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
 import com.demo.wpq.mydemo.constant.Constants;
 
@@ -43,7 +42,7 @@ public class RetrofitActivity extends BaseAppCompatActivity {
     }
 
     @Override
-    public void getBundleExtras(Bundle bundle) {
+    public void getIntentExtras(Bundle bundle) {
         title = bundle.getString(Constants.TITLE);
     }
 

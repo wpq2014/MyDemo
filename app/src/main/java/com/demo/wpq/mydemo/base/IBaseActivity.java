@@ -14,7 +14,7 @@ public interface IBaseActivity {
      *
      * @param bundle getIntent().getExtras();
      */
-    void getBundleExtras(Bundle bundle);
+    void getIntentExtras(Bundle bundle);
 
     /**
      * setContentView(int layoutResID)

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.demo.wpq.mydemo.R;
 import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
 import com.demo.wpq.mydemo.constant.Constants;
-import com.demo.wpq.mydemo.widget.KeepProportionImageView;
+import com.demo.wpq.mydemo.widget.ScaledImageView;
 
 import butterknife.BindView;
 
@@ -18,18 +18,18 @@ import butterknife.BindView;
  * Author: wpq
  * Date: 2017/4/17 17:30
  */
-public class KeepProportionImageViewActivity extends BaseAppCompatActivity {
+public class ScaledImageViewActivity extends BaseAppCompatActivity {
 
     @BindView(R.id.imageview0)
     ImageView mImageview0;
     @BindView(R.id.imageview1)
-    KeepProportionImageView mImageview1;
+    ScaledImageView mImageview1;
 
     // intent data
     private String title;
 
     public static Intent newIntent(Context context, String title) {
-        Intent intent = new Intent(context, KeepProportionImageViewActivity.class);
+        Intent intent = new Intent(context, ScaledImageViewActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString(Constants.TITLE, title);
         intent.putExtras(bundle);
@@ -37,13 +37,13 @@ public class KeepProportionImageViewActivity extends BaseAppCompatActivity {
     }
 
     @Override
-    public void getBundleExtras(Bundle bundle) {
+    public void getIntentExtras(Bundle bundle) {
         title = bundle.getString(Constants.TITLE);
     }
 
     @Override
     public int getContentViewLayoutID() {
-        return R.layout.activity_keep_proportion_imageview;
+        return R.layout.activity_scaled_imageview;
     }
 
     @Override
@@ -53,6 +53,6 @@ public class KeepProportionImageViewActivity extends BaseAppCompatActivity {
 
     @Override
     public void init(@Nullable Bundle savedInstanceState) {
-
+        mImageview1.setOriginalSize(1080, 2051);
     }
 }

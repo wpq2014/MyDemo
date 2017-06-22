@@ -11,7 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-public class DividerItemDecoration extends RecyclerView.ItemDecoration {
+public class MyDividerItemDecoration extends RecyclerView.ItemDecoration {
 
     private static final int[] ATTRS = {android.R.attr.listDivider};
     public static final int HORIZONTAL = LinearLayoutManager.HORIZONTAL;
@@ -22,7 +22,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private int mDividerHeight;
     private Paint mPaint;
 
-    public DividerItemDecoration(Context context, int orientation) {
+    public MyDividerItemDecoration(Context context, int orientation) {
         if (orientation != HORIZONTAL && orientation != VERTICAL) {
             throw new IllegalArgumentException("invalid orientation");
         }
@@ -34,13 +34,13 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         a.recycle();
     }
 
-    public DividerItemDecoration(Context context, int orientation, int drawableId) {
+    public MyDividerItemDecoration(Context context, int orientation, int drawableId) {
         this(context, orientation);
         mDivider = ContextCompat.getDrawable(context, drawableId);
         mDividerHeight = mDivider.getIntrinsicHeight();
     }
 
-    public DividerItemDecoration(Context context, int orientation, int dividerColor, int dividerHeight) {
+    public MyDividerItemDecoration(Context context, int orientation, int dividerColor, int dividerHeight) {
         this(context, orientation);
         mDividerHeight = dividerHeight;
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);

@@ -50,10 +50,11 @@
         <activity android:name=".listview_and_recyclerview.todolist.TodoActivity"/>
         <activity android:name=".listview_and_recyclerview.recyclerview_wrap_recyclerview.ComplexRecyclerViewActivity"/>
         <activity android:name=".listview_and_recyclerview.test_base_recycler_adapter.TestBaseRecyclerAdapterActivity"/>
+        <activity android:name=".listview_and_recyclerview.test_base_recycler_adapter.TestMyRecyclerViewActivity"/>
         <activity android:name=".customview.LinkedListViewActivity"/>
         <activity android:name=".customview.TreeViewActivity"/>
         <activity android:name=".customview.SkewActivity"/>
-        <activity android:name=".customview.KeepProportionImageViewActivity"/>
+        <activity android:name=".customview.ScaledImageViewActivity"/>
         <activity android:name=".retrofit.RetrofitActivity"/>
         <activity android:name=".animation.TeethActivity"/>
         <activity android:name=".WebActivity"/>

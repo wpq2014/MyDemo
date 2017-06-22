@@ -34,7 +34,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
         // init bundle data
         Bundle bundle = getIntent().getExtras();
         if (null != bundle) {
-            getBundleExtras(bundle);
+            getIntentExtras(bundle);
         }
 
         // init EventBus

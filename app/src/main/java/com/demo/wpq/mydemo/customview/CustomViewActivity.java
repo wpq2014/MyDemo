@@ -36,7 +36,7 @@ public class CustomViewActivity extends BaseAppCompatActivity implements CustomA
     // intent data
     private String title;
 
-    private Class<?>[] mClasses = {TopBarActivity.class, LinkedListViewActivity.class, TreeViewActivity.class, SkewActivity.class, KeepProportionImageViewActivity.class};
+    private Class<?>[] mClasses = {TopBarActivity.class, LinkedListViewActivity.class, TreeViewActivity.class, SkewActivity.class, ScaledImageViewActivity.class};
 
     private List<CustomBean> mList = new ArrayList<>();
     private CustomAdapter mCustomAdapter;
@@ -50,7 +50,7 @@ public class CustomViewActivity extends BaseAppCompatActivity implements CustomA
     }
 
     @Override
-    public void getBundleExtras(Bundle bundle) {
+    public void getIntentExtras(Bundle bundle) {
         title = bundle.getString(Constants.TITLE);
     }
 

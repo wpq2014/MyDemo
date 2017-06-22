@@ -7,9 +7,19 @@
     <!-- common -->
     <string name="networkErrorToast">请求失败，请检查网络连接</string>
 
+    <!-- LoadMoreView -->
+    <string name="LoadMoreView_loadingHint">加载中...</string>
+    <string name="LoadMoreView_completeHint">查看更多</string>
+    <string name="LoadMoreView_errorHint">加载失败，点击重新加载</string>
+    <string name="LoadMoreView_noMoreHint">没有更多了~</string>
+
     <string name="action_settings">设置</string>
     <string name="action_about">关于</string>
     <string name="action_share">分享</string>
+    <string name="action_linearLayoutManager">LinearLayoutManager</string>
+    <string name="action_gridLayoutManager">GridLayoutManager</string>
+    <string name="action_more_than_one_page">一页以上</string>
+    <string name="action_not_enough_one_page">不足一页</string>
 
     <!-- Main -->
     <string-array name="mainArray">
@@ -54,6 +64,7 @@
         <item>TodoList（MVC）</item>
         <item>RecyclerView wrap RecyclerView</item>
         <item>测试BaseRecyclerAdapter</item>
+        <item>测试MyRecyclerView</item>
     </string-array>
 
     <!-- 请求权限 -->

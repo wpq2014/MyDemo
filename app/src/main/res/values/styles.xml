@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/normal_background_color</item>
         <!-- 溢出菜单图标颜色-->
         <!--<item name="colorControlNormal">@android:color/white</item>-->
     </style>

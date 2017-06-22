@@ -19,7 +19,7 @@ import com.demo.wpq.mydemo.constant.Constants;
 import com.demo.wpq.mydemo.listview_and_recyclerview.todolist.adapter.TodoAdapter;
 import com.demo.wpq.mydemo.listview_and_recyclerview.todolist.model.Todo;
 import com.demo.wpq.mydemo.listview_and_recyclerview.todolist.model.TodoList;
-import com.demo.wpq.mydemo.listview_and_recyclerview.util.DividerItemDecoration;
+import com.demo.wpq.mydemo.listview_and_recyclerview.util.MyDividerItemDecoration;
 
 /**
  * Desc:
@@ -49,7 +49,7 @@ public class TodoActivity extends BaseAppCompatActivity implements View.OnClickL
     }
 
     @Override
-    public void getBundleExtras(Bundle bundle) {
+    public void getIntentExtras(Bundle bundle) {
         title = bundle.getString(Constants.TITLE);
     }
 
@@ -78,7 +78,7 @@ public class TodoActivity extends BaseAppCompatActivity implements View.OnClickL
         btnRemoveFinished.setOnClickListener(this);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL, Color.GREEN, 5));
+        recyclerView.addItemDecoration(new MyDividerItemDecoration(this, MyDividerItemDecoration.VERTICAL, Color.GREEN, 5));
         recyclerView.setAdapter(adapter = new TodoAdapter(this, todoList));
         adapter.setOnTodoListener(this);
     }

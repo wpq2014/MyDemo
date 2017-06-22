@@ -14,6 +14,7 @@ import com.demo.wpq.mydemo.utils.Utils;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.squareup.leakcanary.LeakCanary;
 
 import java.util.List;
 
@@ -34,6 +35,12 @@ public class MApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
 
         Fresco.initialize(this);
         RetrofitManager.init(this);

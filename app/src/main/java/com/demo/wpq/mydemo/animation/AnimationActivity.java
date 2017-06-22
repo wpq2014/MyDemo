@@ -50,7 +50,7 @@ public class AnimationActivity extends BaseAppCompatActivity implements CustomAd
     }
 
     @Override
-    public void getBundleExtras(Bundle bundle) {
+    public void getIntentExtras(Bundle bundle) {
         title = bundle.getString(Constants.TITLE);
     }
 

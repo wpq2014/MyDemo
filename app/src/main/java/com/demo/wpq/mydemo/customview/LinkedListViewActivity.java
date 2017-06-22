@@ -52,7 +52,7 @@ public class LinkedListViewActivity extends BaseAppCompatActivity {
     }
 
     @Override
-    public void getBundleExtras(Bundle bundle) {
+    public void getIntentExtras(Bundle bundle) {
         title = bundle.getString(Constants.TITLE);
     }
 

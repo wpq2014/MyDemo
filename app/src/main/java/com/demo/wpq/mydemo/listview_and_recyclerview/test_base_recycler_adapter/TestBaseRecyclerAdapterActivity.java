@@ -18,8 +18,9 @@ import com.demo.wpq.mydemo.R;
 import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
 import com.demo.wpq.mydemo.base.BaseRecyclerAdapter;
 import com.demo.wpq.mydemo.constant.Constants;
-import com.demo.wpq.mydemo.listview_and_recyclerview.util.DividerItemDecoration;
+import com.demo.wpq.mydemo.listview_and_recyclerview.util.MyDividerItemDecoration;
 import com.demo.wpq.mydemo.utils.MToastUtil;
+import com.demo.wpq.mydemo.widget.recyclerview.LoadMoreView;
 import com.demo.wpq.mydemo.widget.recyclerview.RecyclerHeaderAndFooterWrapper;
 
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public class TestBaseRecyclerAdapterActivity extends BaseAppCompatActivity {
     }
 
     @Override
-    public void getBundleExtras(Bundle bundle) {
+    public void getIntentExtras(Bundle bundle) {
         title = bundle.getString(Constants.TITLE);
     }
 
@@ -72,7 +73,7 @@ public class TestBaseRecyclerAdapterActivity extends BaseAppCompatActivity {
     public void init(@Nullable Bundle savedInstanceState) {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL, Color.TRANSPARENT, 5));
+        mRecyclerView.addItemDecoration(new MyDividerItemDecoration(this, MyDividerItemDecoration.VERTICAL, Color.TRANSPARENT, 5));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         for (int i= 0; i < 40; i++) {
@@ -86,6 +87,7 @@ public class TestBaseRecyclerAdapterActivity extends BaseAppCompatActivity {
         headerAndFooterWrapper.addHeaderView(LayoutInflater.from(this).inflate(R.layout.header_test_recycler0, null));
         headerAndFooterWrapper.addHeaderView(LayoutInflater.from(this).inflate(R.layout.header_test_recycler1, null));
         headerAndFooterWrapper.addFooterView(LayoutInflater.from(this).inflate(R.layout.footer_test_recycler0, null));
+        headerAndFooterWrapper.addFooterView(new LoadMoreView(this, null));
         mRecyclerView.setAdapter(headerAndFooterWrapper);
 
         mAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {

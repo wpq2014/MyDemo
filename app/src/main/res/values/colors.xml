@@ -48,12 +48,16 @@
     <color name="alpha_95_black">#F2000000</color>
     <color name="black">#FF000000</color>
 
-
     <color name="remind_bgcolor">#feefb6</color>
     <color name="remind_textcolor">#ff7300</color>
 
     <!-- 标题栏 -->
     <color name="back_bg_normal">#3596dd</color>
     <color name="back_bg_pressed">#1b75b7</color>
+
+    <!-- 通用背景 -->
+    <color name="normal_background_color">#EEEEEE</color>
+
+    <color name="qlk_system_bg_pressed">#bbbbbb</color>
 
 </resources>
