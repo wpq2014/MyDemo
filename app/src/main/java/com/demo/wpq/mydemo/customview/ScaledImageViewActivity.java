@@ -53,6 +53,6 @@ public class ScaledImageViewActivity extends BaseAppCompatActivity {
 
     @Override
     public void init(@Nullable Bundle savedInstanceState) {
-        mImageview1.setOriginalSize(1080, 2051);
+        mImageview1.setOriginalSize(2051, 1080);
     }
 }

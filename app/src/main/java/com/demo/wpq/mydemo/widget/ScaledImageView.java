@@ -37,12 +37,12 @@ public class ScaledImageView extends AppCompatImageView {
         if (mOriginalWidth > 0 && mOriginalHeight > 0) {
             int width = MeasureSpec.getSize(widthMeasureSpec);
             int height = MeasureSpec.getSize(heightMeasureSpec);
-            Log.e("ScaledImageView", width + "，" + height);
-            float scale = (float) mOriginalWidth / (float) mOriginalHeight;
+            Log.e("onMeasure", width + ", " + height);
+            float scale = (float) mOriginalHeight / (float) mOriginalWidth;
             if (width > 0) {
                 height = (int) (width * scale);
-                Log.e("ScaledImageView", width + "，" + height);
             }
+            Log.e("onMeasure", width + ", " + height);
             setMeasuredDimension(width, height);
         } else {
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
