@@ -61,6 +61,7 @@
         <!-- eventbus -->
         <activity android:name=".eventbus.EventBusFirstActivity"/>
         <activity android:name=".eventbus.EventBusSecondActivity"/>
+        <activity android:name=".KeyboardActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
 
         <service
             android:name=".ipc.RemoteService"

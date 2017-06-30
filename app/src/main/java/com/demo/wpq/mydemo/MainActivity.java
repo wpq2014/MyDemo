@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity
     String[] array;
 
     private Class<?>[] mClasses = {AnimationActivity.class, CaptureActivity.class, CustomViewActivity.class, ListViewAndRecyclerViewActivity.class,
-                                   RequestPermissionActivity.class, RetrofitActivity.class, ClientActivity.class, WebActivity.class, EventBusFirstActivity.class};
+                                   RequestPermissionActivity.class, RetrofitActivity.class, ClientActivity.class, WebActivity.class, EventBusFirstActivity.class,
+                                   KeyboardActivity.class};
     private List<CustomBean> mList = new ArrayList<>();
     private CustomAdapter mCustomAdapter;
 

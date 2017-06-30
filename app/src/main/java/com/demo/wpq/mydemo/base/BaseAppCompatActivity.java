@@ -13,7 +13,6 @@ import com.demo.wpq.mydemo.eventbus.BindEventBus;
 
 import org.greenrobot.eventbus.EventBus;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -22,14 +21,16 @@ import butterknife.ButterKnife;
 
 public abstract class BaseAppCompatActivity extends AppCompatActivity implements IBaseActivity{
 
-    @BindView(R.id.toolbar)
     protected Toolbar mToolbar;
-    @BindView(R.id.tv_title)
     protected TextView mTvTitle; // 中间的标题
+
+    protected String TAG;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        TAG = this.getClass().getSimpleName();
 
         // init bundle data
         Bundle bundle = getIntent().getExtras();
@@ -62,6 +63,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
     }
 
     private void initToolBar() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
             mToolbar.setTitle(""); // 去掉默认title
             setSupportActionBar(mToolbar);
@@ -77,6 +79,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
             });
         }
 
+        mTvTitle = (TextView) findViewById(R.id.tv_title);
         if (mTvTitle != null) {
             mTvTitle.setText(getToolBarTitle()); // 中间的标题
         }

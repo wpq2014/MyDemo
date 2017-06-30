@@ -32,6 +32,7 @@
         <item>AIDL</item>
         <item>WebView</item>
         <item>EventBus</item>
+        <item>键盘显示隐藏</item>
     </string-array>
 
     <!-- 动画 -->
