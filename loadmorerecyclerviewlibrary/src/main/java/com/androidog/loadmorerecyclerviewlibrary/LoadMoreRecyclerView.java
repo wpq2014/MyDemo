@@ -1,4 +1,4 @@
-package com.demo.wpq.mydemo.widget.recyclerview;
+package com.androidog.loadmorerecyclerviewlibrary;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,24 +12,27 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * 只封装加载更多，下拉刷新配合：https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
+ * 只封装加载更多，下拉刷新可配合 SwipeRefreshLayout 和 https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
  * @author wpq
  * @version 1.0
  */
-public class MyRecyclerView extends RecyclerView {
+public class LoadMoreRecyclerView extends RecyclerView {
 
-    public static final String TAG = MyRecyclerView.class.getSimpleName();
+    public static final String TAG = LoadMoreRecyclerView.class.getSimpleName();
 
-    private static final int ITEM_TYPE_HEADER_INIT = 100001;
-    private static final int ITEM_TYPE_FOOTER_INIT = 200001;
-    private static final int ITEM_TYPE_LOAD_MORE = 200000;
+    /** headers viewType，取值较大，避免跟数据区域的viewType重复，如有重复则需调整 */
+    private static final int VIEW_TYPE_HEADER_INIT = 100001;
+    /** footers viewType */
+    private static final int VIEW_TYPE_FOOTER_INIT = 200001;
+    /** LoadMore viewType */
+    private static final int VIEW_TYPE_LOAD_MORE = 200000;
 
     private SparseArrayCompat<View> mHeaderViews = new SparseArrayCompat<>();
     private SparseArrayCompat<View> mFooterViews = new SparseArrayCompat<>();
     private LoadMoreView mLoadMoreView;
     private boolean loadMoreEnabled = false;
     private WrapAdapter mWrapAdapter;
-    private RecyclerView.AdapterDataObserver mAdapterDataObserver = new DataObserver();
+    private AdapterDataObserver mAdapterDataObserver = new DataObserver();
     private OnLoadListener mOnLoadListener;
     /** 是否正在执行网络请求，切换标记位保证滚动到底部时不会频繁触发网络请求 */
     private boolean isLoading = false;
@@ -37,20 +40,24 @@ public class MyRecyclerView extends RecyclerView {
     /** 分页加载时，总数据不满一页，则不需要分页 */
     private boolean noNeedToLoadMore = true;
 
-    public MyRecyclerView(Context context) {
+    public LoadMoreRecyclerView(Context context) {
         this(context, null);
     }
 
-    public MyRecyclerView(Context context, @Nullable AttributeSet attrs) {
+    public LoadMoreRecyclerView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public MyRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
+    public LoadMoreRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
     public void addHeaderView(@NonNull View headerView) {
-        mHeaderViews.put(ITEM_TYPE_HEADER_INIT + mHeaderViews.size(), headerView);
+        mHeaderViews.put(VIEW_TYPE_HEADER_INIT + mHeaderViews.size(), headerView);
+        if (mWrapAdapter != null) {
+            mWrapAdapter.getInnerAdapter().notifyDataSetChanged();
+//            mWrapAdapter.getInnerAdapter().notifyItemInserted(mHeaderViews.size());
+        }
     }
 
     /**
@@ -62,14 +69,21 @@ public class MyRecyclerView extends RecyclerView {
         if (loadMoreEnabled) {
             return;
         }
-        mFooterViews.put(ITEM_TYPE_FOOTER_INIT + mFooterViews.size(), footerView);
+        mFooterViews.put(VIEW_TYPE_FOOTER_INIT + mFooterViews.size(), footerView);
+        if (mWrapAdapter != null) {
+            // 最后一个position = mWrapAdapter.getItemCount() - 1，
+            // 新增一个FooterView的position = mWrapAdapter.getItemCount()
+            mWrapAdapter.getInnerAdapter().notifyDataSetChanged();
+//            mWrapAdapter.getInnerAdapter().notifyItemInserted(mWrapAdapter.getItemCount());
+        }
     }
 
     public void removeHeaderView(@NonNull View headerView) {
         for(int i = 0; i < mHeaderViews.size(); i++) {
             if (headerView.equals(mHeaderViews.valueAt(i))) {
                 mHeaderViews.removeAt(i);
-                mAdapterDataObserver.onChanged();
+                mWrapAdapter.getInnerAdapter().notifyDataSetChanged();
+//                mWrapAdapter.getInnerAdapter().notifyItemRemoved(i);
                 break;
             }
         }
@@ -79,7 +93,8 @@ public class MyRecyclerView extends RecyclerView {
         for (int i = 0; i < mFooterViews.size(); i++) {
             if (footerView.equals(mFooterViews.valueAt(i))) {
                 mFooterViews.removeAt(i);
-                mAdapterDataObserver.onChanged();
+                mWrapAdapter.getInnerAdapter().notifyDataSetChanged();
+//                mWrapAdapter.getInnerAdapter().notifyItemRemoved(mHeaderViews.size() + mWrapAdapter.getInnerItemCount() + i);
             }
         }
     }
@@ -187,7 +202,12 @@ public class MyRecyclerView extends RecyclerView {
             SCROLL_STATE_IDLE     = 0 ：静止,没有滚动
             SCROLL_STATE_DRAGGING = 1 ：正在被外部拖拽,一般为用户正在用手指滚动
             SCROLL_STATE_SETTLING = 2 ：自动滚动开始
-        */
+         */
+
+        /*
+            RecyclerView.canScrollVertically(1)的值表示是否能向上滚动，false表示已经滚动到底部
+            RecyclerView.canScrollVertically(-1)的值表示是否能向下滚动，false表示已经滚动到顶部
+         */
 
 //        Log.e(TAG, state + ", " + this.canScrollVertically(1));
         // 判断RecyclerView滚动到底部，参考：http://www.jianshu.com/p/c138055af5d2
@@ -197,21 +217,21 @@ public class MyRecyclerView extends RecyclerView {
     }
 
     /** wrap header、footer、loadMore */
-    private class WrapAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private class WrapAdapter extends Adapter<ViewHolder> {
 
-        private RecyclerView.Adapter mInnerAdapter;
+        private Adapter mInnerAdapter;
 
-        private class WrapViewHolder extends RecyclerView.ViewHolder {
+        private class WrapViewHolder extends ViewHolder {
             public WrapViewHolder(View itemView) {
                 super(itemView);
             }
         }
 
-        public WrapAdapter(RecyclerView.Adapter innerAdapter) {
+        public WrapAdapter(Adapter innerAdapter) {
             this.mInnerAdapter = innerAdapter;
         }
 
-        public RecyclerView.Adapter getInnerAdapter() {
+        public Adapter getInnerAdapter() {
             return mInnerAdapter;
         }
 
@@ -227,7 +247,7 @@ public class MyRecyclerView extends RecyclerView {
             if (mFooterViews.get(viewType) != null) {
                 return new WrapViewHolder(mFooterViews.get(viewType));
             }
-            if (viewType == ITEM_TYPE_LOAD_MORE) {
+            if (viewType == VIEW_TYPE_LOAD_MORE) {
                 return new WrapViewHolder(mLoadMoreView);
             }
             return mInnerAdapter.onCreateViewHolder(parent, viewType);
@@ -262,7 +282,7 @@ public class MyRecyclerView extends RecyclerView {
                 return mFooterViews.keyAt(position - getHeadersCount() - getInnerItemCount());
             }
             if (isLoadMore(position)) {
-                return ITEM_TYPE_LOAD_MORE;
+                return VIEW_TYPE_LOAD_MORE;
             }
             return mInnerAdapter.getItemViewType(position - getHeadersCount());
         }
@@ -270,7 +290,7 @@ public class MyRecyclerView extends RecyclerView {
         @Override
         public void onAttachedToRecyclerView(RecyclerView recyclerView) {
             super.onAttachedToRecyclerView(recyclerView);
-            RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+            LayoutManager layoutManager = recyclerView.getLayoutManager();
             if (layoutManager instanceof GridLayoutManager) {
                 final GridLayoutManager gridLayoutManager = (GridLayoutManager) layoutManager;
                 gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
@@ -296,28 +316,88 @@ public class MyRecyclerView extends RecyclerView {
             mInnerAdapter.onViewAttachedToWindow(holder);
         }
 
-        private boolean isHeader(int position) {
-            return position < getHeadersCount();
+        @Override
+        public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+            mInnerAdapter.onDetachedFromRecyclerView(recyclerView);
         }
 
-        private boolean isFooter(int position) {
-            return getFootersCount() > 0 && position >= getHeadersCount() + getInnerItemCount();
+        @Override
+        public void onViewDetachedFromWindow(ViewHolder holder) {
+            //noinspection unchecked
+            mInnerAdapter.onViewDetachedFromWindow(holder);
         }
 
-        private boolean isLoadMore(int position) {
-            // 如果是加载更多 && 是最后一项，就是LoadMore
-            return loadMoreEnabled && position == getItemCount() - 1 && !noNeedToLoadMore;
+        @Override
+        public void onViewRecycled(ViewHolder holder) {
+            //noinspection unchecked
+            mInnerAdapter.onViewRecycled(holder);
         }
+
+        @Override
+        public boolean onFailedToRecycleView(ViewHolder holder) {
+            //noinspection unchecked
+            return mInnerAdapter.onFailedToRecycleView(holder);
+        }
+
+        @Override
+        public void unregisterAdapterDataObserver(AdapterDataObserver observer) {
+            mInnerAdapter.unregisterAdapterDataObserver(observer);
+        }
+
+        @Override
+        public void registerAdapterDataObserver(AdapterDataObserver observer) {
+            mInnerAdapter.registerAdapterDataObserver(observer);
+        }
+
     }
 
-    private class DataObserver extends RecyclerView.AdapterDataObserver {
+    public boolean isHeader(int position) {
+        return position < getHeadersCount();
+    }
+
+    public boolean isFooter(int position) {
+        return getFootersCount() > 0 && position >= getHeadersCount() + mWrapAdapter.getInnerItemCount();
+    }
+
+    public boolean isLoadMore(int position) {
+        // 如果是加载更多 && 是最后一项，就是LoadMore
+        return loadMoreEnabled && position == mWrapAdapter.getItemCount() - 1 && !noNeedToLoadMore;
+    }
+
+    private class DataObserver extends AdapterDataObserver {
         @Override
         public void onChanged() {
             if (mWrapAdapter != null) {
                 mWrapAdapter.notifyDataSetChanged();
             }
         }
-    };
+
+        @Override
+        public void onItemRangeInserted(int positionStart, int itemCount) {
+            mWrapAdapter.notifyItemRangeInserted(positionStart, itemCount);
+        }
+
+        @Override
+        public void onItemRangeChanged(int positionStart, int itemCount) {
+            mWrapAdapter.notifyItemRangeChanged(positionStart, itemCount);
+        }
+
+        @Override
+        public void onItemRangeChanged(int positionStart, int itemCount, Object payload) {
+            mWrapAdapter.notifyItemRangeChanged(positionStart, itemCount, payload);
+        }
+
+        @Override
+        public void onItemRangeRemoved(int positionStart, int itemCount) {
+            mWrapAdapter.notifyItemRangeRemoved(positionStart, itemCount);
+        }
+
+        @Override
+        public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+            mWrapAdapter.notifyItemMoved(fromPosition, toPosition);
+        }
+
+    }
 
     public void setOnLoadListener(OnLoadListener onLoadListener) {
         this.mOnLoadListener = onLoadListener;

@@ -19,6 +19,7 @@ package com.demo.wpq.mydemo.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
@@ -74,6 +75,11 @@ public class MScreenUtil {
     public static int dp2px(Context context, float dp) {
         float density = getDensity(context);
         return (int) (dp * density + MScreenUtil.DOT_FIVE);
+    }
+
+    public static float dp2px(float dp, Resources resources) {
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        return metrics.density * dp;
     }
 
     /**

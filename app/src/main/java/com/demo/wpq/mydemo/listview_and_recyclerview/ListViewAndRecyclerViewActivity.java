@@ -16,8 +16,7 @@ import com.demo.wpq.mydemo.customview.adapter.CustomAdapter;
 import com.demo.wpq.mydemo.customview.bean.CustomBean;
 import com.demo.wpq.mydemo.listview_and_recyclerview.listview_header.ListViewHeaderActivity;
 import com.demo.wpq.mydemo.listview_and_recyclerview.recyclerview_wrap_recyclerview.ComplexRecyclerViewActivity;
-import com.demo.wpq.mydemo.listview_and_recyclerview.test_base_recycler_adapter.TestBaseRecyclerAdapterActivity;
-import com.demo.wpq.mydemo.listview_and_recyclerview.test_base_recycler_adapter.TestMyRecyclerViewActivity;
+import com.demo.wpq.mydemo.listview_and_recyclerview.timeline.TimeLineActivity;
 import com.demo.wpq.mydemo.listview_and_recyclerview.todolist.TodoActivity;
 
 import java.util.ArrayList;
@@ -41,7 +40,8 @@ public class ListViewAndRecyclerViewActivity extends BaseAppCompatActivity imple
     // intent data
     private String title;
 
-    private Class<?>[] mClasses = {ListViewHeaderActivity.class, TodoActivity.class, ComplexRecyclerViewActivity.class, TestBaseRecyclerAdapterActivity.class, TestMyRecyclerViewActivity.class};
+    private Class<?>[] mClasses = {ListViewHeaderActivity.class, TodoActivity.class,
+            ComplexRecyclerViewActivity.class, TimeLineActivity.class};
 
     private List<CustomBean> mList = new ArrayList<>();
     private CustomAdapter mCustomAdapter;

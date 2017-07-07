@@ -1,35 +1,38 @@
-package com.demo.wpq.mydemo.customview;
+package com.demo.wpq.mydemo.listview_and_recyclerview.timeline;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.widget.ImageView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.demo.wpq.mydemo.R;
 import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
 import com.demo.wpq.mydemo.constant.Constants;
-import com.demo.wpq.mydemo.widget.ScaledImageView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
 /**
- * Desc: 测试ImageView保持原图宽高比
- * Author: wpq
- * Date: 2017/4/17 17:30
+ * @author wpq
+ * @version 1.0
  */
-public class ScaledImageViewActivity extends BaseAppCompatActivity {
+public class TimeLineActivity extends BaseAppCompatActivity {
 
-    @BindView(R.id.imageview0)
-    ImageView mImageview0;
-    @BindView(R.id.imageview1)
-    ScaledImageView mImageview1;
+    @BindView(R.id.recyclerView)
+    RecyclerView mRecyclerView;
 
     // intent data
     private String title;
 
+    private List<TimeLineBean> mList = new ArrayList<>();
+    private TimeLineAdapter mAdapter;
+
     public static Intent newIntent(Context context, String title) {
-        Intent intent = new Intent(context, ScaledImageViewActivity.class);
+        Intent intent = new Intent(context, TimeLineActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString(Constants.TITLE, title);
         intent.putExtras(bundle);
@@ -43,7 +46,7 @@ public class ScaledImageViewActivity extends BaseAppCompatActivity {
 
     @Override
     public int getContentViewLayoutID() {
-        return R.layout.activity_scaled_imageview;
+        return R.layout.activity_timeline;
     }
 
     @Override
@@ -53,7 +56,12 @@ public class ScaledImageViewActivity extends BaseAppCompatActivity {
 
     @Override
     public void init(@Nullable Bundle savedInstanceState) {
-        mImageview1.setOriginalSize(2051, 1080);
-//        Glide.with(this).load("").placeholder(R.drawable.direction_control_down).into(mImageview0);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        for (int i = 0; i < 20; i++) {
+            mList.add(new TimeLineBean());
+        }
+        mRecyclerView.setAdapter(mAdapter = new TimeLineAdapter(mList));
     }
+
 }

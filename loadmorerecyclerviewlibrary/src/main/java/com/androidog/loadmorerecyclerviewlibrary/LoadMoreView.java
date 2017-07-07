@@ -1,4 +1,4 @@
-package com.demo.wpq.mydemo.widget.recyclerview;
+package com.androidog.loadmorerecyclerviewlibrary;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -8,10 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.demo.wpq.mydemo.R;
-
 /**
- * 加载更多
+ * 加载更多布局
  * @author wpq
  * @version 1.0
  */
@@ -54,12 +52,12 @@ public class LoadMoreView extends LinearLayout implements View.OnClickListener {
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         mPbLoadMore = new ProgressBar(getContext());
-        LinearLayout.LayoutParams lpPb = new LinearLayout.LayoutParams(dp2px(20), dp2px(20));
+        LayoutParams lpPb = new LayoutParams(dp2px(20), dp2px(20));
         mPbLoadMore.setLayoutParams(lpPb);
         addView(mPbLoadMore);
 
         mTvLoadMore = new TextView(getContext());
-        LinearLayout.LayoutParams lpTv = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        LayoutParams lpTv = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         lpTv.setMargins(dp2px(10), dp2px(15), dp2px(10), dp2px(15));
         mTvLoadMore.setLayoutParams(lpTv);
         mTvLoadMore.setTextSize(14.0f);
@@ -70,6 +68,13 @@ public class LoadMoreView extends LinearLayout implements View.OnClickListener {
         setOnClickListener(this);
         setClickable(false);
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (mOnClickListener != null) {
+            mOnClickListener.onLoadMoreViewClick();
+        }
     }
 
     /**
@@ -146,15 +151,8 @@ public class LoadMoreView extends LinearLayout implements View.OnClickListener {
         return (int) (dp * density + 0.5f);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (mOnClickListener != null) {
-            mOnClickListener.onLoadMoreViewClick();
-        }
-    }
-
     public interface OnClickListener{
-        /** 加载更多 | 加载失败，点击重试 */
+        /** 加载更多 | 加载失败，点击重新加载 */
         void onLoadMoreViewClick();
     }
 }

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LoadMoreRecyclerViewLibrary</string>
+
+    <string name="LoadMoreView_loadingHint">加载中...</string>
+    <string name="LoadMoreView_completeHint">查看更多</string>
+    <string name="LoadMoreView_errorHint">加载失败，点击重新加载</string>
+    <string name="LoadMoreView_noMoreHint">没有更多了~</string>
+</resources>
