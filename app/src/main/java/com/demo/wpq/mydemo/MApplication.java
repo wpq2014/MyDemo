@@ -12,6 +12,7 @@ import com.demo.wpq.mydemo.retrofit.RetrofitManager;
 import com.demo.wpq.mydemo.utils.CrashUtils;
 import com.demo.wpq.mydemo.utils.Utils;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.github.moduth.blockcanary.BlockCanary;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.leakcanary.LeakCanary;
@@ -23,6 +24,8 @@ import cn.cwkj.bluetooth.connect.BluetoothReceiver;
 public class MApplication extends BaseApplication {
 
     public static final String TAG = MApplication.class.getSimpleName();
+
+    private static Context sContext;
 
     private BluetoothReceiver bluetoothReceiver;
 
@@ -42,6 +45,10 @@ public class MApplication extends BaseApplication {
         }
         LeakCanary.install(this);
 
+        // https://github.com/markzhai/AndroidPerformanceMonitor
+        sContext = this;
+        BlockCanary.install(this, new AppContext()).start();
+
         Fresco.initialize(this);
         RetrofitManager.init(this);
 
@@ -50,6 +57,10 @@ public class MApplication extends BaseApplication {
 
         testGson();
 
+    }
+
+    public static Context getAppContext() {
+        return sContext;
     }
 
     private void testGson() {

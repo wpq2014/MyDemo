@@ -77,4 +77,7 @@ dependencies {
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
 
+    compile 'com.github.markzhai:blockcanary-android:1.5.0'
+    // this way you only enable BlockCanary in debug package
+    debugCompile 'com.github.markzhai:blockcanary-android:1.5.0'
 }
