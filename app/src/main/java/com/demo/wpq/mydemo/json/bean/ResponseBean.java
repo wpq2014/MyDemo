@@ -10,9 +10,9 @@ import java.io.Serializable;
 public class ResponseBean<T> implements Serializable {
     private static final long serialVersionUID = -3212832294172578804L;
 
-//    {"code":1, "msg":"请求成功", "data":[{"type":"a", "who":"b"}]}
-//    {"code":1, "msg":"请求成功", "data":{"type":"a", "who":"b"}}
-//    {"code":1, "msg":"请求成功", "data":""}
+//    {"code":0, "msg":"成功", "data":[{"type":"a", "who":"b"}]}
+//    {"code":0, "msg":"成功", "data":{"type":"a", "who":"b"}}
+//    {"code":0, "msg":"成功", "data":""}
 
     public Integer code;
     public String msg;

@@ -2,14 +2,15 @@ package com.demo.wpq.mydemo.json;
 
 public class Person {
 
-    private String name;
-    private int    age;
+    public String name;
+    private int   age;
 
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
+        System.err.println(name);
         this.name = name;
     }
 
@@ -18,6 +19,7 @@ public class Person {
     }
 
     public void setAge(int age) {
+        System.err.println(age);
         this.age = age;
     }
 
