@@ -8,6 +8,7 @@ import com.demo.wpq.mydemo.base.BaseApplication;
 import com.demo.wpq.mydemo.json.bean.ResponseBean;
 import com.demo.wpq.mydemo.json.bean.ResultBean;
 import com.demo.wpq.mydemo.json.bean.UnNormalJsonBean;
+import com.demo.wpq.mydemo.json.fastjson.FastHandler;
 import com.demo.wpq.mydemo.retrofit.RetrofitManager;
 import com.demo.wpq.mydemo.utils.CrashUtils;
 import com.demo.wpq.mydemo.utils.Utils;
@@ -16,6 +17,9 @@ import com.github.moduth.blockcanary.BlockCanary;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.leakcanary.LeakCanary;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -67,8 +71,52 @@ public class MApplication extends BaseApplication {
         String jsonArray  = "{\"code\":1, \"msg\":\"请求成功\", \"data\":[{\"type\":\"福利\", \"who\":\"代码家\"}]}";
         String jsonObject = "{\"code\":0, \"msg\":\"请求失败\", \"data\":{\"type\":\"干货\", \"who\":\"武普泉\"}}";
         String jsonString = "{\"code\":0, \"msg\":\"请求失败\", \"data\":\"干货福利\"}";
+
+        // fastjson
+        String fastArray = "[{\"type\":\"福利\", \"who\":\"代码家\"}]";
+        new FastHandler<List<ResultBean>>(ResultBean.class) {
+            @Override
+            public void onSuccess(List<ResultBean> list) {
+                Log.e(TAG, list + "");
+            }
+        }.parse(fastArray);
+
         // Gson自带泛型解析
         Gson gson = new Gson();
+
+        String resultBeanTest = "{\"type\":\"干货\", \"who\":\"武普泉\"}";
+//        new HttpResponseHandler<List<ResultBean>>(List<ResultBean>.class) {
+//            @Override
+//            public void onSuccess(List<ResultBean> t) {
+//                Log.e(TAG, t.type + ", " + t.who);
+//            }
+//        }.onSuccess(resultBeanTest);
+
+        String jsonTest  = "{\"code\":0, \"msg\":\"请求失败\", \"data\":{null}}";
+//        JsonObject jsonObject1 = new JsonParser().parse(jsonTest).getAsJsonObject();
+//        JsonArray data = jsonObject1.get("data").getAsJsonArray();
+//        JsonElement jsonElement = jsonObject1.get("data");
+//        Log.e(TAG, "data: " + (data == null) + jsonObject1.get("data"));
+
+        try {
+            JSONObject jsonObject2 = new JSONObject(jsonTest);
+//            JSONArray jsonArray1 = jsonObject2.optJSONArray("data");
+            Object object = jsonObject2.opt("data");
+            Log.e(TAG, "d: " + (object == null) + jsonObject2.opt("data").toString());
+            if (object == null || "null".equals(object.toString())) {
+                Log.e(TAG, "d: " + "data is null.");
+                return;
+            }
+//            List<ResultBean> listTest = gson.fromJson(object.toString(), new TypeToken<List<ResultBean>>() {}.getType());
+            ResultBean beanTest = gson.fromJson(object.toString(), new TypeToken<ResultBean>() {}.getType());
+
+//            JSONObject jsonObject3 = new JSONObject(jsonObject);
+//            JSONObject jsonObject4 = jsonObject3.optJSONObject("data");
+//            Log.e(TAG, "d2: " + jsonObject4.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         // 数组
         ResponseBean<List<ResultBean>> arrayBean = gson.fromJson(jsonArray, new TypeToken<ResponseBean<List<ResultBean>>>() {}.getType());
         List<ResultBean> list = arrayBean.data;

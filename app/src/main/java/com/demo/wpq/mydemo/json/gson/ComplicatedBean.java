@@ -1,4 +1,4 @@
-package com.demo.wpq.mydemo.json.bean;
+package com.demo.wpq.mydemo.json.gson;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -11,7 +11,7 @@ import java.util.List;
  * @author wpq
  * @version 1.0
  */
-public class TestBean{
+public class ComplicatedBean {
 
     /**
      * name : 服务人数
@@ -74,7 +74,7 @@ public class TestBean{
 
     @Override
     public String toString() {
-        return "TestBean{" +
+        return "ComplicatedBean{" +
                 "name='" + name + '\'' +
                 ", reField='" + reField + '\'' +
                 ", type='" + type + '\'' +

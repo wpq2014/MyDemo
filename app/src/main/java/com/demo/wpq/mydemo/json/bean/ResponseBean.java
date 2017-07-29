@@ -1,12 +1,17 @@
 package com.demo.wpq.mydemo.json.bean;
 
+import com.google.gson.Gson;
+
 import java.io.Serializable;
+import java.lang.reflect.Type;
+import java.util.List;
+
+import ikidou.reflect.TypeBuilder;
 
 /**
  * Gson泛型解析
  * Created by lion on 2017/4/10.
  */
-
 public class ResponseBean<T> implements Serializable {
     private static final long serialVersionUID = -3212832294172578804L;
 
@@ -25,6 +30,24 @@ public class ResponseBean<T> implements Serializable {
                 ", msg='" + msg + '\'' +
                 ", data=" + data +
                 '}';
+    }
+
+    public static <E> ResponseBean<List<E>> fromJSONArray(String json, Class<E> cls) {
+        Type type = TypeBuilder
+                .newInstance(ResponseBean.class)
+                .beginSubType(List.class)
+                .addTypeParam(cls)
+                .endSubType()
+                .build();
+        return new Gson().fromJson(json, type);
+    }
+
+    public static <E> ResponseBean<E> fromJSONObject(String json, Class<E> cls) {
+        Type type = TypeBuilder
+                .newInstance(ResponseBean.class)
+                .addTypeParam(cls)
+                .build();
+        return new Gson().fromJson(json, type);
     }
 
 //    private void testGson() {

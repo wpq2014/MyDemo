@@ -82,4 +82,7 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
 
     compile project(':loadmorerecyclerviewlibrary')
+
+    // https://github.com/ikidou/TypeBuilder
+    compile 'com.github.ikidou:TypeBuilder:1.0'
 }
