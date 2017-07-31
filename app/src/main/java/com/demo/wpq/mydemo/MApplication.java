@@ -72,6 +72,13 @@ public class MApplication extends BaseApplication {
         String jsonObject = "{\"code\":0, \"msg\":\"请求失败\", \"data\":{\"type\":\"干货\", \"who\":\"武普泉\"}}";
         String jsonString = "{\"code\":0, \"msg\":\"请求失败\", \"data\":\"干货福利\"}";
 
+        try {
+            org.json.JSONObject orgJSONObject = new org.json.JSONObject(jsonArray);
+            Log.e(TAG, orgJSONObject.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         // fastjson
         String fastArray = "[{\"type\":\"福利\", \"who\":\"代码家\"}]";
         new FastHandler<List<ResultBean>>(ResultBean.class) {
@@ -92,7 +99,7 @@ public class MApplication extends BaseApplication {
 //            }
 //        }.onSuccess(resultBeanTest);
 
-        String jsonTest  = "{\"code\":0, \"msg\":\"请求失败\", \"data\":{null}}";
+        String jsonTest  = "{\"code\":0, \"msg\":\"请求失败\", \"data\":[null]}";
 //        JsonObject jsonObject1 = new JsonParser().parse(jsonTest).getAsJsonObject();
 //        JsonArray data = jsonObject1.get("data").getAsJsonArray();
 //        JsonElement jsonElement = jsonObject1.get("data");

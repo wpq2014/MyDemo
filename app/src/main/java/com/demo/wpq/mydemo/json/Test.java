@@ -3,9 +3,6 @@ package com.demo.wpq.mydemo.json;
 import com.alibaba.fastjson.JSON;
 import com.demo.wpq.mydemo.retrofit.GanHuo;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +13,7 @@ import java.util.List;
 
 public class Test {
 
-    static String json = "{\"error\": false, \"results\":[{\"type\":\"福利\", \"who\":\"代码家\"}]}";
+    static String json = "{\"error\":false,\"results\":[{\"type\":\"福利\",\"who\":\"代码家\"}]}";
     static String json2 = "{error: false, results:[{type:福利, who:武普泉}]}";
 
     public static void main(String[] args) {
@@ -40,8 +37,9 @@ public class Test {
 //        System.err.println(ganHuo4.getResults().get(0).getWho());
 
         try {
-            JSONObject jsonObject = new JSONObject(json3);
-        } catch (JSONException e) {
+            org.json.JSONObject jsonObject = new org.json.JSONObject(json);
+            System.out.println(jsonObject);
+        } catch (org.json.JSONException e) {
             e.printStackTrace();
         }
     }

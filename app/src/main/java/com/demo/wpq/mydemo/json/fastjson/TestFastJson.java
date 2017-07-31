@@ -5,6 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.demo.wpq.mydemo.bean.HotBean;
 import com.demo.wpq.mydemo.json.Person;
 
+import org.json.JSONException;
+
 public class TestFastJson {
 
     public static void main(String[] args) throws InterruptedException {
@@ -34,14 +36,24 @@ public class TestFastJson {
         String o3 = JSON.toJSONString(p3);
         System.out.println(o3);
 
-        Thread.sleep(100);
+        Thread.sleep(200);
         System.err.println("----------------我是分割线---------------");
 
         String hotJson = "{\"msg\":\"获取成功！\",\"code\":1,\"data\":{\"list\":[{\"name\":\"三只松鼠\"}]}}";
         HotBean hotBean = JSON.parseObject(hotJson, HotBean.class);
         System.out.println(hotBean);
+        JSONObject hotObject = JSON.parseObject(hotJson);
+        String dataStr = hotObject.getString("data");
+        System.out.println(dataStr);
+        try {
+            org.json.JSONObject orgJSONObject = new org.json.JSONObject(hotJson);
+            String orgData = orgJSONObject.getString("data");
+            System.out.println(orgData);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
-        Thread.sleep(100);
+        Thread.sleep(200);
         System.err.println("----------------我是分割线---------------");
 
         String data = "{\n" +
