@@ -15,6 +15,8 @@ import com.demo.wpq.mydemo.utils.Utils;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.github.moduth.blockcanary.BlockCanary;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.leakcanary.LeakCanary;
 
@@ -67,14 +69,23 @@ public class MApplication extends BaseApplication {
         return sContext;
     }
 
+    // Gson自带泛型解析
+    private Gson gson = new Gson();
     private void testGson() {
         String jsonArray  = "{\"code\":1, \"msg\":\"请求成功\", \"data\":[{\"type\":\"福利\", \"who\":\"代码家\"}]}";
         String jsonObject = "{\"code\":0, \"msg\":\"请求失败\", \"data\":{\"type\":\"干货\", \"who\":\"武普泉\"}}";
         String jsonString = "{\"code\":0, \"msg\":\"请求失败\", \"data\":\"干货福利\"}";
 
         try {
-            org.json.JSONObject orgJSONObject = new org.json.JSONObject(jsonArray);
-            Log.e(TAG, orgJSONObject.toString());
+            String jsonNull = "{\"code\":1, \"msg\":\"请求成功\", \"data\":null}";
+
+            org.json.JSONObject orgJSONObject = new org.json.JSONObject(jsonNull);
+            String object = orgJSONObject.optString("data");
+            Log.e(TAG, String.valueOf(object) + " " + "null".equals(String.valueOf(object)));
+
+            JsonObject gsonObject = new JsonParser().parse(jsonNull).getAsJsonObject();
+            Object objectGson = gsonObject.get("data");
+            Log.e(TAG, String.valueOf(objectGson) + " " + "null".equals(String.valueOf(objectGson)));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -87,9 +98,6 @@ public class MApplication extends BaseApplication {
                 Log.e(TAG, list + "");
             }
         }.parse(fastArray);
-
-        // Gson自带泛型解析
-        Gson gson = new Gson();
 
         String resultBeanTest = "{\"type\":\"干货\", \"who\":\"武普泉\"}";
 //        new HttpResponseHandler<List<ResultBean>>(List<ResultBean>.class) {

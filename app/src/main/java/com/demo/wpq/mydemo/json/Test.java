@@ -3,6 +3,9 @@ package com.demo.wpq.mydemo.json;
 import com.alibaba.fastjson.JSON;
 import com.demo.wpq.mydemo.retrofit.GanHuo;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +20,16 @@ public class Test {
     static String json2 = "{error: false, results:[{type:福利, who:武普泉}]}";
 
     public static void main(String[] args) {
+        /*************************/
+        String jsonData = "{\"code\":0,\"msg\":\"成功\",\"data\":[{\"key\":\"A\"}]}";
+        try {
+            JSONObject jsonObject = new JSONObject(jsonData);
+            Object object = jsonObject.opt("data");
+            System.out.println(object);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         GanHuo ganHuo = JSON.parseObject(json, GanHuo.class);
         System.err.println(ganHuo.getResults().get(0).getType());
 

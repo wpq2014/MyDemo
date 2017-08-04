@@ -11,9 +11,15 @@ import java.util.List;
 
 public class TestGson {
 
+    private static Gson gson = new Gson();
+
     public static void main(String[] args) throws InterruptedException {
 
-        Gson gson = new Gson();
+        /*************************/
+        String jsonData = "{\"code\":0,\"msg\":\"成功\",\"data\":[{\"key\":\"A\"}]}";
+
+        Object object = gson.fromJson(jsonData, Object.class);
+        System.out.println(object);
 
         // 特殊json，同一个key不同类型value
         String jsonTest = "[{\"name\":\"服务人数\",\"reField\":\"personNumber\",\"type\":\"1\",\"value\":[\"1人\",\"2人\",\"3人\",\"4人\",\"5人\",\"6人\",\"7人\",\"8人\"],\"repara\":\"repara1\"},{\"name\":\"服务内容\",\"reField\":\"productCode\",\"type\":\"3\",\"value\":[{\"code\":\"101001001311551098324420\",\"name\":\"沙发除螨\"},{\"code\":\"101001001311212158719172\",\"name\":\"床具除螨\"}],\"repara\":\"repara5\"},{\"name\":\"服务数量\",\"reField\":\"quantity\",\"type\":\"2\",\"value\":{\"min\":\"1\",\"max\":\"100\"},\"repara\":\"repara6\"}]";
