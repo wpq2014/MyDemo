@@ -123,7 +123,7 @@ public class MApplication extends BaseApplication {
                 return;
             }
 //            List<ResultBean> listTest = gson.fromJson(object.toString(), new TypeToken<List<ResultBean>>() {}.getType());
-            ResultBean beanTest = gson.fromJson(object.toString(), new TypeToken<ResultBean>() {}.getType());
+//            ResultBean beanTest = gson.fromJson(object.toString(), new TypeToken<ResultBean>() {}.getType());
 
 //            JSONObject jsonObject3 = new JSONObject(jsonObject);
 //            JSONObject jsonObject4 = jsonObject3.optJSONObject("data");

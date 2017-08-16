@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
 import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
@@ -23,7 +23,7 @@ import butterknife.BindView;
 public class KeyboardActivity extends BaseAppCompatActivity implements KeyboardChangeListener.OnKeyboardListener {
 
     @BindView(R.id.rootView)
-    LinearLayout mRootView;
+    RelativeLayout mRootView;
     @BindView(R.id.scrollView)
     ScrollView mScrollView;
     @BindView(R.id.btn_bottom)
@@ -64,13 +64,13 @@ public class KeyboardActivity extends BaseAppCompatActivity implements KeyboardC
     }
 
     @Override
-    public void onKeyboardChange(boolean isShow, int keyboardHeight) {
+    public void onKeyboardChange(final boolean isShow, int keyboardHeight) {
         Log.e(TAG, isShow + ", " + keyboardHeight);
-        mBtnBottom.setVisibility(isShow ? View.GONE : View.VISIBLE);
+        mBtnBottom.setVisibility(isShow ? View.VISIBLE : View.GONE);
 
 //        Log.e(TAG, mRootView.getRootView().getHeight() + ", " + mRootView.getHeight());
         if (isShow) {
-            mScrollView.smoothScrollBy(0, keyboardHeight);
+//            mScrollView.smoothScrollBy(0, keyboardHeight);
         }
     }
 
