@@ -68,7 +68,7 @@ public class LinkedRVActivity extends BaseAppCompatActivity {
     public void init(@Nullable Bundle savedInstanceState) {
         mRvLeft.setLayoutManager(new LinearLayoutManager(this));
         List<String> leftData = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             leftData.add("第 " + i + " 类");
         }
         mRvLeft.setAdapter(mRVLeftAdapter = new LinkedRVLeftAdapter(leftData));
@@ -110,7 +110,7 @@ public class LinkedRVActivity extends BaseAppCompatActivity {
                     mRvRight.scrollBy(0, top);
                 }
             }
-            //第一个完全显示的item和最后一个item。
+            //当前屏幕内第一个item和最后一个item。
             if (!isChangeByLeftClick) {
 //                    int firstVisibleItem = mRightGridLayoutManager.findFirstCompletelyVisibleItemPosition();
                 int firstVisibleItem = mRightGridLayoutManager.findFirstVisibleItemPosition();
@@ -128,25 +128,10 @@ public class LinkedRVActivity extends BaseAppCompatActivity {
         public void onLeftItemClick(int position) {
             mRVLeftAdapter.setSelectedPosition(position);
             mRVLeftAdapter.notifyDataSetChanged();
-            scrollRightByLeftSelected();
+            String leftSelected = mRVLeftAdapter.getSelectedData();
+            moveToPosition(movePosition = mRVRightAdapter.getPositionForHeader(leftSelected));
         }
     };
-
-    private void scrollRightByLeftSelected() {
-        movePosition = 0;
-        String leftSelected = mRVLeftAdapter.getSelectedData();
-        for (int i = 0; i < mRVRightAdapter.getData().size(); i++) {
-            LinkedRVRightBaseBean baseBean = mRVRightAdapter.getData().get(i);
-            if (baseBean instanceof LinkedRVRightHeaderBean) {
-                LinkedRVRightHeaderBean headerBean = (LinkedRVRightHeaderBean) baseBean;
-                if (leftSelected.equals(headerBean.header)) {
-                    movePosition = i;
-                    break;
-                }
-            }
-        }
-        moveToPosition(movePosition);
-    }
 
     private void moveToPosition(int n) {
         //先从RecyclerView的LayoutManager中获取第一项和最后一项的Position
@@ -168,15 +153,4 @@ public class LinkedRVActivity extends BaseAppCompatActivity {
         }
     }
 
-    /**
-     * 根据手机分辨率从dp转成px
-     *
-     * @param context
-     * @param dpValue
-     * @return
-     */
-    public static int dip2px(Context context, float dpValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
-    }
 }

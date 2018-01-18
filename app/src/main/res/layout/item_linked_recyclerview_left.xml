@@ -5,5 +5,5 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:paddingBottom="10dp"
-    android:paddingTop="10dp"/>
+    android:paddingBottom="20dp"
+    android:paddingTop="20dp"/>

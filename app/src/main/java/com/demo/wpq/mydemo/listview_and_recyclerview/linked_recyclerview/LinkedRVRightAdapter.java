@@ -125,4 +125,22 @@ public class LinkedRVRightAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         return "";
     }
+
+    public int getPositionForHeader(String header) {
+        if (data == null || header == null) {
+            return 0;
+        }
+
+        for (int i = 0; i < data.size(); i++) {
+            LinkedRVRightBaseBean baseBean = data.get(i);
+            if (baseBean instanceof LinkedRVRightHeaderBean) {
+                LinkedRVRightHeaderBean headerBean = (LinkedRVRightHeaderBean) baseBean;
+                if (headerBean.header.equals(header)) {
+                    return i;
+                }
+            }
+        }
+
+        return 0;
+    }
 }
