@@ -15,6 +15,7 @@ import com.demo.wpq.mydemo.constant.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 
@@ -82,7 +83,7 @@ public class LinkedRVActivity extends BaseAppCompatActivity {
             header.header = leftData.get(i);
             rightData.add(header);
 
-            for (int j = 0; j < 8; j++) {
+            for (int j = 0; j < 1 + new Random().nextInt(9); j++) {
                 LinkedRVRightContentBean content = new LinkedRVRightContentBean();
                 content.type = LinkedRVRightBaseBean.TYPE_CONTENT;
                 content.headerForChild = leftData.get(i);
