@@ -65,6 +65,7 @@
         <item>TodoList（MVC）</item>
         <item>RecyclerView wrap RecyclerView</item>
         <item>TimeLine</item>
+        <item>LinkedRecyclerView</item>
     </string-array>
 
     <!-- 请求权限 -->

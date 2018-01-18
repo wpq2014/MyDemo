@@ -51,6 +51,7 @@
         <activity android:name=".listview_and_recyclerview.recyclerview_wrap_recyclerview.ComplexRecyclerViewActivity"/>
         <activity android:name=".listview_and_recyclerview.timeline.TimeLineActivity"/>
         <activity android:name=".customview.LinkedListViewActivity"/>
+        <activity android:name=".listview_and_recyclerview.linked_recyclerview.LinkedRVActivity"/>
         <activity android:name=".customview.TreeViewActivity"/>
         <activity android:name=".customview.SkewActivity"/>
         <activity android:name=".customview.ScaledImageViewActivity"/>

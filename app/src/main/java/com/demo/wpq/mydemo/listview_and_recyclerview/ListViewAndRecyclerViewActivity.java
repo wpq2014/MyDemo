@@ -14,6 +14,7 @@ import com.demo.wpq.mydemo.constant.Constants;
 import com.demo.wpq.mydemo.customview.ScaledImageViewActivity;
 import com.demo.wpq.mydemo.customview.adapter.CustomAdapter;
 import com.demo.wpq.mydemo.customview.bean.CustomBean;
+import com.demo.wpq.mydemo.listview_and_recyclerview.linked_recyclerview.LinkedRVActivity;
 import com.demo.wpq.mydemo.listview_and_recyclerview.listview_header.ListViewHeaderActivity;
 import com.demo.wpq.mydemo.listview_and_recyclerview.recyclerview_wrap_recyclerview.ComplexRecyclerViewActivity;
 import com.demo.wpq.mydemo.listview_and_recyclerview.timeline.TimeLineActivity;
@@ -41,7 +42,7 @@ public class ListViewAndRecyclerViewActivity extends BaseAppCompatActivity imple
     private String title;
 
     private Class<?>[] mClasses = {ListViewHeaderActivity.class, TodoActivity.class,
-            ComplexRecyclerViewActivity.class, TimeLineActivity.class};
+            ComplexRecyclerViewActivity.class, TimeLineActivity.class, LinkedRVActivity.class};
 
     private List<CustomBean> mList = new ArrayList<>();
     private CustomAdapter mCustomAdapter;

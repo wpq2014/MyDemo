@@ -12,9 +12,9 @@ import java.util.List;
 /**
  * Json工具类
  */
-public final class JSONUtil {
+public final class JsonUtil {
 
-    private JSONUtil() {
+    private JsonUtil() {
         /* cannot be instantiated */
     }
 
