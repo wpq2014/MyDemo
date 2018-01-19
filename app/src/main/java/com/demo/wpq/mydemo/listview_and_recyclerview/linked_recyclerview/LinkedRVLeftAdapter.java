@@ -1,5 +1,6 @@
 package com.demo.wpq.mydemo.listview_and_recyclerview.linked_recyclerview;
 
+import android.annotation.SuppressLint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +46,7 @@ public class LinkedRVLeftAdapter extends RecyclerView.Adapter<LinkedRVLeftAdapte
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         holder.tv_item.setText(data.get(position));
         holder.tv_item.setTextColor(selectedPosition == position ? 0xff3dbcc6 : 0xff333333);
 
@@ -53,6 +54,8 @@ public class LinkedRVLeftAdapter extends RecyclerView.Adapter<LinkedRVLeftAdapte
             @Override
             public void onClick(View v) {
                 if (mOnLeftItemClickListener != null) {
+                    setSelectedPosition(position);
+                    notifyDataSetChanged();
                     mOnLeftItemClickListener.onLeftItemClick(position);
                 }
             }

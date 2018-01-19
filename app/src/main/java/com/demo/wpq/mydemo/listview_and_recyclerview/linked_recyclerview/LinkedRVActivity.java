@@ -126,8 +126,6 @@ public class LinkedRVActivity extends BaseAppCompatActivity {
     private LinkedRVLeftAdapter.OnLeftItemClickListener mOnLeftItemClickListener = new LinkedRVLeftAdapter.OnLeftItemClickListener() {
         @Override
         public void onLeftItemClick(int position) {
-            mRVLeftAdapter.setSelectedPosition(position);
-            mRVLeftAdapter.notifyDataSetChanged();
             String leftSelected = mRVLeftAdapter.getSelectedData();
             moveToPosition(movePosition = mRVRightAdapter.getPositionForHeader(leftSelected));
         }
