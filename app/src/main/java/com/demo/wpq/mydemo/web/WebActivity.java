@@ -1,4 +1,4 @@
-package com.demo.wpq.mydemo;
+package com.demo.wpq.mydemo.web;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,6 +13,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.demo.wpq.mydemo.R;
 import com.demo.wpq.mydemo.base.BaseAppCompatActivity;
 import com.demo.wpq.mydemo.constant.Constants;
 

@@ -32,6 +32,7 @@ import com.demo.wpq.mydemo.listview_and_recyclerview.ListViewAndRecyclerViewActi
 import com.demo.wpq.mydemo.qrcode.CaptureActivity;
 import com.demo.wpq.mydemo.retrofit.RetrofitActivity;
 import com.demo.wpq.mydemo.utils.MToastUtil;
+import com.demo.wpq.mydemo.web.WebActivity;
 import com.demo.wpq.mydemo.widget.MaxLengthEditText;
 
 import java.lang.ref.WeakReference;

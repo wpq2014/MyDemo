@@ -57,7 +57,7 @@
         <activity android:name=".customview.ScaledImageViewActivity"/>
         <activity android:name=".retrofit.RetrofitActivity"/>
         <activity android:name=".animation.TeethActivity"/>
-        <activity android:name=".WebActivity"/>
+        <activity android:name=".web.WebActivity"/>
         <!-- eventbus -->
         <activity android:name=".eventbus.EventBusFirstActivity"/>
         <activity android:name=".eventbus.EventBusSecondActivity"/>
