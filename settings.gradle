@@ -1,1 +1,1 @@
-include ':app', ':loadmorerecyclerviewlibrary'
+include ':app', ':loadmorerecyclerviewlibrary', ':x5webdemo'

@@ -6,6 +6,15 @@
 
     <include layout="@layout/view_toolbar" />
 
+    <TextView
+        android:id="@+id/tv_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="哈哈哈哈哈"
+        android:textSize="30dp"
+        android:layout_marginTop="30dp"
+        android:textColor="#ff0000"/>
+
     <com.demo.wpq.mydemo.customview.widget.SkewView
         android:id="@+id/skewView"
         android:layout_width="wrap_content"

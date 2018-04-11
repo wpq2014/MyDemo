@@ -1,6 +1,8 @@
 package com.demo.wpq.mydemo.json;
 
 import com.alibaba.fastjson.JSON;
+import com.demo.wpq.mydemo.json.bean.KeyBean;
+import com.demo.wpq.mydemo.json.bean.ResponseBean;
 import com.demo.wpq.mydemo.retrofit.GanHuo;
 
 import org.json.JSONException;
@@ -8,6 +10,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ikidou.reflect.TypeToken;
 
 /**
  * @author 武普泉
@@ -22,6 +26,11 @@ public class Test {
     public static void main(String[] args) {
         /*************************/
         String jsonData = "{\"code\":0,\"msg\":\"成功\",\"data\":[{\"key\":\"A\"}]}";
+
+        // test gson
+        ResponseBean<List<KeyBean>> responseBean = ResponseBean.fromJsonArray(jsonData, new TypeToken<ResponseBean<List<KeyBean>>>() {});
+        System.out.println(responseBean);
+
         try {
             JSONObject jsonObject = new JSONObject(jsonData);
             Object object = jsonObject.opt("data");

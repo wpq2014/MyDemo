@@ -7,6 +7,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 import ikidou.reflect.TypeBuilder;
+import ikidou.reflect.TypeToken;
 
 /**
  * Gson泛型解析
@@ -30,6 +31,14 @@ public class ResponseBean<T> implements Serializable {
                 ", msg='" + msg + '\'' +
                 ", data=" + data +
                 '}';
+    }
+
+    public static <E> ResponseBean<E> fromJsonObject(String json, Class<ResponseBean<E>> clz) {
+        return new Gson().fromJson(json, clz);
+    }
+
+    public static <E> ResponseBean<E> fromJsonArray(String json, TypeToken<ResponseBean<E>> typeToken) {
+        return new Gson().fromJson(json, typeToken.getType());
     }
 
     public static <E> ResponseBean<List<E>> fromJSONArray(String json, Class<E> cls) {
